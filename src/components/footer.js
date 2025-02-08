@@ -46,7 +46,7 @@ function Footer() {
           <div className="footer-small-container2">
             <img src={hansumImg} className="footer-small-container2-img"/>
             <div className="footer-small-container2-text1">
-              <p>HanSum was created by Team TrueHo</p>
+              <p><span>HanSum</span> was created by Team <span>TrueHo</span></p>
             </div>
             <div className="footer-small-container2-text2">
               <p>Copyright © 2025 TrueHo. All rights reserved</p>

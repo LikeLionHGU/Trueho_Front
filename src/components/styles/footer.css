@@ -93,7 +93,7 @@
 }
 
 .footer-small-container1-text2-title{
-  font-weight: 700 !important;
+  font-weight: 1000 !important;
 }
 
 .footer-small-container1-text3{
@@ -116,7 +116,7 @@
 .footer-small-container2 p {
   color: #25569D;
   font-family: Inter;
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -128,6 +128,15 @@
 
 .footer-small-container2-text1{
  margin-top: 67px;
+}
+
+.footer-small-container2-text1 span{
+  color: #25569D;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 1000;
+  line-height: normal;
 }
 
 .footer-small-container2-text2{
