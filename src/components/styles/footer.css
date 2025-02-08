@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+}
+
+.footer-container{
+  display:flex;
+  align-content: center;
+  justify-content: center;
+
+  width: 1920px;
+  height: 365px;
+  background: #D3DDEA;
+  border:0px;
+}
+
+.footer-lar-container{
+  display:flex;
+  flex-direction: row;
+
+  margin: 83px 240px 44px 240px;
+  width: 1440px;
+  height:238px;
+}
+
+.footer-med-container1{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  width:196px;
+  height:205px;
+}
+
+.footer-med-container1-text{
+  color: #25569D;
+  font-family: "SUIT Variable";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  margin-top: 83px;
+  margin-bottom: 16px;
+}
+
+.footer-med-container1-btn{
+  display: flex;
+  width: 104px;
+  height: 39px;
+  padding: 9px 18px;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+
+  border-radius: 51px;
+  background: #FFF;
+
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(2, 2, 2, 0.15);
+}
+
+.footer-med-container1-btn-text{
+  color: #25569D;
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer-med-container2{
+  display:flex;
+  justify-content: space-between;
+
+  width:1244px;
+  height:238px;
+}
+
+.footer-small-container1{
+  margin-left: 52px;
+}
+.footer-small-container1 p {
+  color: #25569D;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer-small-container1-text2{
+  margin-top: 40px;
+}
+
+.footer-small-container1-text2-title{
+  font-weight: 700 !important;
+}
+
+.footer-small-container1-text3{
+  display:flex;
+  flex-direction: row;
+
+  margin-top: 13px;
+}
+
+.footer-small-container1-text3-p{
+  padding-left: 8px;
+}
+
+.footer-small-container2{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-small-container2 p {
+  color: #25569D;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.footer-small-container2-img{
+  margin-right: 37px;
+}
+
+.footer-small-container2-text1{
+ margin-top: 67px;
+}
+
+.footer-small-container2-text2{
+  margin-top: 9px;
+ }
