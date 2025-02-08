@@ -1,9 +1,15 @@
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Loginpage from './routes/login';
 
 function App() {
+
   return (
     <div>
-        <p>안녕 잘 작동중!</p>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Loginpage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
