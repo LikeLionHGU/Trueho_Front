@@ -9,9 +9,8 @@ function App() {
   return (
     <div id="root">
       <BrowserRouter>
-        {/* 모든 페이지에 헤더가 보일수있게 고정*/}
+        {/* 모든 페이지에 푸터가 보일수있게 고정*/}
         <Header />
-
         <div className="main-content">
           <Routes>
             <Route path="/" element={<Loginpage />} />

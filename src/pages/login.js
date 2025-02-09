@@ -4,10 +4,15 @@ import loginHansumLogoImg from "../assets/Page/Login/hansum_logo_image.png"
 import loginHansumLogoText from "../assets/Page/Login/hansum_logo_text.png"
 import loginGoogle from "../assets/Page/Login/google.png"
 
+import Header from "../components/header";
+
+
 function Loginpage() {
   
 
   return (
+    <>
+    <Header />
     <div className="login-container">
       <div className="login-lar-container1">
         {/* 왼쪽 */}
@@ -46,7 +51,103 @@ function Loginpage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
 export default Loginpage;
+
+
+// /* styled-components 예시 */
+// import styles from "../styles/login.css";
+// import loginHansumLogo from "../assets/Page/Login/hansum_logo.png"
+// import loginHansumLogoImg from "../assets/Page/Login/hansum_logo_image.png"
+// import loginHansumLogoText from "../assets/Page/Login/hansum_logo_text.png"
+// import loginGoogle from "../assets/Page/Login/google.png"
+// import styled from "styled-components";
+
+// function Loginpage() {
+
+//   return (
+//     <LoginContainer>
+//       <BottomContainer >
+//         <LoginBtnContainer>
+//           <img src={loginGoogle} />
+//           <span>한동대 메일로 로그인</span>
+//         </LoginBtnContainer>
+//         <GradLink>
+//           <p>졸업생이신가요? 졸업생 로그인 하러 가기</p>
+//         </GradLink>
+//       </BottomContainer>
+//     </LoginContainer>
+//   );
+// }
+
+// export default Loginpage;
+
+// const LoginContainer = styled.div`
+
+//  display: flex;
+//  flex-direction: column;
+//   width: 100vw;
+//   height: 100vh;
+//   background: var(--Gradient-01, linear-gradient(97deg, #E9DED3 0%, #D3DDEB 100%));
+
+// `;
+// const BottomContainer = styled.div`
+
+// display:flex;
+// padding: 30px;
+// flex-direction: column;
+// align-items: center;
+// justify-content: center;
+
+// /* border: 2px solid green; */
+
+// `;
+
+// const LoginBtnContainer = styled.div`
+
+// display: flex;
+// padding: 10px 78px;
+// background-color: gray;
+// align-items: center;
+// border-radius: 65px;
+
+// & > img{
+//   margin-right: 10px;
+//   transform: scale(0.85);
+// }
+
+// & > span{
+//   color: white;
+//   font-size: 12px;
+// }
+
+// &:hover{
+//   cursor: pointer;
+//   background-color: aqua;
+// }
+// `;
+
+
+// const GradLink = styled.div`
+
+// display: flex;
+// margin-top: 10px;
+// /* color: #25569D;
+//   font-family: "SUIT Variable";
+//   font-size: 10.667px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: normal; */
+//   border: 2px solid red;
+//   padding:30px;
+
+//   & > p{
+   
+//     border: 2px solid blue;
+//     cursor: pointer;
+    
+//   }
+// `;
