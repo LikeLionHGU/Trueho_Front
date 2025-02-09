@@ -4,7 +4,7 @@ import loginHansumLogoImg from "../assets/Page/Login/hansum_logo_image.png"
 import loginHansumLogoText from "../assets/Page/Login/hansum_logo_text.png"
 import loginGoogle from "../assets/Page/Login/google.png"
 
-import Header from "../components/header";
+// import Header from "../components/header";
 
 
 function Loginpage() {
@@ -12,7 +12,7 @@ function Loginpage() {
 
   return (
     <>
-    <Header />
+    {/* <Header /> */}
     <div className="login-container">
       <div className="login-lar-container1">
         {/* 왼쪽 */}
