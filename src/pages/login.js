@@ -1,8 +1,8 @@
 import styles from "../styles/login.css";
 import loginHansumLogo from "../assets/Page/Login/hansum_logo.png"
-import loginHansumLogoImg from "../assets/Page/Login/hansum_logo_image.png"
+import loginHansumLogoImg from "../assets/Page/Login/hansum_logo_img.png"
 import loginHansumLogoText from "../assets/Page/Login/hansum_logo_text.png"
-import loginGoogle from "../assets/Page/Login/google.png"
+import loginGoogle from "../assets/Page/Login/google.svg"
 
 // import Header from "../components/header";
 
@@ -52,7 +52,7 @@ function Loginpage() {
       </div>
     </div>
     </>
-  );
+  ); 
 }
 
 export default Loginpage;

@@ -1,6 +1,6 @@
 .header-container{
-  width: 1920px;
-  height: 132px;
+  width: 100vw;
+  height: 88px;
   flex-shrink: 0;
 
   border-bottom: 2px solid #25569D;
