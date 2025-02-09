@@ -3,7 +3,7 @@ import gradHansumLogo from "../assets/Page/GradLogin/hamsum_logo.png"
 
 // import Header from "../components/header";
 
-function Loginpage() {
+function GradLoginpage() {
   
 
   return (
@@ -44,4 +44,4 @@ function Loginpage() {
   );
 } 
 
-export default Loginpage;
+export default GradLoginpage;
