@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   width:auto;
-  height: 100vh;
+  height: auto;
 
   background: var(--Gradient-01, linear-gradient(97deg, #E9DED3 0%, #D3DDEB 100%));
 }
