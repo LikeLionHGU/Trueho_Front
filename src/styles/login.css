@@ -5,8 +5,8 @@
 .login-container{
   display: flex;
   flex-direction: column;
-  width:auto;
-  height: auto;
+  width:100vw;
+  height: 100vh;
 
   background: var(--Gradient-01, linear-gradient(97deg, #E9DED3 0%, #D3DDEB 100%));
 }
@@ -15,91 +15,117 @@
   display:flex;
 
 
-  border: 1px black solid;
   width:auto;
-  height: 666px;
+  height: 535px;
 }
 
 .login-med-container1{
-  border: 1px blue solid;
-  width:812px;
-  height: 666px;
+  width: 812px;
+  height: 535px;
 
-  margin-left: 240px;
+  margin-left: 161px;
+}
+
+.login-med-container1-text1{
+  margin-top: 262px;
+  margin-bottom: 40px;
+
+  display: flex;
+  align-items: center;
 }
 
 .login-med-container1-text1 span{
-  color: #25569D;
+  color: var(--Primary-01, #25569D);
+
+  /* Title 01 */
   font-family: "SUIT Variable";
-  font-size: 84px;
+  font-size: 56px;
   font-style: normal;
   font-weight: 800;
-  line-height: 126px; /* 150% */
+  line-height: 84px; /* 150% */
+
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+.login-med-container1-text2{
+  width: 544px;
+  height: 60px;
+  flex-shrink: 0;
+
 }
 
 .login-med-container1-text2 p{
   color: #25569D;
+
+  /* Body 01 _ M */
   font-family: "SUIT Variable";
-  font-size: 24px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 36px; /* 150% */
+  line-height: 24px; /* 150% */
 }
 
 .login-med-container1-text3-btn{
   display: inline-flex;
-  padding: 12px 55px;
+  padding: 8px 36px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 100px;
-  background: #FFF;
+  gap: 6.667px;
 
+  border-radius: 66.667px;
+  background: var(--Gray-10, #FFF);
+  
   /* Drop Shadow _ Small */
-  box-shadow: 2px 2px 4px 0px rgba(2, 2, 2, 0.15);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
 .login-med-container1-text3-btn span{
-  color: #25569D;
-  font-family: Inter;
-  font-size: 16px;
+  color: var(--Primary-01, #25569D);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
 }
 
 .login-med-container2{
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width:416px;
 
-  margin-left: 184px;
+  margin-right:160px;
 }
 
 .login-med-container2-icon1{
-  width: 350px;
-  height: 187px;
+  width: 272.634px;
+  height: 130.121px;
   flex-shrink: 0;
 
-  border-radius: 150px 0px 150px 150px;
-  padding:55px;
-  padding-top:65px;
-  background: #8B847D;
+  border-radius: 0px 50px 50px 50px;
+  background: var(--Point-01, #4C3925);
+
+  margin-top: 74px;
+  margin-bottom: 16px;
+  padding: 47px 42px;
 }
 
 .login-med-container2-icon2{
-  width: 162.099px;
-  height: 162.099px;
+  width: 133.838px;
+  height: 133.838px;
   flex-shrink: 0;
 
-  border-radius: 0px 150px 150px 150px;
-  padding:55px;
-  background: #25569D;
+  border-radius: 70px 70px 0px 70px;
+  background: var(--Primary-01, #25569D);
+
+  padding: 39px 36px;
 }
 
 
 .login-lar-container2{
-  border: 1px red solid;
   width:auto;
   height: 102px;
 
@@ -119,7 +145,12 @@
   flex-shrink: 0;
 
   border-radius: 66.667px;
-  background: #8B847D;
+  background: var(--Point-01, #4C3925);
+  
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+
+  margin-bottom: 13px;
 }
 
 .login-small-container1 img{
@@ -128,34 +159,40 @@
 }
 
 .login-small-container1 span{
-  color: #FFF;
+  color: var(--Gray-10, #FFF);
+
+  /* Body 02 _ M */
   font-family: "SUIT Variable";
-  font-size: 13.333px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 21px; /* 150% */
 }
 
 .login-small-container2 p{
-  color: #25569D;
+  color: var(--Primary-01, #25569D);
+
+  /* Body 03 _ M */
   font-family: "SUIT Variable";
-  font-size: 10.667px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 18px; /* 150% */
 }
 
 .login-small-container2 span{
-  color: #25569D;
+  color: var(--Primary-01, #25569D);
+
+  /* Body 03 _ M */
   font-family: "SUIT Variable";
-  font-size: 10.667px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 18px;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-skip-ink: auto;
-  text-decoration-thickness: auto;
-  text-underline-offset: auto;
-  text-underline-position:from-font;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: 6%;
+  text-underline-offset: 18%;
+  text-underline-position: from-font;
 }
