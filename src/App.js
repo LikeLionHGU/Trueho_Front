@@ -17,7 +17,7 @@ function App() {
           </Routes>
         </div>
         {/* 모든 페이지에 푸터가 보일수있게 고정*/}
-        <Footer />
+        <Footer /> 
       </BrowserRouter>
     </div>
 
