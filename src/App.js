@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loginpage from './pages/login';
 import GradLoginpage from './pages/gradLogin';
+import ChatHomepage from './pages/chathome';
+
 import Header from "./components/header";
-import Footer from "./components/footer";
+// import Footer from "./components/footer";
 
 function App() {
 
@@ -15,10 +17,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Loginpage />} />
             <Route path="/gradlogin" element={<GradLoginpage />} />
+            <Route path="/chathome" element={<ChatHomepage />} />
+
           </Routes>
         </div>
-        {/* 모든 페이지에 푸터가 보일수있게 고정*/}
-        <Footer /> 
+        {/* 모든 페이지에 푸터가 보일수있게 고정
+        <Footer />  */}
       </BrowserRouter>
     </div>
 
