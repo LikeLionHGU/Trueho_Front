@@ -7,7 +7,7 @@ function Header() {
     <header className="header">
       <div className="header-left">
         <img src={hansumLogo} alt="Hansum Logo" className="header-logo" />
-        <span className="header-title">?</span>
+        <span className="header-title"> </span>
       </div>
       <nav className="header-nav">
         <ul>
