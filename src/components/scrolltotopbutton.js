@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/scrollToTop.css";
+import "../components/styles/scrolltotopbutton.css";
 
 function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
