@@ -1,37 +1,29 @@
-import ProfileCard from '../components/ProfileCard.js';
-import styles from '../styles/grid.css'
+import React, { useState } from "react";
+import "../styles/hansum.css"; // ✅ 대소문자 맞춰서 import
+import MajorFilter from "../components/majorfilter"; // ✅ 대소문자 맞춤
+import UserCard from "../components/usercard"; // ✅ 소문자로 변경
+import ScrollToTopButton from "../components/scrolltotopbutton"; // ✅ 소문자로 변경
 
-const profiles = [
-    {
-      id: 1,
-      nickname: '사용자 닉네임',
-      title: '콘텐츠홍보디자인 / 웹 디자이너',
-      imageUrl: '/assets/images/user1.jpg',
-      major: 'design',
-    },
-    {
-      id: 2,
-      nickname: '다른 사용자',
-      title: 'UI/UX 디자이너',
-      imageUrl: '/assets/images/user2.jpg',
-      major: 'design',
-    },
-  ];
 
-  
+
+const sampleUsers = [
+  { name: "사용자1", major: "전산전자공학부", jobTitle: "소프트웨어 엔지니어", profileImage: "profile1.png" },
+  { name: "사용자2", major: "경영경제학부", jobTitle: "마케팅 매니저", profileImage: "profile2.png" },
+];
+
 function HansumPage() {
+  const [selectedMajor, setSelectedMajor] = useState("All");
+
   return (
     <div className="hansum-page">
-      <div className="card-grid">
-        {profiles.map(profile => (
-          <ProfileCard
-            key={profile.id}
-            nickname={profile.nickname}
-            title={profile.title}
-            imageUrl={profile.imageUrl}
-          />
-        ))}
+      <h1>원하는 한섬을 찾아 메시지를 보내보세요</h1>
+      <MajorFilter selectedMajor={selectedMajor} setSelectedMajor={setSelectedMajor} />
+      <div className="user-grid">
+        {sampleUsers
+          .filter(user => selectedMajor === "All" || user.major === selectedMajor)
+          .map(user => <UserCard key={user.name} {...user} />)}
       </div>
+      <ScrollToTopButton />
     </div>
   );
 }
