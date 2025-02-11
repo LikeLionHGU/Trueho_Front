@@ -4,6 +4,7 @@ import GradLoginpage from './pages/gradLogin';
 import ChatHomepage from './pages/chathome';
 import HansumPage from './pages/hansum';
 import Loading from './pages/loading';
+import Test from './pages/imgtest';
 
 
 import Header from "./components/header";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/chathome" element={<ChatHomepage />} />
             <Route path="/hansum" element={<HansumPage />} />
             <Route path="/loading" element={<Loading />} />
+            <Route path="/test" element={<Test />} />
           </Routes>
         </div>
         <Footer>
