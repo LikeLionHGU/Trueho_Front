@@ -1,0 +1,20 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  
+  .profile-card {
+    border-radius: 50px 50px 50px 50px;
+    background: url('../assets/Components/Footer/profileimage.png') lightgray 50% / cover no-repeat, #BFBFBF;
+    box-shadow: 5px 5px 9px 0px rgba(0, 0, 0, 0.10);
+  }
+  
+  .profile-card .profile-image img {
+    width: 447px;
+    height: 446px;
+    flex-shrink: 0;
+  }
+  
+
+  

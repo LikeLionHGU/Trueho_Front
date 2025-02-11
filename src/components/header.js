@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles/header.css";
-import hansumLogo from "../assets/Components/Footer/hansum_logo_text.png";
+
+import hansumLogo from "../assets/Components/Header/hansum_logo.png";
+
 
 function Header() {
   return (

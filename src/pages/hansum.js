@@ -1,5 +1,5 @@
-import ProfileCard from '../components/Card/ProfileCard';
-
+import ProfileCard from '../components/ProfileCard.js';
+import styles from '../styles/grid.css'
 
 const profiles = [
     {
