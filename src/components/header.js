@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles/header.css";
 
-import hansumLogo from "../assets/Components/Header/hansum_logo.png";
+import hansumLogo from "../assets/Components/Header/header_logo.png";
 
 
 function Header() {

@@ -17,9 +17,10 @@
 }
 
 .header-logo {
-  width: 100px;
-  height: auto;
-  object-fit: contain;
+  width: 99.857px;
+  height: 32px;
+  flex-shrink: 0;
+  aspect-ratio: 99.86/32.00;
 }
 
 .header-title {
@@ -38,9 +39,11 @@
 
 .header-nav li {
   cursor: pointer;
-  color: #0c2f6d;
-  font-size: 1rem;
-  transition: opacity 0.2s;
+  display: inline-flex;
+padding: 8px 21px;
+justify-content: center;
+align-items: center;
+gap: 10px;
 }
 
 .header-nav li:hover {
@@ -48,9 +51,23 @@
 }
 
 .menu-selected {
-  background:  #e0d4c2;
-  background-size: 35px;
-  border-radius: 35px;
-  font-weight: 600;
+  display: inline-flex;
+  padding: 8px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 34px;
+  background: var(--Primary-01, #25569D);
+  color: var(--Gray-10, #FFF);
+
+  /* Body 01 _ B */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
