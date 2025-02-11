@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+}
+
+.chatHome-container{
+  width: 100vw;
+  height: 100vh;
+
+  background: var(--Point-02, #E5DAD7);
+
+  display: flex;
+  justify-content: center;
+}
+
+.chatHome-innercontainer{
+  width: 75vw;
+  height: 100vh;
+  flex-shrink: 0;
+
+  background: var(--Gray-10, #FFF);
+
+  /* Drop Shadow _ Big */
+  box-shadow: 8px 8px 15px 0px rgba(0, 0, 0, 0.10);
+}
