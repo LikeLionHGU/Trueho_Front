@@ -38,35 +38,3 @@
   border-radius: 12px;
   margin-bottom: 12px;
 }
-
-.user-card h4 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #25569D;
-  margin: 12px 0;
-}
-
-.user-card p {
-  font-size: 14px;
-  color: #333;
-  margin: 6px 0;
-  line-height: 1.5;
-}
-
-.interest-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #F7E7DA;
-  color: #5A3E2B;
-  padding: 8px 16px;
-  font-size: 14px;
-  border-radius: 20px;
-  cursor: pointer;
-  border: none;
-  transition: background 0.3s ease-in-out;
-}
-
-.interest-button:hover {
-  background: #E8D3C0;
-}

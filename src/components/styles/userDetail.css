@@ -1,0 +1,61 @@
+.user-detail {
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .profile-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #f5f7fa;
+    padding: 20px;
+    border-radius: 16px;
+  }
+  
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+  
+  .user-info h1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .user-major {
+    background: #f7e7da;
+    padding: 6px 12px;
+    border-radius: 12px;
+  }
+  
+  .message-button {
+    background: #5a3e2b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .job-section h2, .achievements-section h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  
+  .achievement {
+    background: #eef2f7;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  .back-button {
+    background: #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
