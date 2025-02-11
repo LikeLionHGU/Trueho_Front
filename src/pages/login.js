@@ -8,6 +8,18 @@ import loginGoogle from "../assets/Page/Login/google.svg"
 
 
 function Loginpage() {
+  const handleGoogleLogin = () => {
+    const nonce = Math.random().toString(36).substring(2) + Date.now().toString(36);
+
+    window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?
+		client_id=${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}
+		&redirect_uri=${process.env.REACT_APP_GOOGLE_AUTH_REDIRECT_URI}
+		&response_type=id_token
+		&scope=email profile
+    &nonce=${nonce}
+    `;
+  };
+
   
 
   return (
@@ -41,7 +53,7 @@ function Loginpage() {
       </div>
 
 
-      <div className="login-lar-container2">
+      <div className="login-lar-container2" onClick={handleGoogleLogin}>
         <div className="login-small-container1">
           <img src={loginGoogle} />
           <span>한동대 메일로 로그인</span>
