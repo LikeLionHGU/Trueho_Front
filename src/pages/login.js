@@ -1,4 +1,4 @@
-import styles from "../styles/login.css";
+import  "../styles/login.css";
 import loginHansumLogo from "../assets/Page/Login/hansum_logo.png"
 import loginHansumLogoImg from "../assets/Page/Login/hansum_logo_img.png"
 import loginHansumLogoText from "../assets/Page/Login/hansum_logo_text.png"

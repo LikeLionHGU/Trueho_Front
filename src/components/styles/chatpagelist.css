@@ -1,0 +1,64 @@
+.chatlist-container{
+  height:100vh;
+  width:25vw;
+
+  background: var(--Point-03, #ffffff);
+  border: 1px solid #D3DDEA;
+
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.chatlist-item{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border: 1px solid #D3DDEA;
+  background: white;
+
+  height: 118px;
+  flex-shrink: 0;
+}
+
+.chatlist-item-img{
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+
+  border-radius: 0px 50px 50px 50px;
+  background:  lightgray 50% / cover no-repeat;
+
+  margin-left: 20px;
+}
+
+.chatlist-item-textcontainer{
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 19px;
+}
+
+.chatlist-item-textcontainer-name{
+  color: var(--Primary-01, #25569D);
+
+  /* Title 06 */
+  font-family: "SUIT Variable";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 32px; /* 152.381% */
+}
+
+.chatlist-item-textcontainer-last{
+  color: var(--Primary-01, #25569D);
+
+  /* Caption 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 175% */
+}
