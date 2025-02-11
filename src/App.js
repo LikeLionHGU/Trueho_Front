@@ -1,36 +1,34 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Loginpage from './pages/login';
-import GradLoginpage from './pages/gradLogin';
-import ChatHomepage from './pages/chathome';
-import HansumPage from './pages/hansum';
-import Loading from './pages/loading';
-
+import About from "./pages/about";
+import ChatHome from "./pages/chathome";
+import GradLogin from "./pages/gradLogin";
+import HansumPage from "./pages/hansum";
+import ImsiPage from "./pages/imsi";
+import LoadingPage from "./pages/loading";
+import LoginPage from "./pages/login";
+import MessagePage from "./pages/message";
+import MyPage from "./pages/mypage";
 
 import Header from "./components/header";
 import Footer from "./components/footer";
 
 function App() {
-
   return (
-    <div id="root">
-      <BrowserRouter>
-        {/* 모든 페이지에 푸터가 보일수있게 고정*/}
-        <Header />
-        <div className="main-content">
-          <Routes>
-            <Route path="/" element={<Loginpage />} />
-            <Route path="/gradlogin" element={<GradLoginpage />} />
-            <Route path="/chathome" element={<ChatHomepage />} />
-            <Route path="/hansum" element={<HansumPage />} />
-            <Route path="/loading" element={<Loading />} />
-          </Routes>
-        </div>
-        <Footer>
-
-        </Footer>
-      </BrowserRouter>
-    </div>
-
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/chathome" element={<ChatHome />} />
+        <Route path="/gradlogin" element={<GradLogin />} />
+        <Route path="/hansum" element={<HansumPage />} />
+        <Route path="/imsi" element={<ImsiPage />} />
+        <Route path="/loading" element={<LoadingPage />} />
+        <Route path="/message" element={<MessagePage />} />
+        <Route path="/mypage" element={<MyPage />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
