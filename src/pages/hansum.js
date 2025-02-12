@@ -3,7 +3,6 @@ import "../styles/hansum.css"; // ✅ 대소문자 맞춰서 import
 import MajorFilter from "../components/majorfilter"; // ✅ 대소문자 맞춤
 import UserCard from "../components/usercard"; // ✅ 소문자로 변경
 import ScrollToTopButton from "../components/scrolltotopbutton"; // ✅ 소문자로 변경
-import upbotton from "../assets/Components/Profile/upbotton.png";
 
 
 
