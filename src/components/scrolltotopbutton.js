@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "../components/styles/scrolltotopbutton.css";
 
+// ❌ 중복 선언 제거
+// const upBotton = document.getElementById("your-button-id");  --> 삭제
 
-const upbotton = document.getElementById("your-button-id");
-// import upbotton from '../Components/Profile/upbotton.png';
-
+// ✅ 'upBotton'은 이미지 import 용도로만 사용
+import upBotton from "../Components/Profile/upbotton.png"; 
 
 function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
@@ -20,7 +21,7 @@ function ScrollToTopButton() {
   return (
     visible && (
       <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-        <img src={upbotton} alt="upbotton" className="upbotton" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}/>
+        <img src={upBotton} alt="Scroll to top" className="upbotton"/>
       </button>
     )
   );
