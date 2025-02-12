@@ -12,8 +12,8 @@ function Loginpage() {
     const nonce = Math.random().toString(36).substring(2) + Date.now().toString(36);
 
     window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?
-		client_id=${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}
-		&redirect_uri=${process.env.REACT_APP_GOOGLE_AUTH_REDIRECT_URI}
+		client_id=${"793938679435-8ncds7bl6rori29cnudf66hu1f4sdbmn.apps.googleusercontent.com"}
+		&redirect_uri=${"https://hansum.netlify.app/loading"}
 		&response_type=id_token
 		&scope=email profile
     &nonce=${nonce}
