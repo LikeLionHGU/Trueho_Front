@@ -12,8 +12,8 @@ function Loginpage() {
     const nonce = Math.random().toString(36).substring(2) + Date.now().toString(36);
 
     window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?
-		client_id=${"793938679435-8ncds7bl6rori29cnudf66hu1f4sdbmn.apps.googleusercontent.com"}
-		&redirect_uri=${"https://hansum.netlify.app/loading"}
+		client_id=${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}
+		&redirect_uri=${process.env.REACT_APP_GOOGLE_AUTH_REDIRECT_URI}
 		&response_type=id_token
 		&scope=email profile
     &nonce=${nonce}
@@ -31,7 +31,7 @@ function Loginpage() {
         <div className="login-med-container1">
           <div className="login-med-container1-text1">
             <img src={loginHansumLogo} />
-            <span>이라?</span>
+            <span>이란?</span>
           </div>
           <div className="login-med-container1-text2">
             <p>한섬은 졸업생과 재학생을 연결하여 멘토링을 돕는 플랫폼으로, </p>
