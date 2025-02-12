@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../components/styles/scrolltotopbutton.css";
+import upbotton from "../assets/Components/Profile/upbotton.png"
 
 
 function ScrollToTopButton() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
