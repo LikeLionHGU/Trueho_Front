@@ -17,8 +17,11 @@
   height: 100vh;
   flex-shrink: 0;
 
-  background: var(--Gray-10, #FFF);
+  background: var(--Gradient-02, linear-gradient(180deg, #E9D9D3 0%, #D3DDEA 100%));
 
   /* Drop Shadow _ Big */
   box-shadow: 8px 8px 15px 0px rgba(0, 0, 0, 0.10);
+
+  display: flex;
+  flex-direction: row;
 }
