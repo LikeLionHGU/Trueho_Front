@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../components/styles/scrolltotopbutton.css";
 
+
 function ScrollToTopButton() {
   const [visible, setVisible] = useState(false);
 
@@ -15,7 +16,7 @@ function ScrollToTopButton() {
   return (
     visible && (
       <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-        ↑
+        <img src={upbotton} alt="upbotton" className="upbotton" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}/>
       </button>
     )
   );
