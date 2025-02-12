@@ -31,7 +31,7 @@ function Loginpage() {
         <div className="login-med-container1">
           <div className="login-med-container1-text1">
             <img src={loginHansumLogo} />
-            <span>이란?</span>
+            <span>이라?</span>
           </div>
           <div className="login-med-container1-text2">
             <p>한섬은 졸업생과 재학생을 연결하여 멘토링을 돕는 플랫폼으로, </p>
