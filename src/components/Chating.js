@@ -18,25 +18,7 @@ function Chating() {
     <>
     
     <div className="chatinglist-container">
-      {test_chatinglist.map((chat) => (
-        <div key={chat.id} className="chatlist-item">
-
-          <img src={chat.imgUrl} alt={chat.name} className="chatlist-item-img" />
-
-          <div className="chatlist-item-textcontainer">
-            <div className="chatlist-item-textcontainer-up">
-              <p className="chatlist-item-textcontainer-up-name">{chat.name}</p>
-              <img src={heart} alt="heart" className="chatlist-item-textcontainer-up-img" />
-            </div>
-            <p className="chatlist-item-textcontainer-last">{chat.lastChat}</p>
-          </div>
-
-          <div className="chatlist-item-check">
-            
-          </div>
-
-        </div>
-      ))}
+        
     </div>
     </>
   );
