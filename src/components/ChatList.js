@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles/chatlist.css";
 import heart from "../assets/Components/ChatList/heart.svg"
+import defaultprofile from "../assets/Components/ChatList/listprofile.svg"
+
 
 function ChatList() {
 
@@ -69,18 +71,18 @@ function ChatList() {
       {test_chatlist.map((chat) => (
         <div key={chat.id} className="chatlist-item">
 
-          <img src={chat.imgUrl} alt={chat.name} className="chatlist-item-img" />
+          <img src={defaultprofile} alt={chat.name} className="chatlist-item-img" />
 
           <div className="chatlist-item-textcontainer">
             <div className="chatlist-item-textcontainer-up">
               <p className="chatlist-item-textcontainer-up-name">{chat.name}</p>
-              <img src={heart} alt="heart" className="chatlist-item-textcontainer-up-img" />
             </div>
             <p className="chatlist-item-textcontainer-last">{chat.lastChat}</p>
+            
           </div>
 
           <div className="chatlist-item-check">
-            
+            <img src={heart} alt="heart" className="chatlist-item-textcontainer-up-img" />
           </div>
 
         </div>
