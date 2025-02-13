@@ -1,6 +1,6 @@
 .chatlist-container{
   height:100vh;
-  width:25vw;
+  width:27vw;
 
   background: var(--Point-03, #ffffff);
   border: 1px solid #D3DDEA;
@@ -8,6 +8,8 @@
 
   display: flex;
   flex-direction: column;
+
+  overflow-y: auto;
 }
 
 
@@ -19,13 +21,13 @@
   border: 1px solid #D3DDEA;
   background: white;
 
-  height: 118px;
+  height: 100px;
   flex-shrink: 0;
 }
 
 .chatlist-item-img{
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
   flex-shrink: 0;
 
   border-radius: 0px 50px 50px 50px;
@@ -41,24 +43,41 @@
   margin-left: 19px;
 }
 
-.chatlist-item-textcontainer-name{
+.chatlist-item-textcontainer-up{
+  display:flex;
+  flex-direction: row;
+
+  margin-bottom: 5px;
+}
+
+.chatlist-item-textcontainer-up-name{
+
+  width: 123px;
+  height: 22.237px;
+
+
   color: var(--Primary-01, #25569D);
 
-  /* Title 06 */
+  /* Body 01 _ EB */
   font-family: "SUIT Variable";
-  font-size: 21px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 800;
-  line-height: 32px; /* 152.381% */
+  line-height: 24px; /* 150% */
+
 }
 
 .chatlist-item-textcontainer-last{
+  width: 141px;
+  height: 18.342px;
+  flex-shrink: 0;
+
   color: var(--Primary-01, #25569D);
 
-  /* Caption 02 _ M */
+  /* Body 04 _ M */
   font-family: "SUIT Variable";
-  font-size: 8px;
+  font-size: 11px;
   font-style: normal;
   font-weight: 500;
-  line-height: 14px; /* 175% */
+  line-height: 17px; /* 154.545% */
 }
