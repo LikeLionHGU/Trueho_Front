@@ -3,8 +3,8 @@ import "./frompeople.css";
 function frompeople({children}) {
   return(
     <div className="frompeople-container">
-      <div className="text-container">
-        {children}
+      <div className="frompeople-text-container">
+        <span>{children}</span>
       </div>
     </div>
   );

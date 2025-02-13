@@ -4,7 +4,7 @@ function topeople({children}) {
   return(
     <div className="topeople-container">
       <div className="text-container">
-        {children}
+        <span>{children}</span>
       </div>
     </div>
   );
