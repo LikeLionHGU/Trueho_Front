@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles/chatpagelist.css";
+import "./styles/chatlist.css";
 import heart from "../assets/Components/ChatList/heart.svg"
 
 function ChatList() {
