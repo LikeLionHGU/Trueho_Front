@@ -78,10 +78,10 @@ function Chating() {
             {/* sending 값에 따른 조건문 0이면 왼쪽 1이면 오른쪽*/}
             {chating.sending === "0" ? (
               // sending 값이 "0"일 때
-              <Frompeople>{chating.message}</Frompeople>
+              <Topeople>{chating.message}</Topeople>
             ) : (
               // sending 값이 "1"일 때
-              <Topeople>{chating.message}</Topeople>
+              <Frompeople>{chating.message}</Frompeople>
             )}
           </div>
         );
