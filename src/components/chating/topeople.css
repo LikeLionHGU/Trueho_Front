@@ -9,7 +9,7 @@
   background: var(--Primary-01, #25569D);
 
   width:max-content;
-  max-width: 250px;
+  max-width: 300px;
   height:max-content;
 }
 
@@ -17,4 +17,15 @@
   word-wrap: break-word; /* 텍스트가 길어지면 자동으로 줄바꿈되게 */
   overflow: hidden; /* 넘치는 텍스트 숨기기 */
   max-width: 100%; /* 텍스트 박스가 div 내에서만 확장되도록 하게하는 코드 */
+}
+
+.text-container span{
+  color: var(--Gray-10, #FFF);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
 }

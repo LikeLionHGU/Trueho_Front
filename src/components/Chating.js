@@ -5,6 +5,8 @@ import Profile from "./chating/profile";
 import Frompeople from "./chating/frompeople";
 import Topeople from "./chating/topeople";
 
+import buttonImg from "../assets/Components/Chating/button.svg";
+
 function Chating() {
 
   const test_chatinglist = [
@@ -73,25 +75,48 @@ function Chating() {
     <div className="chating-container">
       <div className="chating-container-top">
       {test_chatinglist.map((chating, index) => {
+        const prevSending = index > 0 ? test_chatinglist[index - 1].sending : null;
+
         return (
-          <div key={index}>
-            {/* sending 값에 따른 조건문 0이면 왼쪽 1이면 오른쪽*/}
-            {chating.sending === "0" ? (
-              // sending 값이 "0"일 때
-              <Topeople>{chating.message}</Topeople>
-            ) : (
-              // sending 값이 "1"일 때
-              <Frompeople>{chating.message}</Frompeople>
-            )}
-          </div>
+          // <div key={index} className={`chating-container-top-message ${chating.sending === "0" ? "left-message" : "right-message"}`}>
+          //   {/* sending 값에 따른 조건문 0이면 왼쪽 1이면 오른쪽*/}
+          //   {chating.sending === "0" ? (
+              
+          //     // sending 값이 "0"일 때
+          //     <Topeople>{chating.message}</Topeople>
+          //   ) : (
+          //     // sending 값이 "1"일 때
+          //     <Frompeople>{chating.message}</Frompeople>
+          //   )}
+          // </div>
+
+          <div 
+          key={index} 
+          className={`chating-container-top-message ${
+            chating.sending === "0" ? "left-message" : "right-message"
+          }`}
+        >
+          {/* chating.sending === "0" && prevSending === "0"이면 이미지 표시 */}
+          {chating.sending === "0" && prevSending === "1"  && (
+            <Profile />
+          )}
+
+          {chating.sending === "0" ? (
+            <Topeople>{chating.message}</Topeople>
+          ) : (
+            <Frompeople>{chating.message}</Frompeople>
+          )}
+        </div>
         );
       })}
-        {/* <Profile />
-        <Frompeople>아 저는 그 주제에서 Text box Text Box Text box Text box Text box Text box Text Box Text box Text box Text boxText box Text Box Text box Text box Text box dfkdsaskljklasjfkldjfakjkjkjkjfjkjkjlajkfda</Frompeople>
-        <Topeople>대단하십니다 슨배림 !!</Topeople> */}
       </div>
       <div className="chating-container-bottom">
-
+        <div className="chating-container-bottom-input">
+          <input placeholder="텍스트를 입력하세요" type="text" className="chating-container-bottom-inputbox"></input>
+        </div>
+        <div className="chating-container-bottom-button">
+          <img src={buttonImg} alt="버튼"/>
+        </div>
       </div>
     </div>
     </>
