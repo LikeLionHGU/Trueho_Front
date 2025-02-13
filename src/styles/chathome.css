@@ -2,9 +2,16 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 .chatHome-container{
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 88px);
 
   background: var(--Point-02, #E5DAD7);
 
@@ -14,7 +21,7 @@
 
 .chatHome-innercontainer{
   width: 75vw;
-  height: 100vh;
+  height: calc(100vh - 88px);
   flex-shrink: 0;
 
   background: var(--Gradient-02, linear-gradient(180deg, #E9D9D3 0%, #D3DDEA 100%));

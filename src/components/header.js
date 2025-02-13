@@ -27,8 +27,8 @@ function Header() {
             HanSums
           </li>
           <li 
-            className={location.pathname === "/message" ? "menu-selected" : ""}
-            onClick={() => navigate("/message")}
+            className={location.pathname === "/chathome" ? "menu-selected" : ""}
+            onClick={() => navigate("/chathome")}
           >
             Message
           </li>

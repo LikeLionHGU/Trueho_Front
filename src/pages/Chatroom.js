@@ -6,7 +6,7 @@ import styles from "../styles/Chathome.css";
 
 
 
-function Chathome() {
+function Chatroom() {
   
 
   return (
@@ -24,4 +24,4 @@ function Chathome() {
   );
 }
 
-export default Chathome;
+export default Chatroom;
