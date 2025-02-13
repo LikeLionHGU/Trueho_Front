@@ -1,6 +1,6 @@
 .chatinglist-container{
-  width:50vw;
-  height:100vh;
+  width:760px;
+  height:calc(100vh - 88px);
 
   background: var(--Gray-10, #FFF);
 

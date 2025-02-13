@@ -9,7 +9,7 @@ html, body {
 }
 
 
-.chatHome-container{
+.chatRoom-container{
   width: 100vw;
   height: calc(100vh - 88px);
 
@@ -19,7 +19,7 @@ html, body {
   justify-content: center;
 }
 
-.chatHome-innercontainer{
+.chatRoom-innercontainer{
   width: 1060px;
   height: calc(100vh - 88px);
   flex-shrink: 0;

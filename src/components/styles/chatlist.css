@@ -1,6 +1,6 @@
 .chatlist-container{
-  height:100vh;
-  width:27vw;
+  height:calc(100vh - 88px);
+  width:300px;
 
   background: var(--Point-03, #ffffff);
   border: 1px solid #D3DDEA;

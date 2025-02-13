@@ -1,9 +1,34 @@
-.chatinglist-container{
-  width:50vw;
-  height:100vh;
+.chating-container{
+  width:760px;
+  height:calc(100vh - 88px);
 
   background: var(--Gray-10, #FFF);
 
   /* Drop Shadow _ Big */
   box-shadow: 8px 8px 15px 0px rgba(0, 0, 0, 0.10);
+
+  /* 세로 정렬 + 채팅 보내는거 아래에 고정!! */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  overflow-y: auto;
+}
+
+.chating-container-top{
+  padding:20px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.chating-container-bottom{
+  border:2px solid red;
+
+height: 70px;
+flex-shrink: 0;
+}
+
+.chating-item{
+
 }
