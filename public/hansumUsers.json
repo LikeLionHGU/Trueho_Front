@@ -3,7 +3,7 @@
     "name": "홍길동",
     "major": "기계제어공학부",
     "work": "Frontend Engineer",
-    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "imgUrl": "/src/assets/Components/Profile/profileimg.svg",
     "tagline": "홍수는 방랑이지",
     "studyPeriod": "2015 ~ 2020년 재학",
     "job": "자산운용사",

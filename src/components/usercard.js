@@ -23,12 +23,12 @@ function UserCard({ user }) {
           src={
             user.imgUrl
               ? user.imgUrl
-              : "/assets/Components/Profile/profiling.svg"
+              : "../src/assets/Components/Profile/profileimg.svg"
           }
           alt="프로필 아이콘"
           className="profile-icon"
           onError={(e) => {
-            e.target.src = "/assets/Components/Profile/profiling.svg";
+            e.target.src = "../src/assets/Components/Profile/profileimg.svg";
           }}
         />
 
