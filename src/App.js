@@ -38,7 +38,8 @@ function App() {
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/message" element={<MessagePage />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/user/:name" element={<UserDetail users={sampleUsers} />} />
+        <Route path="/" element={<HansumPage />} />
+        <Route path="/user/:name" element={<UserDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

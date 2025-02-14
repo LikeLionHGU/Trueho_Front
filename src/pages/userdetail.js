@@ -1,51 +1,68 @@
-import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import "../components/styles/userDetail.css";
 
-function UserDetail({ users }) {
+function UserDetailPage() {
   const { name } = useParams();
-  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const user = users.find(user => user.name === name);
+  useEffect(() => {
+    async function fetchUserDetail() {
+      try {
+        const response = await fetch("/hansumUsers.json");
+        if (!response.ok) {
+          throw new Error("데이터 로딩 실패");
+        }
+        const data = await response.json();
+        const foundUser = data.find((u) => u.name === name);
+        setUser(foundUser || null);
+      } catch (error) {
+        console.error("유저 상세정보 불러오기 오류:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-  if (!user) {
-    return (
-      <div className="not-found">
-        <h2>사용자를 찾을 수 없습니다.</h2>
-        <button onClick={() => navigate(-1)}>뒤로 가기</button>
-      </div>
-    );
-  }
+    fetchUserDetail();
+  }, [name]);
+
+  if (loading) return <h2>로딩 중...</h2>;
+  if (!user) return <h2>해당 사용자를 찾을 수 없습니다.</h2>;
 
   return (
-    <div className="user-detail">
-      <div className="profile-section">
-        <img src={user.profileImage} alt={`${user.name} profile`} className="profile-image" />
-        <div className="user-info">
-          <h1>{user.name}</h1>
-          <p className="user-major">{user.major}</p>
-          <p>{user.years} 재학</p>
-        </div>
-        <button className="message-button">메시지 보내기</button>
-      </div>
-
-      <div className="job-section">
-        <h2>직무</h2>
-        <h3>{user.jobTitle}</h3>
-      </div>
-
-      <div className="achievements-section">
-        <h2>대표 이력</h2>
-        {user.achievements.map((achieve, index) => (
-          <div key={index} className="achievement">
-            <span>{achieve}</span>
+    <div className="user-detail-page">
+      {/* 안쪽에 콘텐츠를 담을 컨테이너 */}
+      <div className="user-detail-container">
+        <div className="detail-top">
+          <div className="detail-left">
+            <h2 className="tagline">{user.tagline}</h2>
+            <p className="study-period">{user.studyPeriod}</p>
           </div>
-        ))}
-      </div>
+          <button className="message-button">메시지 보내기</button>
+        </div>
 
-      <button className="back-button" onClick={() => navigate(-1)}>뒤로 가기</button>
+        <div className="detail-job">
+          <h3>직무</h3>
+          <div className="job-title">{user.job}</div>
+          <div className="user-major">{user.major}</div>
+        </div>
+
+        <div className="detail-achievements">
+          {user.achievements && user.achievements.length > 0 && (
+            <>
+              <h3>대회 경력</h3>
+              <ul>
+                {user.achievements.map((ach, idx) => (
+                  <li key={idx}>{ach}</li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
 
-export default UserDetail;
+export default UserDetailPage;

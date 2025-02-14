@@ -1,66 +1,89 @@
-.user-detail {
-  padding: 40px;
-  max-width: 900px;
+.user-detail-page {
+  width: 100%;
+  background-color: #fff;
+  padding: 40px 0;
+}
+
+.user-detail-container {
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-.profile-section {
+.detail-top {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
-  background: #f5f7fa;
-  padding: 20px;
-  border-radius: 16px;
+  margin-bottom: 30px;
 }
 
-.profile-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+.detail-left {
+  display: flex;
+  flex-direction: column;
 }
 
-.user-info h1 {
+.tagline {
   font-size: 24px;
-  font-weight: bold;
+  margin: 0;
+  font-weight: 600;
 }
 
-.user-major {
-  background: #f7e7da;
-  padding: 6px 12px;
-  border-radius: 12px;
-}
-
-.user-generation {
-  font-size: 14px;
+.study-period {
+  margin-top: 8px;
   color: #666;
+  font-size: 14px;
 }
 
 .message-button {
-  background: #5a3e2b;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.job-section h2,
-.achievements-section h2 {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 30px;
-}
-
-.achievement {
-  background: #eef2f7;
-  padding: 10px;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-
-.back-button {
-  background: #ccc;
-  padding: 10px;
-  margin-top: 20px;
+  background-color: #5f4c44;
+  color: #fff;
+  padding: 12px 24px;
   border: none;
+  border-radius: 20px;
   cursor: pointer;
+  font-size: 14px;
+}
+
+.detail-job {
+  margin-bottom: 30px;
+}
+
+.detail-job h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.job-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.user-major {
+  font-size: 16px;
+  color: #666;
+}
+
+.detail-achievements {
+  margin-bottom: 40px;
+}
+
+.detail-achievements h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.detail-achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detail-achievements li {
+  background-color: #f8f8f8;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #444;
 }

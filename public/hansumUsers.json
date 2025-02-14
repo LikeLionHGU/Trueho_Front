@@ -1,0 +1,142 @@
+[
+  {
+    "name": "홍길동",
+    "major": "기계제어공학부",
+    "work": "Frontend Engineer",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "홍수는 방랑이지",
+    "studyPeriod": "2015 ~ 2020년 재학",
+    "job": "자산운용사",
+    "achievements": [
+      "2016년 한국투자대회 모델투자 대회 우수상",
+      "2018년 한국투자대회 모델투자 대회 우수상",
+      "2019년 한국투자대회 모델투자 대회 우수상"
+    ]
+  },
+  {
+    "name": "김철수",
+    "major": "전산전자공학부",
+    "work": "CEO",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "세상을 뒤집어보자",
+    "studyPeriod": "2014 ~ 2018년 재학",
+    "job": "경영 컨설턴트",
+    "achievements": [
+      "2017년 창업경진대회 장려상"
+    ]
+  },
+  {
+    "name": "박영수",
+    "major": "생명과학부",
+    "work": "UI/UX Designer",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "세상을 바꿀 디자인",
+    "studyPeriod": "2016 ~ 2021년 재학",
+    "job": "브랜딩 에이전시",
+    "achievements": [
+      "2017년 국제디자인어워드 입선",
+      "2020년 UX디자인 콘테스트 최우수상"
+    ]
+  },
+  {
+    "name": "이민정",
+    "major": "공간환경시스템공학부",
+    "work": "Data Analyst",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "숫자는 거짓말을 하지 않는다",
+    "studyPeriod": "2013 ~ 2017년 재학",
+    "job": "금융 컨설팅 회사",
+    "achievements": [
+      "2015년 전국경제논문 공모전 우수상"
+    ]
+  },
+  {
+    "name": "최지훈",
+    "major": "ICT창업학부",
+    "work": "R&D Engineer",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "혁신을 위한 기계설계",
+    "studyPeriod": "2012 ~ 2016년 재학",
+    "job": "자동차 부품 제조사",
+    "achievements": [
+      "2015년 대학생 로봇경진대회 은상",
+      "2016년 미래기술 공모전 입상"
+    ]
+  },
+  {
+    "name": "윤가영",
+    "major": "컨텐츠융합디자인학부",
+    "work": "HR Specialist",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "사람을 이해하는 힘",
+    "studyPeriod": "2015 ~ 2019년 재학",
+    "job": "글로벌 HR 컨설팅",
+    "achievements": [
+      "2017년 대학생 심리학 논문경진대회 장려상"
+    ]
+  },
+  {
+    "name": "강민수",
+    "major": "커뮤니케이션학부",
+    "work": "Full Stack Developer",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "코드로 세상을 움직이자",
+    "studyPeriod": "2010 ~ 2014년 재학",
+    "job": "스타트업 CTO",
+    "achievements": [
+      "2012년 프로그래밍 경진대회 우승",
+      "2013년 알고리즘 해커톤 대상"
+    ]
+  },
+  {
+    "name": "정혜원",
+    "major": "국제어문학부",
+    "work": "Marketing Manager",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "소비자의 마음을 사로잡다",
+    "studyPeriod": "2011 ~ 2015년 재학",
+    "job": "글로벌 광고회사",
+    "achievements": [
+      "2014년 마케팅 아이디어 공모전 최우수상"
+    ]
+  },
+  {
+    "name": "김영준",
+    "major": "경영경제학부",
+    "work": "Architect",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "공간에 혼을 담다",
+    "studyPeriod": "2009 ~ 2013년 재학",
+    "job": "건축 설계 사무소",
+    "achievements": [
+      "2012년 학생 건축디자인 공모전 금상",
+      "2013년 신진건축가상 수상"
+    ]
+  },
+  {
+    "name": "박서현",
+    "major": "법학부",
+    "work": "Visual Artist",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "색으로 표현하는 세계",
+    "studyPeriod": "2015 ~ 2020년 재학",
+    "job": "개인 스튜디오 운영",
+    "achievements": [
+      "2018년 신진작가전 입선",
+      "2019년 아트페어 특별전 초대"
+    ]
+  },
+  {
+    "name": "이재호",
+    "major": "상담심리사회복지학부",
+    "work": "Diplomatic Officer",
+    "imgUrl": "/assets/Components/Profile/profileimg.svg",
+    "tagline": "평화를 위한 외교",
+    "studyPeriod": "2012 ~ 2016년 재학",
+    "job": "외교부 국제협력과",
+    "achievements": [
+      "2014년 국제 토론대회 준우승",
+      "2015년 모의 UN 컨퍼런스 최우수 대표상"
+    ]
+  }
+]
