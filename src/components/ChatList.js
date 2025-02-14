@@ -1,4 +1,6 @@
 import React from "react";
+import { useNavigate } from "react-router";
+
 import "./styles/chatlist.css";
 import heart from "../assets/Components/ChatList/heart.svg"
 import defaultprofile from "../assets/Components/ChatList/listprofile.svg"
@@ -64,12 +66,31 @@ function ChatList() {
      },
   ];
 
+// 1) chathome에서 각자의 chatroom으로 들어가기
+  const navigate = useNavigate();
+
+  const enterChatRoom = (id) => {
+    navigate(`/chatroom/${id}`);
+  };
+
+  {/* 
+    5) 셀 클릭 → 모달
+    const handleCellClick = (item) => {
+    setSelectedData(item);
+    console.log(item.emoProfile);
+    openModal();
+    document.body.style.overflow = 'hidden';
+  };
+
+  onClick={() => handleCellClick(item)}
+  */}
+
   return (
     <>
     
     <div className="chatlist-container">
       {test_chatlist.map((chat) => (
-        <div key={chat.id} className="chatlist-item">
+        <div key={chat.id} className="chatlist-item" onClick={() => enterChatRoom(chat.id)}>
 
           <img src={defaultprofile} alt={chat.name} className="chatlist-item-img" />
 

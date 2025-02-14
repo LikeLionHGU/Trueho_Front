@@ -38,7 +38,7 @@ function App() {
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/user/:name" element={<UserDetail users={sampleUsers} />} />
-        <Route path="/chatroom" element={<ChatRoom />} />
+        <Route path="/chatroom/:id" element={<ChatRoom />} />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>
