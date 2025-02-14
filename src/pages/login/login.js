@@ -24,17 +24,17 @@ function Loginpage() {
   };
 
 // 2) 디테일 버튼으로 어바웃 페이지 이동
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    function enterAboutPage (){
-      navigate("/about");
-    };
+  function enterAboutPage (){
+    navigate("/about");
+  };
 
 // 3) 졸업생 로그인 페이지 이동
 
-    function enterGradLoginPage (){
-      navigate("/gradlogin");
-    };
+  function enterGradLoginPage (){
+    navigate("/gradlogin");
+  };
 
   return (
     <>
