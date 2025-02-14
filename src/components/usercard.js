@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./styles/usercard.css";
+import Img from "../assets/Components/Profile/profileimg.svg"
+import "../components/styles/usercard.css";
 
 function UserCard({ user }) {
   const navigate = useNavigate();
@@ -19,19 +20,8 @@ function UserCard({ user }) {
   return (
     <div className="user-card" onClick={handleCardClick}>
       <div className="user-card-header">
-        <img
-          src={
-            user.imgUrl
-              ? user.imgUrl
-              : "../src/assets/Components/Profile/profileimg.svg"
-          }
-          alt="프로필 아이콘"
-          className="profile-icon"
-          onError={(e) => {
-            e.target.src = "../src/assets/Components/Profile/profileimg.svg";
-          }}
-        />
-
+          <img src={Img}/>
+        
         <div className="user-card-header-text">
           <h2 className="user-name">{user.name}</h2>
           <p className="user-major">{user.major}</p>

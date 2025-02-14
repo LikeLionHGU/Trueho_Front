@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../components/styles/userDetail.css";
+import Img from "../assets/Components/Profile/profileimg.svg"
+import "../components/styles/usercard.css";
 
 function UserDetailPage() {
   const { name } = useParams();
@@ -36,9 +38,13 @@ function UserDetailPage() {
       <div className="user-detail-container">
         <div className="detail-top">
           <div className="detail-left">
-            <h2 className="tagline">{user.tagline}</h2>
-            <p className="study-period">{user.studyPeriod}</p>
+          <img src={Img}/>
           </div>
+            <h2 className="tagline">{user.tagline}
+            <p className="study-period">{user.studyPeriod}</p>
+            </h2>
+            
+          
           <button className="message-button">메시지 보내기</button>
         </div>
 
