@@ -1,4 +1,6 @@
 import React from "react";
+import { useParams } from "react-router-dom";
+
 import "./styles/Chating.css";
 
 import Profile from "./chating/profile";
@@ -68,6 +70,9 @@ function Chating() {
       time : "22/02/06 18:00" ,
      },
   ];
+// 1) url에 있는 id 값 가져오기
+  const { id } = useParams(); 
+  console.log(id);
 
   return (
     <>
