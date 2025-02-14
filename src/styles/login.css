@@ -6,9 +6,8 @@
   display: flex;
   flex-direction: column;
   width:100vw;
-  height: 100vh;
-
-  background: var(--Gradient-01, linear-gradient(97deg, #E9DED3 0%, #D3DDEB 100%));
+  height:calc(100vh - 88px);
+  background: var(--Gradient-_-Main, linear-gradient(97deg, #E9D9D3 0%, #D3DDEB 100%));
 }
 
 .login-lar-container1{
@@ -78,6 +77,8 @@
   
   /* Drop Shadow _ Small */
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+
+  cursor:pointer;
 }
 
 .login-med-container1-text3-btn span{
@@ -97,7 +98,7 @@
   align-items: flex-end;
   width:416px;
 
-  margin-right:160px;
+  margin-right:140px;
 }
 
 .login-med-container2-icon1{
@@ -106,11 +107,13 @@
   flex-shrink: 0;
 
   border-radius: 0px 50px 50px 50px;
-  background: var(--Point-01, #4C3925);
+  background: var(--Point-01, #6C3F2E);
 
   margin-top: 74px;
   margin-bottom: 16px;
   padding: 47px 42px;
+
+  margin-right:40px;
 }
 
 .login-med-container2-icon2{
@@ -145,12 +148,14 @@
   flex-shrink: 0;
 
   border-radius: 66.667px;
-  background: var(--Point-01, #4C3925);
-  
+  background: var(--Point-01, #6C3F2E);
+
   /* Drop Shadow _ Small */
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
 
   margin-bottom: 13px;
+
+  cursor:pointer;
 }
 
 .login-small-container1 img{
@@ -195,4 +200,6 @@
   text-decoration-thickness: 6%;
   text-underline-offset: 18%;
   text-underline-position: from-font;
+
+  cursor:pointer;
 }

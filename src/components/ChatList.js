@@ -73,17 +73,6 @@ function ChatList() {
     navigate(`/chatroom/${id}`);
   };
 
-  {/* 
-    5) 셀 클릭 → 모달
-    const handleCellClick = (item) => {
-    setSelectedData(item);
-    console.log(item.emoProfile);
-    openModal();
-    document.body.style.overflow = 'hidden';
-  };
-
-  onClick={() => handleCellClick(item)}
-  */}
 
   return (
     <>

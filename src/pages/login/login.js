@@ -4,10 +4,13 @@ import loginHansumLogoImg from "../../assets/Page/Login/hansum_logo_img.png"
 import loginHansumLogoText from "../../assets/Page/Login/hansum_logo_text.png"
 import loginGoogle from "../../assets/Page/Login/google.svg"
 
+import { useNavigate } from "react-router";
+
 // import Header from "../components/header";
 
 
 function Loginpage() {
+// 1) 로그인 페이지로 이동 !
   const handleGoogleLogin = () => {
     const nonce = Math.random().toString(36).substring(2) + Date.now().toString(36);
 
@@ -20,7 +23,18 @@ function Loginpage() {
     `;
   };
 
-  
+// 2) 디테일 버튼으로 어바웃 페이지 이동
+  const navigate = useNavigate();
+
+  function enterAboutPage (){
+    navigate("/about");
+  };
+
+// 3) 졸업생 로그인 페이지 이동
+
+  function enterGradLoginPage (){
+    navigate("/gradlogin");
+  };
 
   return (
     <>
@@ -37,7 +51,7 @@ function Loginpage() {
             <p>한섬은 졸업생과 재학생을 연결하여 멘토링을 돕는 플랫폼으로, </p>
             <p>선배들이 후배들에게 자신의 경험을 나누고 조언을 제공할 수 있도록 돕습니다.</p>
           </div>
-          <div className="login-med-container1-text3-btn">
+          <div className="login-med-container1-text3-btn" onClick={enterAboutPage}>
             <span>더 자세한 설명보기</span>
           </div>
         </div>
@@ -53,13 +67,13 @@ function Loginpage() {
       </div>
 
 
-      <div className="login-lar-container2" onClick={handleGoogleLogin}>
-        <div className="login-small-container1">
+      <div className="login-lar-container2">
+        <div className="login-small-container1" onClick={handleGoogleLogin} >
           <img src={loginGoogle} />
           <span>한동대 메일로 로그인</span>
         </div>
         <div className="login-small-container2">
-          <p>졸업생이신가요? <span>졸업생 로그인</span> 하러 가기</p>
+          <p>졸업생이신가요? <span onClick={enterGradLoginPage}>졸업생 로그인</span> 하러 가기</p>
         </div>
       </div>
     </div>
