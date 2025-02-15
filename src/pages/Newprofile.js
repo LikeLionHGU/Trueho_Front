@@ -18,7 +18,7 @@ function Newprofile() {
 
   // 새로운 박스 추가하는 함수
   const addBox = () => {
-    setBoxes([...boxes, boxes.length + 1]); // 기존 배열에 새 번호 추가
+    setBoxes([...boxes, boxes.length + 1]); // 기존 배열에 새 번호 추가 
   };
   
 
