@@ -1,0 +1,25 @@
+.profile-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-bottom: 10px;
+}
+
+.profile-container-img{
+  width:30px;
+  height:30px;
+
+  margin-right: 10px;
+}
+
+.profile-container span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ B */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px; /* 150% */
+}

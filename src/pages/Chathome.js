@@ -1,11 +1,12 @@
-import ChatList from "../components/chatpagelist";
-import styles from "../styles/chathome.css";
+import ChatingSelect from "../components/ChatingSelect";
+import ChatList from "../components/ChatList";
+import styles from "../styles/Chathome.css";
 // import gradHansumLogo from "../assets/Page/GradLogin/hamsum_logo.png"
 
 
 
 
-function ChatHomepage() {
+function Chathome() {
   
 
   return (
@@ -14,7 +15,7 @@ function ChatHomepage() {
       <div className="chatHome-container">
         <div className="chatHome-innercontainer">
           <ChatList />
-          
+          <ChatingSelect />
         </div>
       </div>
     </div>
@@ -23,4 +24,4 @@ function ChatHomepage() {
   );
 }
 
-export default ChatHomepage;
+export default Chathome;

@@ -5,96 +5,123 @@
 .gradLogin-container{
   display: flex;
   flex-direction: column;
-  width:auto;
-  height: auto;
-
-  background: var(--Gradient-01, linear-gradient(97deg, #E9DED3 0%, #D3DDEB 100%));
+  width:100vw;
+  height:calc(100vh - 88px);
+  background: var(--Gradient-_-Main, linear-gradient(97deg, #E9D9D3 0%, #D3DDEB 100%));
 }
 
 .gradLogin-lar-container1{
   display:flex;
 
-  border: 1px black solid;
+
   width:auto;
-  height: 666px;
+  height: 535px;
 }
 
 .gradLogin-med-container1{
-  border: 1px blue solid;
-  width:812px;
-  height: 666px;
+  width: 812px;
+  height: 535px;
 
-  margin-left: 240px;
+  margin-left: 161px;
+}
+
+.gradLogin-med-container1-text1{
+  margin-top: 262px;
+  margin-bottom: 40px;
+
+  display: flex;
+  align-items: center;
 }
 
 .gradLogin-med-container1-text1 span{
-  color: #25569D;
-font-family: "SUIT Variable";
-font-size: 84px;
-font-style: normal;
-font-weight: 800;
-line-height: 126px; /* 150% */
+  color: var(--Primary-01, #25569D);
+
+  /* Title 01 */
+  font-family: "SUIT Variable";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 84px; /* 150% */
+}
+
+.gradLogin-med-container1-text2{
+  width: 544px;
+  height: 60px;
+  flex-shrink: 0;
+
 }
 
 .gradLogin-med-container1-text2 p{
   color: #25569D;
+
+  /* Body 01 _ M */
   font-family: "SUIT Variable";
-  font-size: 24px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 36px; /* 150% */
+  font-weight: 500;
+  line-height: 24px; /* 150% */
 }
 
 .gradLogin-med-container1-text2 span{
   color: #25569D;
+
+  /* Body 01 _ M */
   font-family: "SUIT Variable";
-  font-size: 24px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 36px;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
 }
 
 .gradLogin-med-container2{
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width:416px;
 
-  margin-left: 184px;
+  margin-right:120px;
 }
 
 .gradLogin-med-container2-icon1{
-  width: 465.371px;
-  height: 186.536px;
+  width: 315px;
+  height: 134px;
   flex-shrink: 0;
 
-  border-radius: 150px 0px 150px 150px;
-  padding:30px;
-  padding-left: 50px;
-  background: #8B847D;
+  border-radius: 50px 0px 50px 50px;
+  background: var(--Primary-01, #25569D);
+
+  margin-top: 74px;
+  margin-bottom: 16px;
+  padding: 35px 42px;
+
+
 }
 
 .gradLogin-med-container2-icon1 span{
   color: #FFF;
+
+  /* Title 02 */
   font-family: "SUIT Variable";
-  font-size: 64px;
+  font-size: 42px;
   font-style: normal;
   font-weight: 800;
-  line-height: 126px; /* 196.875% */
+  line-height: 64px; /* 152.381% */
 }
 
 .gradLogin-med-container2-icon2{
-  width: 323px;
-  height: 162px;
+  width: 198px;
+  height: 130px;
   flex-shrink: 0;
 
-  border-radius: 0px 150px 150px 150px;
   padding:40px;
-  background: #25569D;
+  padding-top: 45px;
+  border-radius: 0px 50px 50px 50px;
+  background: var(--Point-01, #6C3F2E);
+  margin-right: 160px;
 }
 
 
 .gradLogin-lar-container2{
-  border: 1px red solid;
   width:auto;
   height: 102px;
 
@@ -105,27 +132,30 @@ line-height: 126px; /* 150% */
 }
 
 .gradLogin-small-container1{
-  display: flex;
-  width: 446px;
-  height: 57px;
-  padding: 15px 132px;
+  display: inline-flex;
+  height: 38px;
+  padding: 10px 78px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
 
-  border-radius: 100px;
-  background: #FFF;
+  border-radius: 66.667px;
+  background: var(--Gray-10, #FFF);
   
-  /* Drop Shadow _ Medium */
-  box-shadow: 5px 5px 9px 0px rgba(0, 0, 0, 0.10);
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+
+  cursor:pointer;
 }
 
 .gradLogin-small-container1 span{
-  color: #25569D;
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ M */
   font-family: "SUIT Variable";
-  font-size: 20px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
+  line-height: 21px; /* 150% */
 }

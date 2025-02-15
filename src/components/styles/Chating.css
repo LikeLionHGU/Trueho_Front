@@ -1,0 +1,87 @@
+.chating-container{
+  width:760px;
+  height:calc(100vh - 88px);
+
+  background: var(--Gray-10, #FFF);
+
+  /* Drop Shadow _ Big */
+  box-shadow: 8px 8px 15px 0px rgba(0, 0, 0, 0.10);
+
+  /* 세로 정렬 + 채팅 보내는거 아래에 고정!! */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chating-container-top{
+  padding:20px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+}
+
+.chating-container-top-message{
+  margin-bottom: 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.left-message{
+  display: flex;
+  align-self: flex-start;
+}
+
+.right-message{
+  display: flex;
+  align-self: flex-end;
+}
+
+
+.chating-container-bottom{
+  border-top: 2px solid var(--Primary-02, #D3DDEA);
+  background: var(--Gray-10, #FFF);
+
+  height: 70px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.chating-container-bottom-input{
+  width:660px;
+  
+}
+
+.chating-container-bottom-input input::placeholder{
+  color: var(--Primary-02, #A9C5E8);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+
+  padding-left: 20px;
+
+}
+
+.chating-container-bottom-inputbox{
+  width:640px;
+  height: 40px;
+  flex-shrink: 0;
+
+  border-radius: 12px;
+  background: var(--Primary-04, #F4F8FD);
+  border:none;
+}
+
+.chating-container-bottom-button{
+  margin-right: 15px;
+}

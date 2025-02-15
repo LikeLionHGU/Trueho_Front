@@ -1,14 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/about";
-import ChatHome from "./pages/chathome";
+import ChatHome from "./pages/Chathome";
+import ChatRoom from "./pages/Chatroom";
 import GradLogin from "./pages/gradLogin";
 import HansumPage from "./pages/hansum";
 import ImsiPage from "./pages/imsi";
-import LoadingPage from "./pages/loading";
-import LoginPage from "./pages/login";
-import MessagePage from "./pages/message";
+import LoadingPage from "./pages/login/loading";
+import LoginPage from "./pages/login/login";
 import MyPage from "./pages/mypage";
 import UserDetail from "./pages/userdetail";
+import Newprofile from "./pages/Newprofile";
 
 // import AwardList from "./components/awardlist";
 import Header from "./components/header";
@@ -28,12 +29,16 @@ function App() {
         <Route path="/hansum" element={<HansumPage />} />
         <Route path="/imsi" element={<ImsiPage />} />
         <Route path="/loading" element={<LoadingPage />} />
-        <Route path="/message" element={<MessagePage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/" element={<HansumPage />} />
         <Route path="/user/:name" element={<UserDetail />} />
+
+        <Route path="/user/:name" element={<UserDetail users={sampleUsers} />} />
+        <Route path="/chatroom/:id" element={<ChatRoom />} />
+        <Route path="/newprofile" element={<Newprofile />} />
+
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }

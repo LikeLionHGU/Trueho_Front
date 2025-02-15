@@ -1,13 +1,21 @@
 import styles from "../styles/gradLogin.css";
-import gradHansumLogo from "../assets/Page/GradLogin/hamsum_logo.png"
+import gradHansumLogo from "../assets/Page/GradLogin/hamsum_logo.svg"
+
+import { useNavigate } from "react-router";
 
 // import Header from "../components/header";
 
 function GradLoginpage() {
+
+  const navigate = useNavigate();
+
+  function enterLoginPage (){
+    navigate("/");
+  };
   
 
   return (
-    <>
+    <> 
     {/* <Header /> */}
     <div className="gradLogin-container">
       <div className="gradLogin-lar-container1">
@@ -34,7 +42,7 @@ function GradLoginpage() {
 
 
       <div className="gradLogin-lar-container2">
-        <div className="gradLogin-small-container1">
+        <div className="gradLogin-small-container1" onClick={enterLoginPage}>
           <span>뒤로가기</span>
         </div>
       </div>
