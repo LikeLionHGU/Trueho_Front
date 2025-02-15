@@ -1,8 +1,26 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../styles/hansum.css";
 import UserCard from "../components/usercard";
 import MajorFilter from "../components/majorfilter";
 import ScrollToTopButton from "../components/scrolltotopbutton";
+
+// 데이터 fetching 로직을 별도의 함수로 분리
+async function fetchUserData(userId) {
+  try {
+    const response = await axios.get(
+      `${process.env.REACT_APP_HOST_URL}/hansum/list/${userId}`, // userId 변수 사용
+      {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return []; // 에러 발생 시 빈 배열 반환
+  }
+}
 
 function HansumPage() {
   const [users, setUsers] = useState([]);
@@ -10,23 +28,15 @@ function HansumPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const response = await fetch(`${process.env.REACT_APP_HOST_URL}/hansum`);
-        if (!response.ok) {
-          throw new Error("데이터 로딩 실패");
-        }
-        const data = await response.json();
-        console.log("불러온 사용자 데이터:", data);
-        setUsers(data);
-      } catch (error) {
-        console.error("사용자 데이터를 불러오는 중 오류 발생:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
+    // 예시로 사용할 userId 값 (실제 값으로 교체하세요)
+    const userId = 0;
 
-    fetchUsers();
+    async function getUsers() {
+      const data = await fetchUserData(userId);
+      setUsers(data);
+      setLoading(false);
+    }
+    getUsers();
   }, []);
 
   if (loading) {
