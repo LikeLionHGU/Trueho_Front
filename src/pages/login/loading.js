@@ -17,13 +17,22 @@ URLSearchParams를 통해 url에 있는 토큰을 추출하고 그 토큰을 axi
 const Loading = () => {
   const navigate = useNavigate();
 
+  //1) 아이디토큰 잘라서 백엔드로 전달 & state 값 받아서 경로 다르게 지정
   useEffect(() => {
     const fetchData = async () => {
       try {
         const parsedHash = new URLSearchParams(window.location.hash.substring(1));
         const idToken = parsedHash.get("id_token");
         console.log("id 토큰: " + idToken);
-        await sendAccessTokenToBackend(idToken);
+
+        // 서버 응답 데이터 받아오기 ! & 경로 지정
+        const responseData = await sendAccessTokenToBackend(idToken);
+        console.log(responseData);
+        if (responseData.state==='0') {
+          navigate("/newprofile"); // 로그인 성공 시 대시보드로 이동
+        } else {
+          navigate("/hansum"); // 오류 페이지로 이동
+        }
         navigate("/");
       } catch (error) {
         console.error("로그인 과정에서 에러가 발생했습니다.", error);
