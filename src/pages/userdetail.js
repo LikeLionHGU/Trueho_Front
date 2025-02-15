@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "../components/styles/userDetail.css";
 import Img from "../assets/Components/Profile/profileimg.svg";
 import "../components/styles/usercard.css";
-import Accordion from "../components/accordion";
+import Accordion from "../components/Accordion";
 
 function UserDetailPage() {
   const { name } = useParams();
