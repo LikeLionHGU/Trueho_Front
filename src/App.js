@@ -32,13 +32,11 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/" element={<HansumPage />} />
         <Route path="/user/:name" element={<UserDetail />} />
-
-        <Route path="/user/:name" element={<UserDetail users={sampleUsers} />} />
         <Route path="/chatroom/:id" element={<ChatRoom />} />
         <Route path="/newprofile" element={<Newprofile />} />
 
       </Routes>
-      {/* <Footer /> */}
+       <Footer /> 
     </BrowserRouter>
   );
 }
