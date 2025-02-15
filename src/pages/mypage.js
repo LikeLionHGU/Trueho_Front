@@ -60,7 +60,7 @@ function MyPage() {
     // }
       //das
 
-      const response = await fetch(`${process.env.REACT_APP_HOST_URL}/logout`, {
+      const response = await fetch(`${process.env.REACT_APP_HOST_URL}/user/logout`, {
         method: "GET"
       });
       
