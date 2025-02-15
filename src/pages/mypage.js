@@ -15,7 +15,7 @@ function MyPage() {
 
     try {
       // showing: 1 (공개), 0 (비공개)
-      const response = await fetch("https://liketiger.info:443/profile/show", {
+      const response = await fetch(`${process.env.REACT_APP_HOST_URL}/show`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -60,12 +60,14 @@ function MyPage() {
     // }
       //das
 
-      const response = await fetch("https://liketiger.info:443/logout", {
+      const response = await fetch(`${process.env.REACT_APP_HOST_URL}/logout`, {
         method: "GET"
       });
+      
       if (!response.ok) {
         throw new Error("로그아웃 요청 실패");
       }
+      
       const data = await response.json();
       if (data.state === "Bye") {
         alert("로그아웃 성공!");
