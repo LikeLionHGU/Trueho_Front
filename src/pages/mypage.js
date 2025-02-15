@@ -15,7 +15,7 @@ function MyPage() {
 
     try {
       // showing: 1 (공개), 0 (비공개)
-      const response = await fetch("/profile/show", {
+      const response = await fetch("https://liketiger.info:443/profile/show", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -45,7 +45,22 @@ function MyPage() {
   const handleLogout = async () => {
     try {
       // 로그아웃 엔드포인트 호출 (GET 또는 POST로 구현된 API에 맞게 수정)
-      const response = await fetch("/logout", {
+    //   axios.post("https://liketiger.info:443", data, {
+    //     headers: { "Content-Type": "application/json" },
+    //   })
+    //     .then((response) => {
+    //       alert("입력이 완료되었습니다.");
+    //       navigate('/');
+    //       navigate('/');
+    //     })
+    //     .catch((error) => {
+    //       alert("에러가 발생했습니다.");
+    //       console.error(error);
+    //     });
+    // }
+      //das
+
+      const response = await fetch("https://liketiger.info:443/logout", {
         method: "GET"
       });
       if (!response.ok) {
