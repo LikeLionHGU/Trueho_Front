@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Img from "../assets/Components/Profile/profileimg.svg"
+import Img from "../assets/Components/Profile/profileimg.svg";
 import "../components/styles/usercard.css";
 
 function UserCard({ user }) {
@@ -20,8 +20,7 @@ function UserCard({ user }) {
   return (
     <div className="user-card" onClick={handleCardClick}>
       <div className="user-card-header">
-          <img src={Img}/>
-        
+        <img src={Img} alt="Profile" />
         <div className="user-card-header-text">
           <h2 className="user-name">{user.name}</h2>
           <p className="user-major">{user.major}</p>
@@ -30,13 +29,14 @@ function UserCard({ user }) {
 
       <div className="user-card-body">
         <h3 className="user-job">{user.work}</h3>
-
         {user.studyPeriod && <p className="study-period">{user.studyPeriod}</p>}
 
         {user.achievements && user.achievements.length > 0 && (
           <ul className="achievement-list">
             {user.achievements.map((item, idx) => (
-              <li key={idx}>{item}</li>
+              <li key={idx}>
+                <strong>{item.title}</strong>: {item.details}
+              </li>
             ))}
           </ul>
         )}

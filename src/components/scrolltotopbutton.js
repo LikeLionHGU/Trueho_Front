@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from "react";
 import "../components/styles/scrolltotopbutton.css";
+import upimg from "../assets/Components/Profile/upbotton.png";
+
 
 function ScrollToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,7 +31,7 @@ function ScrollToTopButton() {
     <>
       {isVisible && (
         <button onClick={scrollToTop} className="scroll-to-top-button">
-          ↑ 위로 가기
+          <img src={upimg} alt="Profile" />
         </button>
       )}
     </>
