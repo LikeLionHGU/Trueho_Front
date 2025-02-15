@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/hansum.css";
-import UserCard from "../components/UserCard";
+import UserCard from "../components/usercard";
 import MajorFilter from "../components/majorfilter";
-import ScrollToTopButton from "../components/ScrollToTopButton";
+import ScrollToTopButton from "../components/scrolltotopbutton";
 
 function HansumPage() {
   const [users, setUsers] = useState([]);
