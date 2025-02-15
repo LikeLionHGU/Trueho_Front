@@ -11,26 +11,24 @@ function HansumPage() {
   const [loading, setLoading] = useState(true);
 
   // 실제 id 값을 사용해야 한다면 변수에 저장합니다.
-  const id = `${process.env.REACT_APP_HOST_URL}/hansum/list/${id}`; // 필요에 따라 변경하세요.
+  //const id = `${process.env.REACT_APP_HOST_URL}/hansum/list/${id}`; // 필요에 따라 변경하세요.
 
   useEffect(() => {
-    async function fetchUsers() {
+    async function getUsers() {
       try {
-        // id가 필요한 경우
-                // id가 필요 없다면 위 URL에서 /${id} 부분을 제거합니다.
-        const url = `${process.env.REACT_APP_HOST_URL}/hansum/list/${id}`;
-        const response = await axios.get(url);
+        const url = `${process.env.REACT_APP_HOST_URL}/hansum/list/{id}`;
+        const response = await axios.get(`${process.env.REACT_APP_HOST_URL}/hansum/list/{id}`);
         console.log("불러온 사용자 데이터:", response.data);
         setUsers(response.data);
       } catch (error) {
-        console.error("사용자 데이터를 불러오는 중 오류 발생:", error);
+       // console.error("사용자 데이터를 불러오는 중 오류 발생:", error);
       } finally {
         setLoading(false);
       }
     }
 
-    fetchUsers();
-  }, [id]);
+    getUsers();
+  });
 
   if (loading) {
     return <h2>로딩 중...</h2>;
