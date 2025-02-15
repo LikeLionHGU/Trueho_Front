@@ -30,12 +30,12 @@ const Loading = () => {
         console.log(responseData);
         console.log(responseData.state);
 
-        if (responseData.state==='0') {
-          navigate("/newprofile"); // 로그인 성공 시 대시보드로 이동
+        if (responseData.state==="0") {
+          navigate("/newprofile"); // 처음 로그인 하는 사람은 프로필 등록 페이지로
         } else {
-          navigate("/hansum"); // 오류 페이지로 이동
+          navigate("/hansum"); // 이미 로그인 했던 사람들은 hansum 페이지로 이동
         }
-        navigate("/");
+
       } catch (error) {
         console.error("로그인 과정에서 에러가 발생했습니다.", error);
       }
