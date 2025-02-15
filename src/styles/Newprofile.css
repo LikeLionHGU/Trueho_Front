@@ -1,0 +1,594 @@
+.newprofile-container{
+  background: var(--Gradient-02, linear-gradient(180deg, #E9D9D3 0%, #D3DDEA 100%));
+
+  height: 600px;
+  width: 100vw;
+}
+
+.newprofile-top-container{
+  height: 340px;
+  width: 100vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newprofile-top-container-first{
+  width: 960px;
+  height: 130px;
+  flex-shrink: 0;
+
+  margin: 50px 160px 0px 160px;
+}
+
+.newprofile-top-container-first p{
+  color: var(--Primary-01, #25569D);
+
+  /* Title 03 */
+  font-family: "SUIT Variable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 150% */
+
+  margin-bottom: 12px;
+}
+
+.newprofile-top-container-first span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 01 _ M */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+
+
+
+.newprofile-top-container-second-selectbox{
+  display: flex;
+  flex-direction: row;
+
+  width: 465px;
+  height: 113px;
+  flex-shrink: 0;
+
+  border-radius: 33.333px 0px 33.333px 33.333px;
+  background: var(--Gray-10, #FFF);
+
+  padding: 18px 120px 24px 47px;
+}
+
+.newprofile-top-container-second-selectbox img{
+  width: 67px;
+  height: 71px;
+  flex-shrink: 0;
+}
+
+.newprofile-top-container-second-selectbox-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-left: 30px;
+}
+
+.newprofile-top-container-second-selectbox-text span{
+  color: var(--Primary-01, #25569D);
+
+  /* Title 04 */
+  font-family: "SUIT Variable";
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 148.148% */
+}
+
+.newprofile-top-container-second-selectbox-text p{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
+
+.newprofile-top-container-second-selectbox-margin{
+  width:30px;
+}
+
+.newprofile-bottom-container{
+  height: 1751px;
+  width: 100vw;
+
+
+  border-radius: 120px 0px 0px 0px;
+  background: var(--Gray-10, #FFF);
+  
+  /* Inner shadow */
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.10) inset;
+
+  display: flex;
+  justify-content: center;
+  /* align-items: center; 나중에 꼭 풀어줘야함 */
+}
+
+.newprofile-bottom-container-size{
+  width: 960px;
+  border:1px solidi black;
+}
+
+.newprofile-bottom-container-1{
+  width: 960px;
+  margin-top: 87px;
+}
+
+.newprofile-bottom-container-1 p{
+  color: var(--Primary-01, #25569D);
+
+  /* Title 03 */
+  font-family: "SUIT Variable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 150% */
+}
+
+.newprofile-bottom-container-1 span{
+  color: var(--alert-notification, #9D2525);
+
+  /* Body 04 _ M */
+  font-family: "SUIT Variable";
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px; /* 154.545% */
+}
+
+.newprofile-bottom-container-2-pic-img{
+  width:135px;
+  height:135px;
+}
+
+.newprofile-bottom-container-2-pic-btn{
+  display: inline-flex;
+  padding: 8px 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 6.667px;
+
+  border-radius: 66.667px;
+  background: var(--Point-01, #6C3F2E);
+  
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.newprofile-bottom-container-2-pic-btn span{
+  color: var(--Gray-10, #FFF);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
+
+.newprofile-bottom-container-2-njj span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ EB */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 21px; /* 150% */
+}
+
+.newprofile-bottom-container-2-njj-input span{
+  color: var(--alert-notification, #9D2525);
+
+  /* Body 01 _ EB */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px; /* 150% */
+}
+
+.newprofile-bottom-container-2-njj-input input{
+  display: flex;
+  width: 335px;
+  height: 37px;
+  padding: 8px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  border-radius: 12px;
+  background: var(--Primary-04, #F4F8FD);
+  border: none;
+}
+
+.newprofile-bottom-container-2-njj-input input::placeholder{
+  color: var(--Primary-02, #A9C5E8);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+}
+
+.newprofile-bottom-container-2-njj-input-select{
+  display: flex;
+  width: 120px;
+  height: 37px;
+  padding: 8px 15px;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+
+  border-radius: 12px;
+  background: var(--Primary-04, #F4F8FD);
+
+  border:none;
+
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+}
+
+
+.newprofile-bottom-container-2-njj-input-placeholder{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+}
+
+.newprofile-bottom-container-2-njj-input-selectmajor{
+  display: flex;
+  width: 190px;
+  height: 37px;
+  padding: 8px 15px;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+
+  border-radius: 12px;
+  background: var(--Primary-04, #F4F8FD);
+
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+
+  border:none;
+}
+
+.newprofile-bottom-container-3 span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ EB */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 21px; /* 150% */
+}
+
+.newprofile-bottom-container-3-input span{
+  color: var(--alert-notification, #9D2525);
+
+  /* Body 01 _ EB */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px; /* 150% */
+}
+
+.newprofile-bottom-container-3-input input{
+  display: flex;
+  width: 464px;
+  height: 50px;
+  padding: 13px 51px 13px 20px;
+  align-items: center;
+  flex-shrink: 0;
+
+  border-radius: 15px;
+  background: var(--Primary-04, #F4F8FD);
+
+  border:none;
+}
+
+.newprofile-bottom-container-3-input input::placeholder{
+  color: var(--Primary-02, #A9C5E8);
+
+  /* Body 01 _ M */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+
+.newprofile-bottom-container-4-name span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ EB */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 21px; /* 150% */
+}
+
+.newprofile-bottom-container-4-box-test input::placeholder{
+  color: var(--Primary-02, #A9C5E8);
+
+  /* Body 01 _ M */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+
+.newprofile-bottom-container-4-box-test input{
+  width: 464px;
+  height: 50px;
+  flex-shrink: 0;
+
+  border-radius: 15px;
+  background: var(--Primary-04, #F4F8FD);
+
+  border:none;
+}
+
+
+.newprofile-bottom-container-4-box-test-in input{
+  width: 464px;
+  height: 183px;
+  flex-shrink: 0;
+
+  border-radius: 15px;
+  background: var(--Primary-04, #F4F8FD);
+
+  color: var(--Primary-02, #A9C5E8);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+
+  border:none;
+
+}
+
+.newprofile-bottom-container-4-box-test-in input::placeholder{
+  color: var(--Primary-02, #A9C5E8);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.gridBox{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 32px; 
+}
+
+.newprofile-bottom-container-5{
+  display: flex;
+  justify-content: center;
+}
+
+.newprofile-bottom-container-5-btn{
+  display: inline-flex;
+  padding: 8px 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 6.667px;
+
+  border-radius: 66.667px;
+  background: var(--Point-01, #6C3F2E);
+  
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.newprofile-bottom-container-5-btn span{
+  color: var(--Gray-10, #FFF);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
+
+
+.newprofile-bottom-container-6{
+  height: 340px; 
+  /* 수정필요 */
+
+  display: flex;
+  flex-direction: column;
+}
+
+.newprofile-bottom-container-6-first{
+  width: 960px;
+  height: 130px;
+  flex-shrink: 0;
+
+}
+
+.newprofile-bottom-container-6-first p{
+  color: var(--Primary-01, #25569D);
+
+  /* Title 03 */
+  font-family: "SUIT Variable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 150% */
+
+  margin-bottom: 12px;
+}
+
+.newprofile-bottom-container-6-first span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 01 _ M */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+
+
+.newprofile-bottom-container-6-second-selectbox{
+  display: flex;
+  flex-direction: row;
+
+  width: 465px;
+  height: 113px;
+  flex-shrink: 0;
+
+  border-radius: 33.333px 0px 33.333px 33.333px;
+  background: var(--Primary-04, #F4F8FD);
+
+  padding: 18px 0px 24px 30px;
+}
+
+.newprofile-bottom-container-6-second-selectbox img{
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+
+  margin-top: 5px;
+}
+
+.newprofile-bottom-container-6-second-selectbox-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-left: 30px;
+}
+
+.newprofile-bottom-container-6-second-selectbox-text span{
+  color: var(--Primary-01, #25569D);
+
+  /* Title 04 */
+  font-family: "SUIT Variable";
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px; /* 148.148% */
+}
+
+.newprofile-bottom-container-6-second-selectbox-text p{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
+
+.newprofile-bottom-container-6-second-selectbox-margin{
+  width:30px;
+}
+
+
+.newprofile-bottom-container-7{
+  display: flex;
+  align-items: center;}
+
+.newprofile-bottom-container-7-btn{
+  display: inline-flex;
+  height: 38px;
+  width:245px;
+  padding: 10px 78px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  border-radius: 66.667px;
+  background: var(--Point-01, #6C3F2E);
+  
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.newprofile-bottom-container-7-btn span{
+  color: var(--Gray-10, #FFF);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+}
+
+.newprofile-bottom-container-7 p{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
+
+
+.box-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.box-column{
+  display: flex;
+  flex-direction: column;
+}
+
+.padding-top{
+  padding-top: 32px;
+}

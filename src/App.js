@@ -9,6 +9,7 @@ import LoadingPage from "./pages/login/loading";
 import LoginPage from "./pages/login/login";
 import MyPage from "./pages/mypage";
 import UserDetail from "./pages/userdetail";
+import Newprofile from "./pages/Newprofile";
 
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -39,6 +40,7 @@ function App() {
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/user/:name" element={<UserDetail users={sampleUsers} />} />
         <Route path="/chatroom/:id" element={<ChatRoom />} />
+        <Route path="/newprofile" element={<Newprofile />} />
       </Routes>
       {/* <Footer /> */}
     </BrowserRouter>
