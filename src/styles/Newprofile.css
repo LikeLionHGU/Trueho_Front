@@ -554,9 +554,7 @@
   
   /* Drop Shadow _ Small */
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
-}
 
-.newprofile-bottom-container-7-btn span{
   color: var(--Gray-10, #FFF);
 
   /* Body 02 _ M */
@@ -565,7 +563,9 @@
   font-style: normal;
   font-weight: 500;
   line-height: 21px; /* 150% */
+  border:none;
 }
+
 
 .newprofile-bottom-container-7 p{
   color: var(--Primary-01, #25569D);
@@ -592,3 +592,14 @@
 .padding-top{
   padding-top: 32px;
 }
+
+/* const [data, setData] = useState({
+  hansum: "",
+  name: "",
+  admission: "",
+  graduation: "",
+  major: "",
+  work: "",
+  history: "",
+  showing: "",
+}); */
