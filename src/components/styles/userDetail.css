@@ -1,61 +1,133 @@
-.user-detail {
-    padding: 40px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  .profile-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: #f5f7fa;
-    padding: 20px;
-    border-radius: 16px;
-  }
-  
-  .profile-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-  }
-  
-  .user-info h1 {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .user-major {
-    background: #f7e7da;
-    padding: 6px 12px;
-    border-radius: 12px;
-  }
-  
-  .message-button {
-    background: #5a3e2b;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .job-section h2, .achievements-section h2 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 30px;
-  }
-  
-  .achievement {
-    background: #eef2f7;
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 10px;
-  }
-  
-  .back-button {
-    background: #ccc;
-    padding: 10px;
-    margin-top: 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
+.user-detail-page {
+  width: 100%;
+  background-color: #fff;
+  padding: 40px 0;
+}
+
+.user-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.detail-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.detail-info {
+  color: var(--Point-01, #6C3F2E);
+
+/* Title 06 */
+font-family: "SUIT Variable";
+font-size: 21px;
+font-style: normal;
+font-weight: 800;
+line-height: 32px; /* 152.381% */
+}
+
+.detail-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-right {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.tagline {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.study-period {
+  color: var(--Point-01, #6C3F2E);
+
+/* Body 01 _ M */
+font-family: "SUIT Variable";
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 150% */
+}
+
+.message-button {
+margin-left: auto;
+display: inline-flex;
+height: 38px;
+padding: 10px 78px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+border-radius: 66.667px;
+background: var(--Point-01, #6C3F2E);
+box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+color: var(--Gray-10, #FFF);
+font-family: "SUIT Variable";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px; /* 150% */
+}
+
+.detail-job {
+  margin-bottom: 30px;
+}
+
+.detail-job h3 {
+  color: var(--Primary-01, #25569D);
+
+/* Body 03 _ M */
+font-family: "SUIT Variable";
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+}
+
+.job-title {
+  color: var(--Primary-01, #25569D);
+
+/* Title 02 */
+font-family: "SUIT Variable";
+font-size: 42px;
+font-style: normal;
+font-weight: 800;
+line-height: 64px; /* 152.381% */
+}
+
+.user-major {
+  font-size: 16px;
+  color: #666;
+}
+
+.detail-achievements {
+  margin-bottom: 40px;
+}
+
+.detail-achievements h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.detail-achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detail-achievements li {
+  background-color: #f8f8f8;
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #444;
+}

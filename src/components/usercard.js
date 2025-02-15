@@ -1,17 +1,52 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Img from "../assets/Components/Profile/profileimg.svg";
 import "../components/styles/usercard.css";
-// import profilelogo from "../components/Profile/profilelogo.png";
 
-function UserCard({ name, major, jobTitle, profilelogo }) {
+function UserCard({ user }) {
   const navigate = useNavigate();
 
+  if (!user) return null;
+
+  const handleCardClick = () => {
+    navigate(`/user/${user.name}`);
+  };
+
+  const handleFavoriteClick = (e) => {
+    e.stopPropagation();
+    alert("관심 등록!");
+  };
+
   return (
-    <div className="user-card" onClick={() => navigate(`/user/${name}`)}>
-      <img src={profilelogo} alt={`${name} profile`} className="user-profile" />
-      <h3>{name}</h3>
-      <p className="user-major">{major}</p>
-      <h4>{jobTitle}</h4>
+    <div className="user-card" onClick={handleCardClick}>
+      <div className="user-card-header">
+        <img src={Img} alt="Profile" />
+        <div className="user-card-header-text">
+          <h2 className="user-name">{user.name}</h2>
+          <p className="user-major">{user.major}</p>
+        </div>
+      </div>
+
+      <div className="user-card-body">
+        <h3 className="user-job">{user.work}</h3>
+        {user.studyPeriod && <p className="study-period">{user.studyPeriod}</p>}
+
+        {user.achievements && user.achievements.length > 0 && (
+          <ul className="achievement-list">
+            {user.achievements.map((item, idx) => (
+              <li key={idx}>
+                <strong>{item.title}</strong>: {item.details}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div className="user-card-footer">
+        <button className="favorite-button" onClick={handleFavoriteClick}>
+          관심 ♡
+        </button>
+      </div>
     </div>
   );
 }

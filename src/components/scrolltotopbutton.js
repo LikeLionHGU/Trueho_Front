@@ -1,25 +1,40 @@
+
 import React, { useState, useEffect } from "react";
 import "../components/styles/scrolltotopbutton.css";
-import upbotton from "../assets/Components/Profile/upbotton.png"
+import upimg from "../assets/Components/Profile/upbotton.png";
 
 
 function ScrollToTopButton() {
-  const [visible, setVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setVisible(window.scrollY > 300);
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    visible && (
-      <button className="scroll-to-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-        <img src={upbotton} alt="upbotton" className="upbotton" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}/>
-      </button>
-    )
+    <>
+      {isVisible && (
+        <button onClick={scrollToTop} className="scroll-to-top-button">
+          <img src={upimg} alt="Profile" />
+        </button>
+      )}
+    </>
   );
 }
 
