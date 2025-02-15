@@ -65,6 +65,12 @@
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
+.newprofile-top-container-second-selectbox.active{
+  border: 2px solid var(--Primary-02, #A9C5E8);
+  background: var(--Primary-03, #D3DDEA);
+
+}
+
 .newprofile-top-container-second-selectbox img{
   width: 67px;
   height: 71px;
@@ -106,7 +112,7 @@
 }
 
 .newprofile-bottom-container{
-  height: 1808px;
+  height: auto;
   width: 100vw;
 
 
@@ -189,10 +195,6 @@
   line-height: 18px; /* 150% */
 }
 
-.newprofile-bottom-container-2-njj{
-  display: flex;
-}
-
 .container_1{
   width:150px;
 
@@ -246,6 +248,15 @@
   border-radius: 12px;
   background: var(--Primary-04, #F4F8FD);
   border: none;
+
+  color: var(--Primary-02, #25569D);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
 }
 
 .newprofile-bottom-container-2-njj-input input::placeholder{
@@ -365,6 +376,15 @@
   background: var(--Primary-04, #F4F8FD);
 
   border:none;
+
+  color: var(--Primary-02, #25569D);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
 }
 
 .newprofile-bottom-container-3-input input::placeholder{
@@ -423,6 +443,15 @@
   border-radius: 15px;
   background: var(--Primary-04, #F4F8FD);
 
+  color: var(--Primary-02, #25569D);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+
   border:none;
 
   margin-bottom: 10px;
@@ -436,7 +465,7 @@
   border-radius: 15px;
   background: var(--Primary-04, #F4F8FD);
 
-  color: var(--Primary-02, #A9C5E8);
+  color: var(--Primary-02, #25569D);
 
   /* Body 02 _ M */
   font-family: "SUIT Variable";
@@ -558,6 +587,10 @@
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
 }
 
+.newprofile-bottom-container-6-second-selectbox.active{
+  background: var(--Primary-01, #25569D);
+}
+
 .newprofile-bottom-container-6-second-selectbox img{
   width: 60px;
   height: 60px;
@@ -596,6 +629,14 @@
   line-height: 18px; /* 150% */
 }
 
+.newprofile-bottom-container-6-second-selectbox-text.active span{
+  color: var(--Gray-10, #FFF);
+}
+
+.newprofile-bottom-container-6-second-selectbox-text.active p{
+  color: var(--Gray-10, #FFF);
+}
+
 .newprofile-bottom-container-6-second-selectbox-margin{
   width:30px;
 }
@@ -606,6 +647,7 @@
   align-items: center;
 
   margin-top: 50px;
+  margin-bottom: 65px;
 }
 
 .newprofile-bottom-container-7-btn{
@@ -662,4 +704,10 @@
 
 .padding-top{
   padding-top: 32px;
+}
+
+.star{
+  width: 12px;
+  height: 12px;
+  margin-top: 12px;
 }
