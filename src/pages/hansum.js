@@ -12,7 +12,7 @@ function HansumPage() {
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const response = await fetch(`${process.env.REACT_APP_HOST_URL}/hansumUsers.json`);
+        const response = await fetch(`${process.env.REACT_APP_HOST_URL}/hansum`);
         if (!response.ok) {
           throw new Error("데이터 로딩 실패");
         }
