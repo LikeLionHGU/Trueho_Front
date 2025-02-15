@@ -67,19 +67,7 @@ function MyPage() {
 
   return (
     <div className="mypage-container">
-      {/* 상단 헤더/네비게이션 */}
-      <header className="mypage-header">
-        <div className="logo">한섬</div>
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-            <li><Link to="/hansums">HanSums</Link></li>
-            <li><Link to="/message">Message</Link></li>
-            <li><Link to="/mypage">My Page</Link></li>
-          </ul>
-        </nav>
-      </header>
+      
 
       {/* 메인 콘텐츠 영역 */}
       <main className="mypage-main">
@@ -111,15 +99,7 @@ function MyPage() {
         </div>
       </main>
 
-      {/* 하단 푸터 */}
-      <footer className="mypage-footer">
-        <div className="footer-content">
-          <div className="footer-logo">HanSum</div>
-          <p>Team: 한섬</p>
-          <p>Planner: OOO, Developer: OOO</p>
-          <p>Copyright © HanSum</p>
-        </div>
-      </footer>
+      
     </div>
   );
 }
