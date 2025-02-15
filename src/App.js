@@ -10,19 +10,11 @@ import MessagePage from "./pages/message";
 import MyPage from "./pages/mypage";
 import UserDetail from "./pages/userdetail";
 
+// import AwardList from "./components/awardlist";
 import Header from "./components/header";
 import Footer from "./components/footer";
 
-const sampleUsers = [
-  {
-    name: "춤추는땅강아지",
-    major: "경영경제학부",
-    jobTitle: "자산운용사",
-    profileImage: "/images/profile1.png",
-    years: "2015 ~ 2020",
-    achievements: ["2016년 한국투자증권 모의투자 대회 우수상", "20xx ○○대학 ○○○○전공 석사"]
-  }
-];
+
 
 function App() {
   return (

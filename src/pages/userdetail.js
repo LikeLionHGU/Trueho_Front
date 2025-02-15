@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../components/styles/userDetail.css";
-import Img from "../assets/Components/Profile/profileimg.svg"
+import Img from "../assets/Components/Profile/profileimg.svg";
 import "../components/styles/usercard.css";
+import Accordion from "../components/accordion";
 
 function UserDetailPage() {
   const { name } = useParams();
@@ -34,18 +35,20 @@ function UserDetailPage() {
 
   return (
     <div className="user-detail-page">
-      {/* 안쪽에 콘텐츠를 담을 컨테이너 */}
       <div className="user-detail-container">
         <div className="detail-top">
           <div className="detail-left">
-          <img src={Img}/>
+            <img src={Img} alt="User" />
           </div>
-            <h2 className="tagline">{user.tagline}
-            <p className="study-period">{user.studyPeriod}</p>
+          <div className="detail-info">
+            <h2 className="tagline">
+              {user.tagline}
+              <p className="study-period">{user.studyPeriod}</p>
             </h2>
-            
-          
-          <button className="message-button">메시지 보내기</button>
+          </div>
+          <div className="button-container">
+            <button className="message-button">메시지 보내기</button>
+          </div>
         </div>
 
         <div className="detail-job">
@@ -54,15 +57,20 @@ function UserDetailPage() {
           <div className="user-major">{user.major}</div>
         </div>
 
+        {/* 대회 경력 아코디언 추가 */}
         <div className="detail-achievements">
           {user.achievements && user.achievements.length > 0 && (
             <>
               <h3>대회 경력</h3>
-              <ul>
+              <div className="accordion-container">
                 {user.achievements.map((ach, idx) => (
-                  <li key={idx}>{ach}</li>
+                  <Accordion 
+                    key={idx} 
+                    title={ach.title} 
+                    content={ach.details} 
+                  />
                 ))}
-              </ul>
+              </div>
             </>
           )}
         </div>

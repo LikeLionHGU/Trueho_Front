@@ -13,8 +13,20 @@
 .detail-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 30px;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.detail-info {
+  color: var(--Point-01, #6C3F2E);
+
+/* Title 06 */
+font-family: "SUIT Variable";
+font-size: 21px;
+font-style: normal;
+font-weight: 800;
+line-height: 32px; /* 152.381% */
 }
 
 .detail-left {
@@ -35,19 +47,34 @@
 }
 
 .study-period {
-  margin-top: 8px;
-  color: #666;
-  font-size: 14px;
+  color: var(--Point-01, #6C3F2E);
+
+/* Body 01 _ M */
+font-family: "SUIT Variable";
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 150% */
 }
 
 .message-button {
-  background-color: #5f4c44;
-  color: #fff;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
+  margin-left: auto;
+display: inline-flex;
+height: 38px;
+padding: 10px 78px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+border-radius: 66.667px;
+background: var(--Point-01, #6C3F2E);
+box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+color: var(--Gray-10, #FFF);
+font-family: "SUIT Variable";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px; /* 150% */
 }
 
 .detail-job {
@@ -55,14 +82,25 @@
 }
 
 .detail-job h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  color: var(--Primary-01, #25569D);
+
+/* Body 03 _ M */
+font-family: "SUIT Variable";
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
 }
 
 .job-title {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 6px;
+  color: var(--Primary-01, #25569D);
+
+/* Title 02 */
+font-family: "SUIT Variable";
+font-size: 42px;
+font-style: normal;
+font-weight: 800;
+line-height: 64px; /* 152.381% */
 }
 
 .user-major {
