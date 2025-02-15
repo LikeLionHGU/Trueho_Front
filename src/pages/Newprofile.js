@@ -129,7 +129,7 @@ function Newprofile() {
                   <select name="admission" className="newprofile-bottom-container-2-njj-input-select" onChange={onChangeInput}>
                     <option disabled hidden selected >입학 연도</option>
                     {Array.from({ length: 2025 - 1995 + 1 }, (_, i) => 2025 - i).map((year) => (
-                      <option key={year} value={year}>{year}<span>년</span></option>
+                      <option key={year} value={year}>{year}</option>
                     ))}
                   </select>
                 </div>
@@ -142,7 +142,7 @@ function Newprofile() {
                     <option disabled hidden selected >졸업 연도</option>
                     <option key="재학 중">재학 중</option>
                     {Array.from({ length: 2025 - 1995 + 1 }, (_, i) => 2025 - i).map((year) => (
-                      <option key={year} value={year}>{year}<span>년</span></option>
+                      <option key={year} value={year}>{year}</option>
                     ))}
                   </select>
                 </div>
