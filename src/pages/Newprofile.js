@@ -48,10 +48,12 @@ function Newprofile() {
     });
   };
 
+
+
 // 3) 배열 값 post 하는 함수
   function postDataToJSONFile(e) {
     e.preventDefault();
-    axios.put(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
+    axios.post(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => {
