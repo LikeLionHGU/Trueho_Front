@@ -28,6 +28,8 @@ const Loading = () => {
         // 서버 응답 데이터 받아오기 ! & 경로 지정
         const responseData = await sendAccessTokenToBackend(idToken);
         console.log(responseData);
+        console.log(responseData.state);
+
         if (responseData.state==='0') {
           navigate("/newprofile"); // 로그인 성공 시 대시보드로 이동
         } else {
