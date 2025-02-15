@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "../components/styles/userDetail.css";
-import Img from "../assets/Components/Profile/profileimg.svg";
-import "../components/styles/usercard.css";
 import Accordion from "../components/Accordion";
+import "../components/styles/userDetail.css";
+import profileImg from "../assets/Components/Profile/profileimg.svg";
 
-function UserDetailPage() {
+const UserDetailPage = () => {
   const { name } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -18,6 +17,10 @@ function UserDetailPage() {
           throw new Error("데이터 로딩 실패");
         }
         const data = await response.json();
+
+        // 콘솔에 데이터 형태 확인
+        console.log("받은 사용자 데이터:", data);
+
         const foundUser = data.find((u) => u.name === name);
         setUser(foundUser || null);
       } catch (error) {
@@ -26,7 +29,6 @@ function UserDetailPage() {
         setLoading(false);
       }
     }
-
     fetchUserDetail();
   }, [name]);
 
@@ -38,18 +40,15 @@ function UserDetailPage() {
       <div className="user-detail-container">
         <div className="detail-top">
           <div className="detail-left">
-            <img src={Img} alt="User" />
+            <img src={profileImg} alt="User" />
           </div>
           <div className="detail-info">
-            <h2 className="tagline">
-              {user.tagline}
-              <p className="study-period">{user.studyPeriod}</p>
-            </h2>
+            <h2 className="tagline">{user.name}</h2>
+            <p className="study-period">{user.studyPeriod}</p>
           </div>
-          <div className="button-container">
             <button className="message-button">메시지 보내기</button>
-          </div>
         </div>
+        
 
         <div className="detail-job">
           <h3>직무</h3>
@@ -57,26 +56,29 @@ function UserDetailPage() {
           <div className="user-major">{user.major}</div>
         </div>
 
-        {/* 대회 경력 아코디언 추가 */}
-        <div className="detail-achievements">
-          {user.achievements && user.achievements.length > 0 && (
-            <>
-              <h3>대회 경력</h3>
-              <div className="accordion-container">
-                {user.achievements.map((ach, idx) => (
-                  <Accordion 
-                    key={idx} 
-                    title={ach.title} 
-                    content={ach.details} 
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+        {user.achievements && user.achievements.length > 0 && (
+          <div className="detail-achievements">
+            <h3>대회 경력</h3>
+            <div className="accordion-container">
+              {user.achievements.map((achievement, idx) => {
+                // achievement.details가 문자열인지 확인하고 아니라면 문자열로 변환
+                const details =
+                  typeof achievement.details === "string"
+                    ? achievement.details
+                    : JSON.stringify(achievement.details, null, 2);
+                return (
+                  <Accordion key={idx} title={achievement.title}>
+                    {/* 반드시 문자열 또는 JSX 요소로 감싸서 전달 */}
+                    <p>{details}</p>
+                  </Accordion>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
-}
+};
 
 export default UserDetailPage;
