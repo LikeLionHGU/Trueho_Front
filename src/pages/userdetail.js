@@ -17,7 +17,7 @@ const UserDetailPage = () => {
   useEffect(() => {
     async function fetchUserDetail() {
       try {
-        const response = await fetch("/hansumUsers.json");
+        const response = await fetch("https://liketiger.info:443/hansumUsers.json");
         if (!response.ok) {
           throw new Error("데이터 로딩 실패");
         }
@@ -84,7 +84,7 @@ const UserDetailPage = () => {
   const handleSendMessage = async () => {
     try {
       // 예: /chat/이영희 형태로 POST 요청 (user.name을 id로 사용)
-      const response = await fetch(`/chat/${user.name}`, {
+      const response = await fetch(`https://liketiger.info:443/chat/${user.name}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
