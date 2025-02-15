@@ -48,24 +48,7 @@ function Newprofile() {
     });
   };
 
-
-
 // 3) 배열 값 post 하는 함수
-  // function postDataToJSONFile(e) {
-  //   e.preventDefault();
-  //   console.log(data);
-  //   axios.post(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
-  //     headers: { "Content-Type": "application/json" },
-  //   })
-  //     .then((response) => {
-  //       alert("입력이 완료되었습니다.");
-  //       navigate('/hansum');
-  //     })
-  //     .catch((error) => {
-  //       alert("에러가 발생했습니다.");
-  //       console.error(error);
-  //     });
-  // }
   const postDataToJSONFile = (e) => {
     e.preventDefault();
     console.log("보낼 데이터:", data); // 확인용 로그
@@ -97,6 +80,7 @@ function Newprofile() {
         </div>
 
         <div className="newprofile-top-container-second box-row">
+
           <div className="newprofile-top-container-second-selectbox">
             <img src={profileHansum} />
             <div className="newprofile-top-container-second-selectbox-text" >
@@ -104,6 +88,7 @@ function Newprofile() {
               <p>한동 섬김이로써 멘토로 등록을 원해요</p>
             </div>
           </div>
+
           <div className="newprofile-top-container-second-selectbox-margin"></div>
           <div className="newprofile-top-container-second-selectbox">
             <img src={profileHannegi} />
@@ -112,6 +97,7 @@ function Newprofile() {
               <p>한동 새내기로써 멘티로 등록을 원해요</p>
             </div>
           </div>
+          
         </div>
       </div>
 
@@ -132,31 +118,35 @@ function Newprofile() {
             <div className="newprofile-bottom-container-2-njjall box-column">
               {/* 닉네임 입력 */}
               <div className="newprofile-bottom-container-2-njj box-row">
-                {/* <div className='1'>
+                <div className='container_1'>
                   <span>닉네임</span>
-                </div> */}
-                <span>닉네임</span>
-                {/* input 위에 별표와 인풋박스 */}
-                <div className="newprofile-bottom-container-2-njj-input box-column">
-                  <span>*</span>
-                  <input placeholder="텍스트를 입력하세요" type="text" name="name" onChange={onChangeInput}/>
                 </div>
+                
+                {/* input 위에 별표와 인풋박스 */}
+                <div className='container_2'>
+                  <div className="newprofile-bottom-container-2-njj-input box-column">
+                    <span>*</span>
+                    <input placeholder="텍스트를 입력하세요" type="text" name="name" onChange={onChangeInput}/>
+                  </div>
+                  </div>
               </div>
               {/* 재학기간 입력------------------------ 여기서 부터 클래스 네임 바꾸고 싶음 바꿔도 됨 */}
               <div className="newprofile-bottom-container-2-njj box-row">
-                <span>재학 기간</span>
-                {/* input 위에 별표와 인풋박스 */}
-                <div className="newprofile-bottom-container-2-njj-input box-column">
-                  <span>*</span>
-
-                  <select name="admission" className="newprofile-bottom-container-2-njj-input-select" value={data.admission} onChange={onChangeInput}>
-                    <option disabled hidden >입학 연도</option>
-                    {Array.from({ length: 2025 - 1995 + 1 }, (_, i) => 2025 - i).map((year) => (
-                      <option key={year} value={year}>{year}</option>
-                    ))}
-                  </select>
-
+                <div className='container_1'>
+                  <span>재학 기간</span>
                 </div>
+                {/* input 위에 별표와 인풋박스 */}
+                <div className='container_2 box-row'>
+                  <div className="newprofile-bottom-container-2-njj-input box-column">
+                    <span>*</span>
+
+                    <select name="admission" className="newprofile-bottom-container-2-njj-input-select" value={data.admission} onChange={onChangeInput}>
+                      <option value="" >입학 연도</option>
+                      {Array.from({ length: 2025 - 1995 + 1 }, (_, i) => 2025 - i).map((year) => (
+                        <option key={year} value={year}>{year}</option>
+                      ))}
+                    </select>
+                  </div>
 
                 <div className="padding-top"><span> ~ </span></div>
                 
@@ -164,7 +154,7 @@ function Newprofile() {
                   <span>*</span>
 
                   <select name="graduation" className="newprofile-bottom-container-2-njj-input-select" onChange={onChangeInput} value={data.graduation}>
-                    <option disabled hidden  >졸업 연도</option>
+                    <option value="">졸업 연도</option>
                     <option key="재학 중">재학 중</option>
                     {Array.from({ length: 2025 - 1995 + 1 }, (_, i) => 2025 - i).map((year) => (
                       <option key={year} value={year}>{year}</option>
@@ -173,35 +163,41 @@ function Newprofile() {
 
                 </div>
               </div>
+              </div>
               {/* 전공 --------------------------------------------------------------*/}
               <div className="newprofile-bottom-container-2-njj box-row">
-                <span>전공</span>
+                <div className='container_1'>
+                  <span>전공</span>
+                </div>
                 {/* input 위에 별표와 인풋박스 */}
-                <div className="newprofile-bottom-container-2-njj-input box-column">
-                  <span>*</span>
-                  <select name="major" className="newprofile-bottom-container-2-njj-input-selectmajor" onChange={onChangeInput} value={data.major}>
-                    <option disabled hidden >학부 선택</option>
-                    <option value="기계제어공학부">기계제어공학부</option>
-                    <option value="전산전자공학부">전산전자공학부</option>
-                    <option value="생명과학부">생명과학부</option>
-                    <option value="공간환경시스템공학부">공간환경시스템공학부</option>
-                    <option value="ICT창업학부">ICT창업학부</option>
-                    <option value="콘텐츠융합디자인학부">콘텐츠융합디자인학부</option>
-                    <option value="커뮤니케이션학부">커뮤니케이션학부</option>
-                    <option value="국제어문학부">국제어문학부</option>
-                    <option value="경영경제학부">경영경제학부</option>
-                    <option value="법학부">법학부</option>
-                    <option value="상담심리사회복지학부">상담심리사회복지학부</option>
-                    <option value="글로벌리더십학부">글로벌리더십학부</option>
-                  </select>
-
+                <div className='container_2'>
+                  <div className="newprofile-bottom-container-2-njj-input box-column">
+                    <span>*</span>
+                    <select name="major" className="newprofile-bottom-container-2-njj-input-selectmajor" onChange={onChangeInput} value={data.major}>
+                      <option value="">학부 선택</option>
+                      <option value="기계제어공학부">기계제어공학부</option>
+                      <option value="전산전자공학부">전산전자공학부</option>
+                      <option value="생명과학부">생명과학부</option>
+                      <option value="공간환경시스템공학부">공간환경시스템공학부</option>
+                      <option value="ICT창업학부">ICT창업학부</option>
+                      <option value="콘텐츠융합디자인학부">콘텐츠융합디자인학부</option>
+                      <option value="커뮤니케이션학부">커뮤니케이션학부</option>
+                      <option value="국제어문학부">국제어문학부</option>
+                      <option value="경영경제학부">경영경제학부</option>
+                      <option value="법학부">법학부</option>
+                      <option value="상담심리사회복지학부">상담심리사회복지학부</option>
+                      <option value="글로벌리더십학부">글로벌리더십학부</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 {/* 3------------------------------------------------------------ */}
           <div className="newprofile-bottom-container-3 box-row">
-            <span>직무</span>
+            <div className="newprofile-bottom-container-3-z">
+              <span>직무</span>
+            </div>
                 {/* input 위에 별표와 인풋박스 */}
             <div className="newprofile-bottom-container-3-input box-column">
               <span>*</span>
@@ -210,7 +206,7 @@ function Newprofile() {
           </div>
 {/* 4------------------------------------------------------------ */}
           <div className="newprofile-bottom-container-4 box-column">
-            <div className="newprofile-bottom-container-4-name box-row">
+            <div className="newprofile-bottom-container-4-name">
               <span>대표 이력</span>
               <img src={muluumpobtn}/>
             </div>
