@@ -27,18 +27,18 @@ function Newprofile() {
 
 // 2) 입력 받은 값 배열에 넣기
   const [data, setData] = useState({
-    hansum: "",
-    name: "",
-    admission: "",
-    graduation: "",
-    major: "",
-    work: "",
+    hansum: "0",
+    name: "0",
+    admission: "0",
+    graduation: "0",
+    major: "0",
+    work: "0",
     history: [
       { 
-        name: "",
-        detail: "",
+        name: "0",
+        detail: "0",
       }, ],
-    showing: "",
+    showing: "0",
   });
 
   const onChangeInput = (input) => {
@@ -51,20 +51,39 @@ function Newprofile() {
 
 
 // 3) 배열 값 post 하는 함수
-  function postDataToJSONFile(e) {
+  // function postDataToJSONFile(e) {
+  //   e.preventDefault();
+  //   console.log(data);
+  //   axios.post(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
+  //     headers: { "Content-Type": "application/json" },
+  //   })
+  //     .then((response) => {
+  //       alert("입력이 완료되었습니다.");
+  //       navigate('/hansum');
+  //     })
+  //     .catch((error) => {
+  //       alert("에러가 발생했습니다.");
+  //       console.error(error);
+  //     });
+  // }
+  const postDataToJSONFile = (e) => {
     e.preventDefault();
+    console.log("보낼 데이터:", data); // 확인용 로그
     axios.post(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
       headers: { "Content-Type": "application/json" },
+      withCredentials: true,
     })
-      .then((response) => {
-        alert("입력이 완료되었습니다.");
-        navigate('/hansum');
-      })
-      .catch((error) => {
-        alert("에러가 발생했습니다.");
-        console.error(error);
-      });
-  }
+    .then((response) => {
+      console.log("서버 응답:", response.data);
+      alert("입력이 완료되었습니다.");
+      navigate('/hansum');
+    })
+    .catch((error) => {
+      console.error("에러 발생:", error.response?.data || error);
+      alert("에러가 발생했습니다.");
+    });
+  };
+  
   
 
   return (
@@ -110,9 +129,12 @@ function Newprofile() {
                 <span>사진 등록</span>
               </div>
             </div>
-            <div className="newprofile-bottom-container-2-njj box-column">
+            <div className="newprofile-bottom-container-2-njjall box-column">
               {/* 닉네임 입력 */}
               <div className="newprofile-bottom-container-2-njj box-row">
+                {/* <div className='1'>
+                  <span>닉네임</span>
+                </div> */}
                 <span>닉네임</span>
                 {/* input 위에 별표와 인풋박스 */}
                 <div className="newprofile-bottom-container-2-njj-input box-column">
@@ -126,25 +148,29 @@ function Newprofile() {
                 {/* input 위에 별표와 인풋박스 */}
                 <div className="newprofile-bottom-container-2-njj-input box-column">
                   <span>*</span>
-                  <select name="admission" className="newprofile-bottom-container-2-njj-input-select" onChange={onChangeInput}>
-                    <option disabled hidden selected >입학 연도</option>
+
+                  <select name="admission" className="newprofile-bottom-container-2-njj-input-select" value={data.admission} onChange={onChangeInput}>
+                    <option disabled hidden >입학 연도</option>
                     {Array.from({ length: 2025 - 1995 + 1 }, (_, i) => 2025 - i).map((year) => (
                       <option key={year} value={year}>{year}</option>
                     ))}
                   </select>
+
                 </div>
 
                 <div className="padding-top"><span> ~ </span></div>
                 
                 <div className="newprofile-bottom-container-2-njj-input box-column">
                   <span>*</span>
-                  <select name="graduation" className="newprofile-bottom-container-2-njj-input-select" onChange={onChangeInput}>
-                    <option disabled hidden selected >졸업 연도</option>
+
+                  <select name="graduation" className="newprofile-bottom-container-2-njj-input-select" onChange={onChangeInput} value={data.graduation}>
+                    <option disabled hidden  >졸업 연도</option>
                     <option key="재학 중">재학 중</option>
                     {Array.from({ length: 2025 - 1995 + 1 }, (_, i) => 2025 - i).map((year) => (
                       <option key={year} value={year}>{year}</option>
                     ))}
                   </select>
+
                 </div>
               </div>
               {/* 전공 --------------------------------------------------------------*/}
@@ -153,8 +179,8 @@ function Newprofile() {
                 {/* input 위에 별표와 인풋박스 */}
                 <div className="newprofile-bottom-container-2-njj-input box-column">
                   <span>*</span>
-                  <select name="major" className="newprofile-bottom-container-2-njj-input-selectmajor" onChange={onChangeInput}>
-                    <option disabled hidden selected>학부 선택</option>
+                  <select name="major" className="newprofile-bottom-container-2-njj-input-selectmajor" onChange={onChangeInput} value={data.major}>
+                    <option disabled hidden >학부 선택</option>
                     <option value="기계제어공학부">기계제어공학부</option>
                     <option value="전산전자공학부">전산전자공학부</option>
                     <option value="생명과학부">생명과학부</option>

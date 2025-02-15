@@ -1,4 +1,5 @@
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 const sendAccessTokenToBackend = async (idToken) => {
   console.log("아이디토큰: "+ idToken);
@@ -6,7 +7,8 @@ const sendAccessTokenToBackend = async (idToken) => {
     const serverResponse = await axios.post(
       `${process.env.REACT_APP_HOST_URL}/main/login?id_token=${idToken}`, // id_token을 쿼리 파라미터로 전달
       {
-        
+        headers:{"Content-Type": "application/json" },
+        withCredentials: true,
       }, // 요청 본문은 빈 객체
      
     );

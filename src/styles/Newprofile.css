@@ -125,7 +125,7 @@
 
 .newprofile-bottom-container-1{
   width: 960px;
-  margin-top: 87px;
+  margin-top: 40px;
 }
 
 .newprofile-bottom-container-1 p{
@@ -150,6 +150,10 @@
   line-height: 17px; /* 154.545% */
 }
 
+.newprofile-bottom-container-2{
+  margin-top: 25px;
+}
+
 .newprofile-bottom-container-2-pic-img{
   width:135px;
   height:135px;
@@ -167,6 +171,8 @@
   
   /* Drop Shadow _ Small */
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+
+  margin-top:18px;
 }
 
 .newprofile-bottom-container-2-pic-btn span{
@@ -180,6 +186,8 @@
   line-height: 18px; /* 150% */
 }
 
+
+
 .newprofile-bottom-container-2-njj span{
   color: var(--Primary-01, #25569D);
 
@@ -189,6 +197,8 @@
   font-style: normal;
   font-weight: 800;
   line-height: 21px; /* 150% */
+  
+  width:80px;
 }
 
 .newprofile-bottom-container-2-njj-input span{
