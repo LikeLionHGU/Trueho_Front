@@ -36,7 +36,6 @@ function App() {
         <Route path="/newprofile" element={<Newprofile />} />
 
       </Routes>
-       <Footer /> 
     </BrowserRouter>
   );
 }
