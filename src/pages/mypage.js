@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/MyPage.css"; // 스타일 시트
+import axios from "axios";
 
 function MyPage() {
   const [nickname, setNickname] = useState("사용자 닉네임");
@@ -14,18 +15,11 @@ function MyPage() {
     setIsProfilePublic(newValue);
 
     try {
-      // showing: 1 (공개), 0 (비공개)
-      const response = await fetch(`${process.env.REACT_APP_HOST_URL}/show`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ showing: newValue ? 1 : 0 })
-      });
-
-      if (!response.ok) {
-        throw new Error("서버 응답 오류");
-      }
+      const response = await axios.post(
+        `${process.env.REACT_APP_HOST_URL}/show`,
+        { showing: newValue ? 1 : 0 }, // 전송할 데이터 객체
+        { headers: { "Content-Type": "application/json" } } // 옵션(헤더)
+      );
       console.log("프로필 공개 설정 업데이트 성공:", newValue ? 1 : 0);
     } catch (error) {
       console.error("프로필 공개 설정 업데이트 실패:", error);
@@ -44,32 +38,18 @@ function MyPage() {
   // 로그아웃 버튼 핸들러 (API 호출 포함)
   const handleLogout = async () => {
     try {
-      // 로그아웃 엔드포인트 호출 (GET 또는 POST로 구현된 API에 맞게 수정)
-    //   axios.post("https://liketiger.info:443", data, {
-    //     headers: { "Content-Type": "application/json" },
-    //   })
-    //     .then((response) => {
-    //       alert("입력이 완료되었습니다.");
-    //       navigate('/');
-    //       navigate('/');
-    //     })
-    //     .catch((error) => {
-    //       alert("에러가 발생했습니다.");
-    //       console.error(error);
-    //     });
-    // }
-      //das
+      // 예시: 로그아웃 엔드포인트가 "/user/logout"라고 가정
+      const response = await axios.post(
+        `${process.env.REACT_APP_HOST_URL}/user/logout`
+      );
 
-      const response = await fetch(`${process.env.REACT_APP_HOST_URL}/user/logout`, {
-        method: "GET"
-      });
-      
-      if (!response.ok) {
+      // axios에서는 response.ok가 없으므로 response.status를 확인합니다.
+      if (response.status !== 200) {
         throw new Error("로그아웃 요청 실패");
       }
-      
-      const data = await response.json();
-      if (data.state === "Bye") {
+
+      // 응답 데이터는 response.data에 담겨있습니다.
+      if (response.data.state === "Bye") {
         alert("로그아웃 성공!");
         // 로그아웃 성공 시 로그인 페이지로 이동
         navigate("/login");
@@ -84,8 +64,6 @@ function MyPage() {
 
   return (
     <div className="mypage-container">
-      
-
       {/* 메인 콘텐츠 영역 */}
       <main className="mypage-main">
         {/* 가운데 큰 아이콘 (예시로 D 표시) */}
@@ -96,10 +74,10 @@ function MyPage() {
         <div className="profile-toggle">
           <span>프로필 공개하기</span>
           <label className="switch">
-            <input 
-              type="checkbox" 
-              checked={isProfilePublic} 
-              onChange={handleToggle} 
+            <input
+              type="checkbox"
+              checked={isProfilePublic}
+              onChange={handleToggle}
             />
             <span className="slider round"></span>
           </label>
@@ -115,8 +93,6 @@ function MyPage() {
           </button>
         </div>
       </main>
-
-      
     </div>
   );
 }
