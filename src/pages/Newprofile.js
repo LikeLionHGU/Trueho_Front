@@ -100,8 +100,9 @@ const handleClickNoShow = () => {
     });
   };
 
-// 6) 사진 업로드 + 사진 미리보기
-  const [uploadImgFile, setUploadImgFile] = useState("");
+// 6) 사진 업로드 + 사진 미리보기 + API 전송
+  const [uploadImgFile, setUploadImgFile] = useState(""); // 미리보기 URL
+  const [uploadFile, setUploadFile] = useState(null); // 실제 파일 저장
   const imgRef = useRef();
 
   const saveImgFile = () => {
@@ -109,7 +110,7 @@ const handleClickNoShow = () => {
     const file = imgRef.current.files[0];
 
     console.log(file);//업로드한 파일의 정보가 보여진다!
-
+    setUploadFile(file);
     //파일 데이터를 읽어올 수 있도록 FileReader 생성자 만들기.
     const reader = new window.FileReader();
 
@@ -122,8 +123,38 @@ const handleClickNoShow = () => {
         //파일이 읽어졌다면 result 속성에 담기게 된다.
       setUploadImgFile(reader.result);
     };
-  };
-  
+  }
+
+const postDataToIMGFile = (e) => {
+  e.preventDefault();
+  if (!uploadFile) {
+    alert("이미지를 업로드해주세요!");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("image", uploadFile); // 파일 추가
+
+  console.log("보낼 이미지 데이터:", uploadFile);
+
+  axios.post(`${process.env.REACT_APP_HOST_URL}/main/image`, formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+    withCredentials: true,
+  })
+  .then((response) => {
+    console.log("서버 응답:", response.data);
+    alert("입력이 완료되었습니다.");
+    navigate('/hansum');
+  })
+  .catch((error) => {
+    console.error("에러 발생:", error.response?.data || error);
+    alert("에러가 발생했습니다.");
+    console.error("에러 상태:", error.response?.status);
+    console.error("에러 데이터:", error.response?.data);
+    console.error("에러 메시지:", error.message);
+    alert("에러가 발생했습니다. 콘솔을 확인하세요.");
+  });
+};
 
   return (
     <>
@@ -166,17 +197,6 @@ const handleClickNoShow = () => {
           </div>
 {/* 2------------------------------------------------------------ */}
           <div className="newprofile-bottom-container-2 box-row">
-
-
-            {/* <div className="newprofile-bottom-container-2-pic box-column"> */}
-              {/* <img src={profiledefault} className="newprofile-bottom-container-2-pic-img"/> */}
-              {/* <img src={uploadImgFile || profiledefault} alt="이미지 미리보기" className="newprofile-bottom-container-2-pic-img"/>
-              <input className="newprofile-bottom-container-2-pic-btn" type="file" onChange={saveImgFile} ref={imgRef} accept="image/*" >
-                사진 등록
-              </input>
-            </div> */}
-
-
             <div className="newprofile-bottom-container-2-pic box-column">
               <img src={uploadImgFile || profiledefault} alt="이미지 미리보기" className="newprofile-bottom-container-2-pic-img" />
               
@@ -338,7 +358,12 @@ const handleClickNoShow = () => {
 {/* 7------------------------------------------------------------ */}
         <div className="newprofile-bottom-container-7 box-column">
 
-          <button onClick={(e) => postDataToJSONFile(e)} className='newprofile-bottom-container-7-btn' type="submit">
+          <button 
+            onClick={(e) => {
+              postDataToJSONFile(e);
+              postDataToIMGFile(e);
+              }} 
+              className='newprofile-bottom-container-7-btn' type="submit">
             제출
           </button>
           <p>프로필 수정은 My Page에서 가능합니다</p>
