@@ -100,7 +100,7 @@ const handleClickNoShow = () => {
     });
   };
 
-// 6) 사진 업로드 + 사진 미리보기 + API 전송
+// 6) 사진 업로드 + 사진 미리보기
   const [uploadImgFile, setUploadImgFile] = useState(""); // 미리보기 URL
   const [uploadFile, setUploadFile] = useState(null); // 실제 파일 저장
   const imgRef = useRef();
@@ -124,7 +124,7 @@ const handleClickNoShow = () => {
       setUploadImgFile(reader.result);
     };
   }
-
+// 7) 저장된 사진 API에 전송
 const postDataToIMGFile = (e) => {
   e.preventDefault();
   if (!uploadFile) {
