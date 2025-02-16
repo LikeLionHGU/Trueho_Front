@@ -41,47 +41,75 @@ function MyPage() {
     // 예: navigate("/profile/edit");
   };
 
-  // 로그아웃 버튼 핸들러 (API 호출 포함)
-  const handleLogout = async () => {
-    try {
-      /**
-       * /logout API 응답 예시 (POST):
-       * {
-       *   “state” : “Bye”
-       * }
-       * 
-       * 예외 상황 예시:
-       * {
-       *   "state": "No login info"
-       * }
-       */
 
-      // (1) 요청 바디가 필요 없다면 두 번째 인자로 null
-      // (2) 세 번째 인자로 { headers, withCredentials 등 } config 객체
-      const response = await axios.post(
-        `${process.env.REACT_APP_HOST_URL}/logout`,
-        null,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true, // 필요한 경우 쿠키/세션을 위해 사용
-        }
-      );
+  // // 로그아웃 버튼 핸들러 (API 호출 포함) -> 재호님 코드
+  // const handleLogout = async () => {
+  //   try {
+  //     /**
+  //      * /logout API 응답 예시 (POST):
+  //      * {
+  //      *   “state” : “Bye”
+  //      * }
+  //      * 
+  //      * 예외 상황 예시:
+  //      * {
+  //      *   "state": "No login info"
+  //      * }
+  //      */
 
-      // 서버 응답 구조: { state: "Bye" } 또는 { state: "No login info" }
-      const { state } = response.data;
+  //     // (1) 요청 바디가 필요 없다면 두 번째 인자로 null
+  //     // (2) 세 번째 인자로 { headers, withCredentials 등 } config 객체
+  //     const response = await axios.post(
+  //       `${process.env.REACT_APP_HOST_URL}/logout`,
+  //       null,
+  //       {
+  //         headers: { "Content-Type": "application/json" },
+  //         withCredentials: true, // 필요한 경우 쿠키/세션을 위해 사용
+  //       }
+  //     );
 
-      if (state === "Bye") {
-        alert("로그아웃 성공!");
-        navigate("/login");
-      } else if (state === "No login info") {
-        alert("로그인 정보가 없습니다.");
-      } else {
-        throw new Error("예상하지 못한 로그아웃 응답");
-      }
-    } catch (error) {
-      console.error("로그아웃 처리 오류:", error);
-      alert("로그아웃 처리에 실패했습니다.");
-    }
+  //     // 서버 응답 구조: { state: "Bye" } 또는 { state: "No login info" }
+  //     const { state } = response.data;
+
+  //     if (state === "Bye") {
+  //       alert("로그아웃 성공!");
+  //       navigate("/login");
+  //     } else if (state === "No login info") {
+  //       alert("로그인 정보가 없습니다.");
+  //     } else {
+  //       throw new Error("예상하지 못한 로그아웃 응답");
+  //     }
+  //   } catch (error) {
+  //     console.error("로그아웃 처리 오류:", error);
+  //     alert("로그아웃 처리에 실패했습니다.");
+  //   }
+  // };
+
+// 0) 로그아웃 기능 구현
+  const [data, setData] = useState({
+    state: "",
+  });
+
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setData({
+      ...data,
+      state: "Bye", // 0이면 비공개
+    });
+    axios.post(`${process.env.REACT_APP_HOST_URL}/user/logout`, data, {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    })
+    .then((response) => {
+      console.log("서버 응답:", response.data);
+      alert("입력이 완료되었습니다.");
+      navigate('/');
+    })
+    .catch((error) => {
+      console.error("에러 발생:", error.response?.data || error);
+      alert("에러가 발생했습니다.");
+    });
   };
 
   return (
