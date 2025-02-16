@@ -8,7 +8,7 @@ import ImsiPage from "./pages/imsi";
 import LoadingPage from "./pages/login/loading";
 import LoginPage from "./pages/login/login";
 import MyPage from "./pages/mypage";
-import UserDetail from "./pages/userdetail";
+import UserDetailPage from "./pages/userdetail";
 import Newprofile from "./pages/Newprofile";
 
 // import AwardList from "./components/awardlist";
@@ -31,7 +31,9 @@ function App() {
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/" element={<HansumPage />} />
-        <Route path="/user/:name" element={<UserDetail />} />
+        {/* <Route path="/user/:name" element={<UserDetailPage />} /> */}
+        {/* <Route path="/profile/:userId" element={<UserDetailPage />} /> */}
+        <Route path="/user/:userId" element={<UserDetailPage />} />
         <Route path="/chatroom/:id" element={<ChatRoom />} />
         <Route path="/newprofile" element={<Newprofile />} />
 
