@@ -166,6 +166,7 @@
 .newprofile-bottom-container-2-pic-img{
   width:135px;
   height:135px;
+  margin-top:10px;
 }
 
 .newprofile-bottom-container-2-pic-btn{
@@ -181,7 +182,7 @@
   /* Drop Shadow _ Small */
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
 
-  margin-top:18px;
+  margin-top:8px;
 }
 
 .newprofile-bottom-container-2-pic-btn span{
