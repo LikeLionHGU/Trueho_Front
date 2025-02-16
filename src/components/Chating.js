@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+// import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -106,28 +107,47 @@ function Chating() {
     });
   };
 
+// 4) 채팅 리스트 가져오기
+  const [chatings, setChatings] = useState([]);
+  const getChatings = async () => {
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_HOST_URL}/chat/content/${id}`);
+      console.log("함수 실행 확인");
+      console.log(res);
+      const chatingdata = res.data;
+      console.log(chatingdata);
+      setChatings(chatingdata);
+    } catch (err) {
+      console.error(err);
+    }
+  }; 
+
+  useEffect(() => {
+    getChatings();
+  }, [id]);
+
   return (
     <>
     
     <div className="chating-container">
       <div className="chating-container-top">
-      {test_chatinglist.map((chating, index) => {
-        const prevSending = index > 0 ? test_chatinglist[index - 1].sending : null;
+      {chatings.map((chating, index) => {
+        const prevSending = index > 0 ? chatings[index - 1].sending : null;
 
         return (
 
           <div 
           key={index} 
           className={`chating-container-top-message ${
-            chating.sending === "0" ? "left-message" : "right-message"
+            chating.sending === 0 ? "left-message" : "right-message"
           }`}
         >
           {/* chating.sending === "0" && prevSending === "0"이면 이미지 표시 */}
-          {chating.sending === "0" && prevSending === "1"  && (
+          {chating.sending === 0 && prevSending === 1  && (
             <Profile />
           )}
 
-          {chating.sending === "0" ? (
+          {chating.sending === 0 ? (
             <Topeople>{chating.message}</Topeople>
           ) : (
             <Frompeople>{chating.message}</Frompeople>
