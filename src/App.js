@@ -31,8 +31,9 @@ function App() {
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/" element={<HansumPage />} />
-        {/* <Route path="/user/:name" element={<UserDetail />} /> */}
-        <Route path="/profile/:userId" element={<UserDetailPage />} />
+        {/* <Route path="/user/:name" element={<UserDetailPage />} /> */}
+        {/* <Route path="/profile/:userId" element={<UserDetailPage />} /> */}
+        <Route path="/user/:userId" element={<UserDetailPage />} />
         <Route path="/chatroom/:id" element={<ChatRoom />} />
         <Route path="/newprofile" element={<Newprofile />} />
 

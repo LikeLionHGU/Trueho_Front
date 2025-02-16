@@ -88,3 +88,13 @@
   color: #a94c3c;
 }
 
+
+
+.no-underline {
+  text-decoration: none;
+  color: inherit; /* or 원하는 색상 */
+}
+
+.no-underline:hover {
+  text-decoration: none; /* 마우스 오버 시에도 없애려면 추가 */
+}

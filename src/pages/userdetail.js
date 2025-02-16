@@ -6,141 +6,84 @@ import "../components/styles/userDetail.css";
 import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
 
 function UserDetailPage() {
-  // URL 파라미터에서 userId를 받아온다고 가정 (예: /profile/123)
-  // 만약 라우터 설정이 /profile/:userId 라면 { userId }로 받아야 함
-  const { userId } = useParams();
+  const { userId } = useParams(); // ★ /user/:userId 에서 userId 추출
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const [user, setUser] = useState(null);    // 사용자 정보
-  const [loading, setLoading] = useState(true);  // 로딩 상태
-
-  // 모달 상태 & 메시지 상태
+  // 모달 상태 & 메시지 상태 (필요 시)
   const [showModal, setShowModal] = useState(false);
   const [messageText, setMessageText] = useState("");
 
-  /**
-   * 하나의 파일에 합친 fetchUserData 함수.
-   * /profile/list/:userId 경로로 GET 요청을 보내고,
-   * 성공하면 사용자 데이터를 반환한다.
-   */
+  // 백엔드에서 단일 유저 정보 가져오기
   async function fetchUserData(userId) {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_HOST_URL}/hansum/profile/:userId`,
+        // 여기서도 encodeURIComponent(userId) 사용 가능 (공백 등의 특수문자 대응)
+        `${process.env.REACT_APP_HOST_URL}/hansum/profile/${userId}`, 
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         }
       );
-      return response.data; // 단일 객체 또는 배열(실제 백엔드 응답 형식 확인)
+      return response.data; // 단일 객체라고 가정
     } catch (error) {
       console.error("Error fetching user data:", error);
-      return null; // 에러 발생 시 null 반환
+      return null;
     }
   }
 
-  /**
-   * 컴포넌트가 마운트되거나 userId가 바뀔 때마다 사용자 정보를 가져온다.
-   */
   useEffect(() => {
     async function getUserDetail() {
-      try {
-        if (!userId) {
-          // userId가 없으면 사용자 없음 처리
-          setUser(null);
-          setLoading(false);
-          return;
-        }
-
-        const data = await fetchUserData(userId);
-
-        // 만약 백엔드가 배열을 반환한다면,
-        // const foundUser = data.find((u) => u.id === Number(userId));
-        // setUser(foundUser || null);
-
-        // 여기서는 단일 객체라고 가정
-        setUser(data);
-      } catch (error) {
-        console.error("유저 상세정보 불러오기 오류:", error);
-      } finally {
+      if (!userId) {
+        setUser(null);
         setLoading(false);
+        return;
       }
+
+      const data = await fetchUserData(userId);
+
+      // ★ 백엔드가 '단일 객체'라고 가정하면 그대로 setUser
+      // 예: { id: 1, name: '홍길동', major: '컴퓨터공학', ... }
+      setUser(data);
+
+      setLoading(false);
     }
 
     getUserDetail();
   }, [userId]);
 
-  // 로딩 중이면 "로딩 중..." 메시지
   if (loading) return <h2>로딩 중...</h2>;
 
-  // user 정보가 없으면 "해당 사용자를 찾을 수 없습니다."
   if (!user) return <h2>해당 사용자를 찾을 수 없습니다.</h2>;
 
-  // --------------------- 데이터 가공 예시들 ---------------------
-  const studyText = user.admission && user.graduation
-    ? `${user.admission} ~ ${user.graduation}`
-    : "";
+  // --------------------- 데이터 가공 예시 ---------------------
+  const studyText =
+    user.admission && user.graduation
+      ? `${user.admission} ~ ${user.graduation}`
+      : "";
 
-  const profileImage = user.imgUrl && user.imgUrl.trim() !== ""
-    ? user.imgUrl
-    : defaultProfileImg;
+  const profileImage =
+    user.imgUrl && user.imgUrl.trim() !== ""
+      ? user.imgUrl
+      : defaultProfileImg;
 
   const jobText = user.work || "";
 
-  const taglineText = user.tagline && user.tagline.trim() !== ""
-    ? user.tagline
-    : user.generation
-    ? user.generation
-    : user.name;
-
   // 경력/수상 내역이 배열이라고 가정
-  const experienceSection = user.history && user.history.length > 0 && (
-    <div className="detail-achievements">
-      <h3>경력/수상 내역</h3>
-      <div className="accordion-container">
-        {user.history.map((item, idx) => (
-          <Accordion key={idx} title={item.name}>
-            <p>{item.detail}</p>
-          </Accordion>
-        ))}
+  const experienceSection =
+    user.history && user.history.length > 0 && (
+      <div className="detail-achievements">
+        <h3>경력/수상 내역</h3>
+        <div className="accordion-container">
+          {user.history.map((item, idx) => (
+            <Accordion key={idx} title={item.name}>
+              <p>{item.detail}</p>
+            </Accordion>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
 
-  // --------------------- 모달 관련 함수 ---------------------
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setMessageText("");
-  };
-
-  // 메시지 전송 (fetch 예시 - axios 써도 무방)
-  const handleSendMessage = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.REACT_APP_HOST_URL}/chat/${userId}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ message: messageText })
-        }
-      );
-      if (!response.ok) {
-        throw new Error("메시지 전송 실패");
-      }
-      alert("메시지가 전송되었습니다!");
-      handleCloseModal();
-    } catch (error) {
-      console.error("메시지 전송 에러:", error);
-      alert("메시지 전송에 실패했습니다.");
-    }
-  };
-
-  // --------------------- 실제 UI 렌더링 부분 ---------------------
   return (
     <div className="user-detail-page">
       <div className="user-detail-container">
@@ -152,7 +95,8 @@ function UserDetailPage() {
             <h2 className="name">{user.name || userId}</h2>
             {studyText && <p className="study-period">{studyText}</p>}
           </div>
-          <button className="message-button" onClick={handleOpenModal}>
+          {/* 메시지 모달 열기 버튼 예시 */}
+          <button className="message-button" onClick={() => setShowModal(true)}>
             메시지 보내기
           </button>
         </div>
@@ -166,12 +110,12 @@ function UserDetailPage() {
         {experienceSection}
       </div>
 
-      {/* 모달 */}
+      {/* 모달 예시 */}
       {showModal && (
-        <div className="modal-overlay" onClick={handleCloseModal}>
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div
             className="modal-content"
-            onClick={(e) => e.stopPropagation()} // 모달 안쪽 클릭 시 닫히지 않도록
+            onClick={(e) => e.stopPropagation()} 
           >
             <h2>{user.name}님에게 메시지 보내기</h2>
             <textarea
@@ -180,8 +124,10 @@ function UserDetailPage() {
               onChange={(e) => setMessageText(e.target.value)}
             />
             <div className="modal-buttons">
-              <button onClick={handleSendMessage}>메시지 보내기</button>
-              <button onClick={handleCloseModal}>닫기</button>
+              <button onClick={() => alert("메시지 전송 로직")}>
+                메시지 보내기
+              </button>
+              <button onClick={() => setShowModal(false)}>닫기</button>
             </div>
           </div>
         </div>

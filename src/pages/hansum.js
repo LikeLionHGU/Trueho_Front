@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom"; // ★ 추가
 import "../styles/hansum.css";
 import UserCard from "../components/usercard";
 import MajorFilter from "../components/majorfilter";
 import ScrollToTopButton from "../components/scrolltotopbutton";
 
-// 데이터 fetching 로직을 별도의 함수로 분리
 async function fetchUserData(userId) {
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_HOST_URL}/hansum/list/${userId}`, // userId 변수 사용
+      `${process.env.REACT_APP_HOST_URL}/hansum/list/${userId}`, 
       {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       }
     );
-    return response.data;
+    return response.data; // 응답이 배열이라고 가정
   } catch (error) {
     console.error("Error fetching users:", error);
     return []; // 에러 발생 시 빈 배열 반환
@@ -28,12 +28,11 @@ function HansumPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 예시로 사용할 userId 값 (실제 값으로 교체하세요)
-    const userId = 0;
+    const userId = 0; // 예: 특정 ID (테스트용)
 
     async function getUsers() {
       const data = await fetchUserData(userId);
-      setUsers(data);
+      setUsers(data);     // data가 배열이어야 filter 사용 가능
       setLoading(false);
     }
     getUsers();
@@ -59,7 +58,14 @@ function HansumPage() {
         {users
           .filter((user) => selectedMajor === "All" || user.major === selectedMajor)
           .map((user) => (
-            <UserCard key={user.name} user={user} />
+            // ★ user.id를 이용해서 상세 페이지로 이동할 수 있도록 Link 사용
+            <Link 
+              to={`/user/${user.id}`} 
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <UserCard user={user} />
+            </Link>
+
           ))}
       </div>
 
