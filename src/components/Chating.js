@@ -92,13 +92,14 @@ function Chating() {
   const postDataToJSONFile = (e) => {
     e.preventDefault();
     console.log("보낼 데이터:", data); // 확인용 로그
-    //여기야!!!
     axios.post(`${process.env.REACT_APP_HOST_URL}/chat/message/${id}`, data, {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     })
     .then((response) => {
       console.log("서버 응답:", response.data);
+      setData({ message: "" });
+
     })
     .catch((error) => {
       console.error("에러 발생:", error.response?.data || error);
@@ -137,7 +138,12 @@ function Chating() {
       </div>
       <div className="chating-container-bottom">
         <div className="chating-container-bottom-input">
-          <input placeholder="텍스트를 입력하세요" type="text" className="chating-container-bottom-inputbox" name="message" onChange={onChangeInput}></input>
+          <input placeholder="텍스트를 입력하세요" type="text" value={data.message} className="chating-container-bottom-inputbox" name="message" onChange={onChangeInput} onKeyPress={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault(); 
+              postDataToJSONFile(e);
+            }
+  }}/>
         </div>
         <button className="chating-container-bottom-button" onClick={(e) => postDataToJSONFile(e)} type="submit">
           <img src={buttonImg} alt="버튼"/>
