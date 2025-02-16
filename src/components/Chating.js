@@ -74,7 +74,36 @@ function Chating() {
   ];
 // 1) url에 있는 id 값 가져오기
   const { id } = useParams(); 
-  console.log(id);
+  //console.log(id);
+
+// 2) 채팅 입력 받은거 배열에 넣기
+  const [data, setData] = useState({
+    message: "",
+  });
+
+  const onChangeInput = (input) => {
+    setData({
+      ...data,
+      [input.target.name]: input.target.value,
+    });
+  };
+
+// 3) 채팅 배열 값 post 하는 함수
+  const postDataToJSONFile = (e) => {
+    e.preventDefault();
+    console.log("보낼 데이터:", data); // 확인용 로그
+    //여기야!!!
+    axios.post(`${process.env.REACT_APP_HOST_URL}/chat/message/${id}`, data, {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    })
+    .then((response) => {
+      console.log("서버 응답:", response.data);
+    })
+    .catch((error) => {
+      console.error("에러 발생:", error.response?.data || error);
+    });
+  };
 
   return (
     <>
@@ -85,17 +114,6 @@ function Chating() {
         const prevSending = index > 0 ? test_chatinglist[index - 1].sending : null;
 
         return (
-          // <div key={index} className={`chating-container-top-message ${chating.sending === "0" ? "left-message" : "right-message"}`}>
-          //   {/* sending 값에 따른 조건문 0이면 왼쪽 1이면 오른쪽*/}
-          //   {chating.sending === "0" ? (
-              
-          //     // sending 값이 "0"일 때
-          //     <Topeople>{chating.message}</Topeople>
-          //   ) : (
-          //     // sending 값이 "1"일 때
-          //     <Frompeople>{chating.message}</Frompeople>
-          //   )}
-          // </div>
 
           <div 
           key={index} 
@@ -119,11 +137,11 @@ function Chating() {
       </div>
       <div className="chating-container-bottom">
         <div className="chating-container-bottom-input">
-          <input placeholder="텍스트를 입력하세요" type="text" className="chating-container-bottom-inputbox"></input>
+          <input placeholder="텍스트를 입력하세요" type="text" className="chating-container-bottom-inputbox" name="message" onChange={onChangeInput}></input>
         </div>
-        <div className="chating-container-bottom-button">
+        <button className="chating-container-bottom-button" onClick={(e) => postDataToJSONFile(e)} type="submit">
           <img src={buttonImg} alt="버튼"/>
-        </div>
+        </button>
       </div>
     </div>
     </>

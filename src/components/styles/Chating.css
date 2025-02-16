@@ -67,9 +67,6 @@
   font-style: normal;
   font-weight: 500;
   line-height: 18px; /* 150% */
-
-  padding-left: 20px;
-
 }
 
 .chating-container-bottom-inputbox{
@@ -80,8 +77,21 @@
   border-radius: 12px;
   background: var(--Primary-04, #F4F8FD);
   border:none;
+
+  color: #25569D;
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+
+  padding-left: 20px;
 }
 
 .chating-container-bottom-button{
   margin-right: 15px;
+  border:none;
+  background:none;
 }
