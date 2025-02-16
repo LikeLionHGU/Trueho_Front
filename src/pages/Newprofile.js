@@ -81,24 +81,42 @@ const handleClickNoShow = () => {
 };
 
 
-// 5) 배열 값 post 하는 함수
-  const postDataToJSONFile = (e) => {
+// 5) 배열 값 & 사진 post 하는 함수
+
+  const postAllDataSequentially = async (e) => {
     e.preventDefault();
-    console.log("보낼 데이터:", data); // 확인용 로그
-    axios.post(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-    })
-    .then((response) => {
-      console.log("서버 응답:", response.data);
-      alert("입력이 완료되었습니다.");
+  
+    try {
+      // 1) 일반 데이터 먼저 전송
+      await axios.post(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
+      console.log("일반 데이터 전송 완료");
+  
+      // 2) 이미지 전송
+      if (!uploadFile) {
+        alert("이미지를 업로드해주세요!");
+        return;
+      }
+  
+      const formData = new FormData();
+      formData.append("image", uploadFile);
+  
+      await axios.post(`${process.env.REACT_APP_HOST_URL}/main/image`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+        withCredentials: true,
+      });
+  
+      console.log("이미지 데이터 전송 완료");
+      alert("모든 데이터가 성공적으로 전송되었습니다!");
       navigate('/hansum');
-    })
-    .catch((error) => {
+    } catch (error) {
       console.error("에러 발생:", error.response?.data || error);
       alert("에러가 발생했습니다.");
-    });
+    }
   };
+  
 
 // 6) 사진 업로드 + 사진 미리보기
   const [uploadImgFile, setUploadImgFile] = useState(""); // 미리보기 URL
@@ -125,36 +143,7 @@ const handleClickNoShow = () => {
     };
   }
 // 7) 저장된 사진 API에 전송
-const postDataToIMGFile = (e) => {
-  e.preventDefault();
-  if (!uploadFile) {
-    alert("이미지를 업로드해주세요!");
-    return;
-  }
 
-  const formData = new FormData();
-  formData.append("image", uploadFile); // 파일 추가
-
-  console.log("보낼 이미지 데이터:", uploadFile);
-
-  axios.post(`${process.env.REACT_APP_HOST_URL}/main/image`, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-    withCredentials: true,
-  })
-  .then((response) => {
-    console.log("서버 응답:", response.data);
-    alert("입력이 완료되었습니다.");
-    navigate('/hansum');
-  })
-  .catch((error) => {
-    console.error("에러 발생:", error.response?.data || error);
-    alert("에러가 발생했습니다.");
-    console.error("에러 상태:", error.response?.status);
-    console.error("에러 데이터:", error.response?.data);
-    console.error("에러 메시지:", error.message);
-    alert("에러가 발생했습니다. 콘솔을 확인하세요.");
-  });
-};
 
   return (
     <>
@@ -360,8 +349,7 @@ const postDataToIMGFile = (e) => {
 
           <button 
             onClick={(e) => {
-              postDataToJSONFile(e);
-              postDataToIMGFile(e);
+              postAllDataSequentially(e);
               }} 
               className='newprofile-bottom-container-7-btn' type="submit">
             제출
