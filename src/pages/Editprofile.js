@@ -156,7 +156,7 @@ const handleClickNoShow = () => {
       setUploadImgFile(reader.result);
     };
   }
-// 8) 사용자 프로필 정보 불러오기
+// 7) 사용자 프로필 정보 불러오기
   const [profile, setList] = useState([]);
   const getProfile = async () => {
     try {
@@ -168,7 +168,7 @@ const handleClickNoShow = () => {
       console.error(err);
     }
   }; 
-  //페이지 로드되면 list값 불러옴
+// 8) 페이지 로드되면 list값 불러옴
 
   useEffect(() => {
     getProfile();

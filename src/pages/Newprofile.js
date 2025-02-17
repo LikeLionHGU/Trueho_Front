@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -12,6 +12,7 @@ import profileactive from "../assets/Page/NewProfile/activate_img.png"
 import profiledeactive from "../assets/Page/NewProfile/deactivate_img.png"
 
 import Footer from "../components/footer";
+import ProfileGuideModal from "../components/modal/ProfileGuideModal";
 
 
 function Newprofile() {
@@ -156,8 +157,21 @@ const handleClickNoShow = () => {
       setUploadImgFile(reader.result);
     };
   }
-// 7) 저장된 사진 API에 전송
+// 7) 등록 가이드 모달 열기 닫기
+const [modalOpen, setModalOpen] = useState(false);
+const openModal = () => setModalOpen(true);
+const closeModal = () => {
+  setModalOpen(false);
+  document.body.style.removeProperty('overflow');
+};
 
+
+// 8) 클릭 → 가이드 모달 
+  const guideModalClick = () => {
+    // console.log(item.emoProfile);
+    openModal();
+    document.body.style.overflow = 'hidden';
+};
 
   return (
     <>
@@ -311,7 +325,7 @@ const handleClickNoShow = () => {
           <div className="newprofile-bottom-container-4 box-column">
             <div className="newprofile-bottom-container-4-name">
               <span>대표 이력</span>
-              <img src={muluumpobtn}/>
+              <img src={muluumpobtn} onClick={() => guideModalClick()}/>
             </div>
           <div className="gridBox">
             {boxes.map((box) => (
@@ -379,7 +393,10 @@ const handleClickNoShow = () => {
       <Footer /> 
     </div>
 
-    {/* <Footer />  */}
+    <ProfileGuideModal
+        open={modalOpen}
+        close={closeModal}
+      />
     </>
   );
 }
