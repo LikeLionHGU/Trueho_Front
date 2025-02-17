@@ -54,20 +54,17 @@ function HansumPage() {
         setSelectedMajor={setSelectedMajor} 
       />
       
-      <div className="user-grid">
-        {users
-          .filter((user) => selectedMajor === "All" || user.major === selectedMajor)
-          .map((user) => (
-            // ★ user.id를 이용해서 상세 페이지로 이동할 수 있도록 Link 사용
-            <Link 
-              to={`/user/${user.id}`} 
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              <UserCard user={user} />
-            </Link>
-
-          ))}
-      </div>
+      {Array.isArray(users) && (
+  <div className="user-grid">
+    {users
+      .filter((user) => selectedMajor === "All" || user.major === selectedMajor)
+      .map((user) => (
+        <Link key={user.id} to={`/user/${user.id}`} >
+          <UserCard user={user} />
+        </Link>
+      ))}
+  </div>
+)}
 
       <ScrollToTopButton />
     </div>
