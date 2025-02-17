@@ -24,6 +24,10 @@
   height: 100px;
   flex-shrink: 0;
 }
+.chatlist-item.active{
+  border: 1px solid var(--Primary-01, #25569D);
+  background: var(--Primary-01, #25569D);
+}
 
 .chatlist-item-img{
   width: 50px;
@@ -67,6 +71,10 @@
 
 }
 
+.chatlist-item-textcontainer-up-name.active{
+  color: #ffffff;
+}
+
 .chatlist-item-textcontainer-last{
   width: 141px;
   height: 18.342px;
@@ -80,6 +88,10 @@
   font-style: normal;
   font-weight: 500;
   line-height: 17px; /* 154.545% */
+}
+
+.chatlist-item-textcontainer-last.active{
+  color: #ffffff;
 }
 
 .chatlist-item-check{
