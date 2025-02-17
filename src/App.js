@@ -10,11 +10,11 @@ import LoginPage from "./pages/login/login";
 import MyPage from "./pages/mypage";
 import UserDetailPage from "./pages/userdetail";
 import Newprofile from "./pages/Newprofile";
+import Editprofile from "./pages/Editprofile";
+
 
 // import AwardList from "./components/awardlist";
 import Header from "./components/header";
-import Footer from "./components/footer";
-
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
         <Route path="/user/:userId" element={<UserDetailPage />} />
         <Route path="/chatroom/:id" element={<ChatRoom />} />
         <Route path="/newprofile" element={<Newprofile />} />
-
+        <Route path="/editprofile" element={<Editprofile />} />
       </Routes>
     </BrowserRouter>
   );
