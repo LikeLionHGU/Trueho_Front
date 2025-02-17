@@ -15,7 +15,7 @@ function MyPage() {
   // 사용자 정보
   const [nickname, setNickname] = useState("사용자 닉네임");
   const [isProfilePublic, setIsProfilePublic] = useState(true);
-  const [profilePic, setProfilePic] = useState(defaultProfileImg);
+  const [profilePic, setProfilePic] = useState();
 
   const [loading, setLoading] = useState(true);
 
@@ -38,8 +38,11 @@ function MyPage() {
         const data = response.data;
         setNickname(data.name || "사용자 닉네임");
         setIsProfilePublic(data.showing === 1); // 1이면 공개, 0이면 비공개
-        setProfilePic(data.pic || defaultProfileImg);
-      } catch (error) {
+        setProfilePic(data.imgUrl);
+      } 
+      
+      
+      catch (error) {
         console.error("사용자 정보 불러오기 실패:", error);
         alert("사용자 정보를 불러오는 데 실패했습니다.");
         // 필요 시 로그인 페이지 이동
@@ -78,6 +81,8 @@ const handleToggle = async () => {
     alert("프로필 공개 설정 변경에 실패했습니다.");
     console.error(error);
   }
+
+  
   
 };
 
@@ -106,14 +111,10 @@ const handleToggle = async () => {
       console.log("로그아웃 응답:", response.data);
       
       const { state } = response.data;
-      if (state === "Bye") {
+      if (state == "Bye~") {
         alert("로그아웃 성공!");
         navigate("/");
-      } else if (state === "No login info") {
-        alert("로그인 정보가 없습니다.");
-      } else {
-        throw new Error("예상하지 못한 로그아웃 응답");
-      }
+      } 
     } catch (error) {
       console.error("로그아웃 처리 오류:", error);
       alert("로그아웃 처리에 실패했습니다.");
@@ -129,7 +130,7 @@ const handleToggle = async () => {
       <main className="mypage-main">
         {/* 프로필 이미지 */}
         <img
-          className="profile-icon"
+          className="profile-image"
           src={profilePic}
           alt="Profile"
           style={{ width: 100, height: 100 }}
