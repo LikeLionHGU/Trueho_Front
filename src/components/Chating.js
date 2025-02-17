@@ -1,7 +1,8 @@
 // import React, { useRef, useState } from 'react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useRef} from 'react';
 import { useParams } from "react-router-dom";
 import axios from "axios";
+
 
 
 import "./styles/Chating.css";
@@ -51,6 +52,8 @@ function Chating() {
 
 // 4) 채팅 리스트 가져오기
   const [chatings, setChatings] = useState([]);
+  const chatingsRef = useRef(chatings); // chatings 최신 상태를 저장하는 useRef
+
   const getChatings = async () => {
     try {
       const res = await axios.get(`${process.env.REACT_APP_HOST_URL}/chat/content/${id}`);
@@ -58,16 +61,29 @@ function Chating() {
       console.log(res);
       const chatingdata = res.data;
       console.log(chatingdata);
-      setChatings(chatingdata);
+// 4)에서 가장 중요 !! 현재 채팅과 새로 불러오는 채팅 비교해서 다를때만 새로고침 되게!
+      if  (JSON.stringify(chatingsRef.current) !== JSON.stringify(chatingdata)) {
+        setChatings(chatingdata);
+        chatingsRef.current = chatingdata; 
+      }
+
     } catch (err) {
       console.error(err);
     }
   }; 
 
+// 5) 처음, 5초마다 새로고침
   useEffect(() => {
-    getChatings();
+    getChatings(); // 최초 실행 되었을 때 함수 불러와서 채팅 띠워라
+  
+    const interval = setInterval(() => {
+      getChatings();
+    }, 5000); // 5초마다 채팅 새로고침
+  
+    return () => clearInterval(interval);
   }, [id]);
 
+// 6) 스크롤 하단 고정
   useEffect(() => {
     const chatContainer = document.querySelector(".chating-container-top");
     if (chatContainer) {
