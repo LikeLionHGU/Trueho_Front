@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/AboutPage.css";  // 1) CSS 경로
-import firstSectionImg from "../assets/image1.svg";
-import secondSectionImg from "../assets/image2.svg";
+import firstSectionImg from "../assets/Components/About/image1.svg";
+import secondSectionImg from "../assets/Components/About/image2.svg";
 
 function AboutPage() {
   return (
