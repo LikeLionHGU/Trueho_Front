@@ -101,28 +101,28 @@ const handleClickNoShow = () => {
     e.preventDefault();
   
     try {
-      // 1) 일반 데이터 먼저 전송
+      // (1) 일반 데이터 먼저 전송
       await axios.post(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
       console.log("일반 데이터 전송 완료");
-  
-      // 2) 이미지 전송
-      if (!uploadFile) {
-        alert("이미지를 업로드해주세요!");
-        return;
-      }
-  
+
+      // (2) 이미지가 있을 경우에만 전송
+    if (uploadFile) {
       const formData = new FormData();
       formData.append("image", uploadFile);
-  
+
       await axios.post(`${process.env.REACT_APP_HOST_URL}/main/image`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true,
       });
-  
+
       console.log("이미지 데이터 전송 완료");
+    } else {
+      console.log("이미지가 없어 이미지 전송을 건너뜁니다.");
+    }
+
       alert("모든 데이터가 성공적으로 전송되었습니다!");
       navigate('/hansum');
     } catch (error) {
@@ -304,7 +304,7 @@ const handleClickNoShow = () => {
                 {/* input 위에 별표와 인풋박스 */}
             <div className="newprofile-bottom-container-3-input box-column">
             <div className='star'><span>*</span></div>
-              <input placeholder="현재 직무를 작성해 주세요 (ex. 마케터, 웹디자이너)" type="text" name="work" onChange={onChangeInput}></input>
+              <input placeholder="현재 직무를 작성해 주세요 (ex. 마케터, 웹디자이너, 학생)" type="text" name="work" onChange={onChangeInput}></input>
             </div>
           </div>
 {/* 4------------------------------------------------------------ */}
