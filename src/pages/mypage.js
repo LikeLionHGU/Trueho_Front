@@ -1,123 +1,143 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+// 기본 프로필 이미지 (assets 폴더에 넣어둔 예시)
+import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
+
 import "../styles/MyPage.css";
 
+// 모든 axios 요청에 대해 withCredentials 허용 (선택)
+axios.defaults.withCredentials = true;
+
 function MyPage() {
-  const [nickname, setNickname] = useState("사용자 닉네임");
-  const [isProfilePublic, setIsProfilePublic] = useState(true);
   const navigate = useNavigate();
 
-  // 프로필 공개 토글 핸들러
-  const handleToggle = async () => {
-    const newValue = !isProfilePublic;
-    setIsProfilePublic(newValue);
+  // 사용자 정보
+  const [nickname, setNickname] = useState("사용자 닉네임");
+  const [isProfilePublic, setIsProfilePublic] = useState(true);
+  const [profilePic, setProfilePic] = useState(defaultProfileImg);
 
-    try {
-      const response = await fetch(`${process.env.REACT_APP_HOST_URL}/show`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ showing: newValue ? 1 : 0 }),
-      });
+  const [loading, setLoading] = useState(true);
 
-      if (!response.ok) {
-        throw new Error("서버 응답 오류");
+  // [1] 마운트 시 사용자 정보 GET /user/detail
+  useEffect(() => {
+    async function getProfile() {
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_HOST_URL}/user/detail`, {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        });
+        /**
+         * 서버 응답 예시:
+         * {
+         *   "name": "잘생긴 라이언",
+         *   "showing": 0,
+         *   "pic": "img_url"
+         * }
+         */
+        const data = response.data;
+        setNickname(data.name || "사용자 닉네임");
+        setIsProfilePublic(data.showing === 1); // 1이면 공개, 0이면 비공개
+        setProfilePic(data.pic || defaultProfileImg);
+      } catch (error) {
+        console.error("사용자 정보 불러오기 실패:", error);
+        alert("사용자 정보를 불러오는 데 실패했습니다.");
+        // 필요 시 로그인 페이지 이동
+        // navigate("/login");
+      } finally {
+        setLoading(false);
       }
-
-      console.log("프로필 공개 설정 업데이트 성공:", newValue ? 1 : 0);
-    } catch (error) {
-      console.error("프로필 공개 설정 업데이트 실패:", error);
-      // 실패 시 UI 상태 되돌리기
-      setIsProfilePublic(!newValue);
-      alert("프로필 공개 설정 변경에 실패했습니다.");
     }
-  };
+    getProfile();
+  }, [navigate]);
 
-  // 프로필 수정 버튼 핸들러
+  // [2] 프로필 공개 토글 핸들러
+  // 일반적으로, isProfilePublic=true → 공개(1), false → 비공개(0)
+const handleToggle = async () => {
+  const newValue = !isProfilePublic; 
+  // newValue = false 라면 → 비공개
+  setIsProfilePublic(newValue);
+
+  try {
+    // 1 ⇒ 공개, 0 ⇒ 비공개 (서버 규칙 확인)
+    const showingValue = newValue ? 1 : 0;
+
+    console.log("전송할 showing 값:", showingValue);
+    await axios.post(
+      `${process.env.REACT_APP_HOST_URL}/user/profile/show`,
+      { showing: showingValue },
+      {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      }
+    );
+    console.log("프로필 공개 설정 업데이트 성공:", showingValue);
+  } catch (error) {
+    // 실패 시 원상복귀
+    setIsProfilePublic(!newValue);
+    alert("프로필 공개 설정 변경에 실패했습니다.");
+    console.error(error);
+  }
+  
+};
+
+
+  // [3] 프로필 수정 버튼
   const handleEditProfile = () => {
     alert("프로필 수정 페이지로 이동합니다.");
     // 예: navigate("/profile/edit");
   };
 
-
-  // // 로그아웃 버튼 핸들러 (API 호출 포함) -> 재호님 코드
-  // const handleLogout = async () => {
-  //   try {
-  //     /**
-  //      * /logout API 응답 예시 (POST):
-  //      * {
-  //      *   “state” : “Bye”
-  //      * }
-  //      * 
-  //      * 예외 상황 예시:
-  //      * {
-  //      *   "state": "No login info"
-  //      * }
-  //      */
-
-  //     // (1) 요청 바디가 필요 없다면 두 번째 인자로 null
-  //     // (2) 세 번째 인자로 { headers, withCredentials 등 } config 객체
-  //     const response = await axios.post(
-  //       `${process.env.REACT_APP_HOST_URL}/logout`,
-  //       null,
-  //       {
-  //         headers: { "Content-Type": "application/json" },
-  //         withCredentials: true, // 필요한 경우 쿠키/세션을 위해 사용
-  //       }
-  //     );
-
-  //     // 서버 응답 구조: { state: "Bye" } 또는 { state: "No login info" }
-  //     const { state } = response.data;
-
-  //     if (state === "Bye") {
-  //       alert("로그아웃 성공!");
-  //       navigate("/login");
-  //     } else if (state === "No login info") {
-  //       alert("로그인 정보가 없습니다.");
-  //     } else {
-  //       throw new Error("예상하지 못한 로그아웃 응답");
-  //     }
-  //   } catch (error) {
-  //     console.error("로그아웃 처리 오류:", error);
-  //     alert("로그아웃 처리에 실패했습니다.");
-  //   }
-  // };
-
-// 0) 로그아웃 기능 구현
-  const [data, setData] = useState({
-    state: "",
-  });
-
-
-  const handleLogout = (e) => {
-    e.preventDefault();
-    setData({
-      ...data,
-      state: "Bye", // 0이면 비공개
-    });
-    axios.post(`${process.env.REACT_APP_HOST_URL}/user/logout`, data, {
-      headers: { "Content-Type": "application/json" },
-      withCredentials: true,
-    })
-    .then((response) => {
-      console.log("서버 응답:", response.data);
-      alert("입력이 완료되었습니다.");
-      navigate('/');
-    })
-    .catch((error) => {
-      console.error("에러 발생:", error.response?.data || error);
-      alert("에러가 발생했습니다.");
-    });
+  // [4] 로그아웃
+  const handleLogout = async () => {
+    try {
+      /**
+       * POST /user/logout
+       * 응답 예: { "state": "Bye" } || { "state": "No login info" }
+       */
+      const response = await axios.post(
+        `${process.env.REACT_APP_HOST_URL}/user/logout`,
+        null,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log("로그아웃 응답:", response.data);
+      
+      const { state } = response.data;
+      if (state === "Bye") {
+        alert("로그아웃 성공!");
+        navigate("/");
+      } else if (state === "No login info") {
+        alert("로그인 정보가 없습니다.");
+      } else {
+        throw new Error("예상하지 못한 로그아웃 응답");
+      }
+    } catch (error) {
+      console.error("로그아웃 처리 오류:", error);
+      alert("로그아웃 처리에 실패했습니다.");
+    }
   };
+
+  if (loading) {
+    return <div>로딩 중...</div>;
+  }
 
   return (
     <div className="mypage-container">
       <main className="mypage-main">
-        <div className="profile-icon">D</div>
+        {/* 프로필 이미지 */}
+        <img
+          className="profile-icon"
+          src={profilePic}
+          alt="Profile"
+          style={{ width: 100, height: 100 }}
+        />
+        {/* 닉네임 */}
         <h2 className="nickname">{nickname}</h2>
 
+        {/* 프로필 공개 토글 */}
         <div className="profile-toggle">
           <span>프로필 공개하기</span>
           <label className="switch">
@@ -131,6 +151,7 @@ function MyPage() {
           <span className="toggle-state">{isProfilePublic ? "ON" : "OFF"}</span>
         </div>
 
+        {/* 프로필 수정 & 로그아웃 버튼 */}
         <div className="button-group">
           <button className="profile-edit-button" onClick={handleEditProfile}>
             프로필 수정하기
