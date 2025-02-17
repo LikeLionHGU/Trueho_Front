@@ -68,6 +68,13 @@ function Chating() {
     getChatings();
   }, [id]);
 
+  useEffect(() => {
+    const chatContainer = document.querySelector(".chating-container-top");
+    if (chatContainer) {
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+  }, [chatings]);
+
   return (
     <>
     
