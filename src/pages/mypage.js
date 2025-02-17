@@ -90,7 +90,7 @@ const handleToggle = async () => {
   // [3] 프로필 수정 버튼
   const handleEditProfile = () => {
     alert("프로필 수정 페이지로 이동합니다.");
-    // 예: navigate("/profile/edit");
+    navigate("/editprofile");
   };
 
   // [4] 로그아웃
