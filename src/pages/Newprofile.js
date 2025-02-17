@@ -23,6 +23,10 @@ function Newprofile() {
   // 새로운 박스 추가하는 함수
   const addBox = () => {
     setBoxes([...boxes, boxes.length + 1]); // 기존 배열에 새 번호 추가 
+    setData({
+      ...data,
+      history: [...data.history, { name: "", detail: "" }], // 빈 데이터 추가
+    });
   };
 
 // 2) 입력 받은 값 배열에 넣기
@@ -45,6 +49,16 @@ function Newprofile() {
     setData({
       ...data,
       [input.target.name]: input.target.value,
+    });
+  };
+
+  const onChangeHistoryInput = (index, field, value) => {
+    const updatedHistory = [...data.history];
+    updatedHistory[index] = { ...updatedHistory[index], [field]: value };
+  
+    setData({
+      ...data,
+      history: updatedHistory, // 기존 배열을 그대로 유지하면서 수정
     });
   };
 
@@ -303,9 +317,9 @@ const handleClickNoShow = () => {
             {boxes.map((box) => (
                 <div key={box} className="newprofile-bottom-container-4-box">
                   <div className="newprofile-bottom-container-4-box-test box-column">
-                    <input placeholder="공백 포함 최대 25자 입력하실 수 있습니다" type="text" />
+                    <input placeholder="공백 포함 최대 25자 입력하실 수 있습니다" type="text" onChange={(e) => onChangeHistoryInput(box, "name", e.target.value)}/>
                     <div className="newprofile-bottom-container-4-box-test-in">
-                      <input placeholder="이력에 대한 상세한 내용을 공백 포함 최대 300자 내로 작성하실 수 있습니다." type="text" />
+                      <input placeholder="이력에 대한 상세한 내용을 공백 포함 최대 300자 내로 작성하실 수 있습니다." type="text" onChange={(e) => onChangeHistoryInput(box, "detail", e.target.value)}/>
                     </div>
                   </div>
                 </div>
