@@ -53,7 +53,7 @@ useEffect(() => {
       {list.map((chat) => (
         <div key={chat.id} className={`chatlist-item ${chat.id === Number(id) ? "active" : ""}`} onClick={() => enterChatRoom(chat.id)}>
 
-          <img src={defaultprofile} alt={chat.name} className="chatlist-item-img" />
+          <img src={chat.imgUrl || defaultprofile} alt={chat.name} className="chatlist-item-img" />
 
           <div className="chatlist-item-textcontainer">
             <div className="chatlist-item-textcontainer-up">
@@ -64,7 +64,7 @@ useEffect(() => {
           </div>
 
           <div className="chatlist-item-check">
-            <img src={chat.id === Number(id) ? whiteheart : heart} alt="heart" className="chatlist-item-textcontainer-up-img" />
+            <img src={chat.id === Number(id) ? whiteheart : heart}  alt="heart" className="chatlist-item-textcontainer-up-img" />
           </div>
           
         </div>
