@@ -27,23 +27,29 @@ function ChatList() {
   const { id } = useParams(); 
 
 // 3) 리스트 가져오기
-const [list, setList] = useState([]);
-const getList = async () => {
-  try {
-    const res = await axios.get(`${process.env.REACT_APP_HOST_URL}/chat/list`);
-    console.log("list 함수 실행 확인");
-    console.log(res);
-    const chatinglist = res.data;
-    console.log(chatinglist);
-    setList(chatinglist);
-  } catch (err) {
-    console.error(err);
-  }
-}; 
-//페이지 로드되면 list값 불러옴
-useEffect(() => {
-  getList();
-}, []); 
+  const [list, setList] = useState([]);
+  const getList = async () => {
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_HOST_URL}/chat/list`);
+      console.log("list 함수 실행 확인");
+      console.log(res);
+      const chatinglist = res.data;
+      console.log(chatinglist);
+      setList(chatinglist);
+    } catch (err) {
+      console.error(err);
+    }
+  }; 
+// 4) 페이지 로드되면 list값 불러옴 + 5초마다 새로고침
+  useEffect(() => {
+    getList();
+
+    const interval = setInterval(() => {
+      getList();
+    }, 5000); // 5초마다 채팅 새로고침
+
+    return () => clearInterval(interval);
+  }, []); 
 
 
   return (
