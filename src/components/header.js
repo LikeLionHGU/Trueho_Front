@@ -10,7 +10,7 @@ function Header() {
   return (
     <header className="header">
       <div className="header-left">
-        <img src={hansumLogo} alt="Hansum Logo" className="header-logo" onClick={() => navigate("/")} />
+        <img src={hansumLogo} alt="Hansum Logo" className="header-logo" onClick={() => navigate("/hansum")} />
       </div>
       <nav className="header-nav">
         <ul>
