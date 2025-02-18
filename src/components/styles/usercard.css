@@ -1,100 +1,107 @@
 .user-card {
   width: 300px;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  height: 235px; /* 카드 전체 고정 높이 */
+  background: #f4f8fd;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  overflow: hidden;
   margin: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.user-card-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.profile-icon {
-  width: 50px;
-  height: 50px;
-  margin-right: 12px;
-  object-fit: cover;
-}
-
-.user-card-header-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.user-name {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-  color: #5b463a;
-}
-
-.user-major {
-  font-size: 14px;
-  color: #8c7668;
-  margin-top: 4px;
+  border-radius: 0px 50px 50px 50px;
+  /* 기타 스타일 */
 }
 
 .user-card-body {
-  flex: 1;
+  /* 예) 카드에서 header/footer 빼고 남은 공간에 맞출 수도 있고, 
+     여기선 단순히 2~3줄만 보이도록 max-height로 제한
+  */
+  margin: 10px;
+  position: relative;
+  line-height: 1.4em;
+  max-height: 80px; /* 2줄 + 약간 */
+  overflow: hidden;
 }
 
+/* 페이드아웃 가상 요소 */
+.user-card-body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 1em;
+}
+
+
+/* 헤더 영역 */
+.user-card-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.hansum-profile-icon {
+  width: 86px;
+  height: 86px;
+  flex-shrink: 0;
+  border-radius: 0px 50px 50px 50px;
+  object-fit: cover;
+}
+
+/* 헤더 텍스트 */
+.user-card-header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-name {
+  font-size: 1.2rem;
+  margin: 0 0 4px;
+}
+
+.user-major {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
 .user-job {
-  font-size: 16px;
-  margin: 0 0 8px 0;
-  color: #333;
+  margin: 0 0 6px;
+  font-size: 1rem;
 }
 
 .study-period {
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 8px;
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  color: #777;
 }
 
 .achievement-list {
-  list-style: none;
-  padding-left: 0;
+  padding-left: 16px;
   margin: 0;
-}
-
-.achievement-list li {
-  font-size: 13px;
+  font-size: 0.8rem;
   color: #555;
-  margin-bottom: 4px;
 }
 
+/* 푸터 영역 */
 .user-card-footer {
   display: flex;
   justify-content: flex-end;
-  margin-top: 16px;
 }
 
 .favorite-button {
-  background-color: transparent;
+  padding: 6px 12px;
+  background-color: #e63946;
+  color: #fff;
   border: none;
-  color: #c76f62;
-  font-size: 14px;
+  border-radius: 20px;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .favorite-button:hover {
-  color: #a94c3c;
-}
-
-
-
-.no-underline {
-  text-decoration: none;
-  color: inherit; /* or 원하는 색상 */
-}
-
-.no-underline:hover {
-  text-decoration: none; /* 마우스 오버 시에도 없애려면 추가 */
+  background-color: #d90429;
 }
