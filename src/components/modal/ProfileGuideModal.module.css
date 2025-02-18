@@ -1,0 +1,266 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+} 
+
+.modal button {
+  outline: none;
+  cursor: pointer;
+  border: 0;
+}
+
+/* 모달 박스 디자인  */
+.modal > section {
+  width: 960px;
+  margin: 0 auto;
+
+  border-radius: 30px 30px 0px 0px;
+  background-color: #fff;
+
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-show 0.3s;
+  overflow: hidden;
+}
+
+.modal > section > header {
+  position: relative;
+  height: 48px;
+  border-radius: 30px 30px 0px 0px;
+  background: var(--Gradient-_-Main, linear-gradient(97deg, #E9D9D3 0%, #D3DDEB 100%));
+  display:flex;
+  justify-content: center;
+}
+
+.modalHeaderBox{
+  padding-top: 12px;
+}
+
+.modalHeaderBox span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 01 _ EB */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px; /* 150% */
+}
+
+.modal > section > header button {
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  width: 30px;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+  color: #25569D;
+  background-color: transparent;
+}
+.modal > section > main {
+  padding: 16px;
+  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+  height: 488px;
+
+  overflow-y: auto;
+}
+
+.modal > section > footer {
+  /* padding: 12px 16px; */
+  /* text-align: right; */
+  height: 40px;
+}
+.modal > section > footer button {
+  padding: 6px 12px;
+  color: #000000;
+  background-color: rgb(255, 166, 0);
+  border-radius: 5px;
+  font-size: 13px;
+}
+.modal.openModal {
+  display: flex;
+  align-items: center;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-bg-show 0.3s;
+}
+
+
+.close{
+  margin: 20px;
+  margin-top: 10px;
+  border:1px solid black;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.topContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding:20px;
+  padding-bottom: 0px;
+}
+
+.topBox{
+  width: 280px;
+  height: 293px;
+  flex-shrink: 0;
+  border-radius: 0px 30px 30px 30px;
+  background: var(--Primary-04, #F4F8FD);
+  filter: drop-shadow(5px 5px 9px rgba(0, 0, 0, 0.10));
+}
+
+.topBox_first{
+  height:30px;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 19px 0px 23px ;
+}
+
+.topBox_first span{
+  color: var(--Point-01, #6C3F2E);
+
+  /* Caption _ B */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px; /* 160% */
+}
+
+.topBox_second{
+  padding-left: 24px;
+  margin-top: 85px;
+}
+
+.topBox_second span{
+  color: var(--Primary-01, #25569D);
+
+  /* Title 06 */
+  font-family: "SUIT Variable";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 32px; /* 152.381% */
+}
+
+.topBox_third{
+  padding-left: 24px;
+  margin-top: 13px;
+}
+
+.topBox_third span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
+
+.bottomContainer{
+  height:560px;
+  padding:20px;
+  padding-top: 0px;
+}
+
+.bottomText{
+  margin-top: 42px;
+  margin-bottom:27px;
+}
+
+.bottomText span{
+  color: var(--Primary-01, #25569D);
+
+  /* Title 06 */
+  font-family: "SUIT Variable";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 32px; /* 152.381% */
+}
+
+.bottomBox{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 22px; 
+}
+
+.bottomBox_first{
+  width: 431.74px;
+  height: 49px;
+  flex-shrink: 0;
+
+  border-radius: 15px;
+  border: 1px solid var(--Primary-02, #A9C5E8);
+  background: var(--Primary-04, #F4F8FD);
+
+  padding-top: 13px;
+  padding-left: 22px;
+}
+
+.bottomBox_first span{
+color: var(--Primary-01, #25569D);
+
+/* Body 01 _ M */
+font-family: "SUIT Variable";
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 150% */
+}
+
+.bottomBox_second{
+  width: 431.74px;
+  height: 152px;
+  flex-shrink: 0;
+
+  border-radius: 15px;
+  border: 1px solid var(--Primary-02, #A9C5E8);
+  background: var(--Primary-04, #F4F8FD);
+
+  padding-top: 18px;
+  padding-left: 40px;
+  padding-right: 21px;
+
+  margin-top: 10px;
+}
+
+.bottomBox_second li{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+}
+

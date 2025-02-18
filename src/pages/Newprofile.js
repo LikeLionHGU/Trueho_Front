@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect} from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -12,7 +12,8 @@ import profileactive from "../assets/Page/NewProfile/activate_img.png"
 import profiledeactive from "../assets/Page/NewProfile/deactivate_img.png"
 
 import Footer from "../components/footer";
-
+import ProfileGuideModal from "../components/modal/ProfileGuideModal";
+import EditCheckModal from "../components/modal/EditcheckModal";
 
 function Newprofile() {
   const navigate = useNavigate();
@@ -156,15 +157,38 @@ const handleClickNoShow = () => {
       setUploadImgFile(reader.result);
     };
   }
-// 7) 저장된 사진 API에 전송
+// 7) 등록 가이드 모달 함수들
+  const [guideModalOpen, setGuideModalOpen] = useState(false);
+  const openGuideModal = () => setGuideModalOpen(true);
+  const closeGuideModal = () => {
+    setGuideModalOpen(false);
+    document.body.style.removeProperty('overflow');
+  };
 
+  const guideModalClick = () => {
+    openGuideModal();
+    document.body.style.overflow = 'hidden';
+  };
+
+// 8) 수정하시겠습니까 확인 모달 함수들
+  const [editCheckmodalOpen, setEditCheckModalOpen] = useState(false);
+  const openEditCheckModal = () => setEditCheckModalOpen(true);
+  const closeEditCheckModal = () => {
+    setEditCheckModalOpen(false);
+    document.body.style.removeProperty('overflow');
+  };
+
+  const editCheckModalClick = () => {
+    openEditCheckModal();
+    document.body.style.overflow = 'hidden';
+  };
 
   return (
     <>
     <div className="newprofile-container">
       <div className="newprofile-top-container">
         <div className="newprofile-top-container-first">
-          <p>사이트 이용 목적</p>
+          <p onClick={() => editCheckModalClick()}>사이트 이용 목적</p>
           <span>한섬(한동대학교 + 섬김이)과 한내기(한동대학교 + 내기)는 한동대학교의 ‘새섬 문화’에서 따온 이름입니다.</span> <br/>
           <span>프로필 공개 여부를 확인하고 설정을 원하는 대로 변경할 수 있습니다.</span>
         </div>
@@ -311,7 +335,7 @@ const handleClickNoShow = () => {
           <div className="newprofile-bottom-container-4 box-column">
             <div className="newprofile-bottom-container-4-name">
               <span>대표 이력</span>
-              <img src={muluumpobtn}/>
+              <img src={muluumpobtn} onClick={() => guideModalClick()}/>
             </div>
           <div className="gridBox">
             {boxes.map((box) => (
@@ -379,7 +403,15 @@ const handleClickNoShow = () => {
       <Footer /> 
     </div>
 
-    {/* <Footer />  */}
+    <ProfileGuideModal
+        open={guideModalOpen}
+        close={closeGuideModal}
+      />
+
+    <EditCheckModal
+        open={editCheckmodalOpen}
+        close={closeEditCheckModal}
+      />
     </>
   );
 }
