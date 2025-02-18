@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Accordion from "../components/Accordion";
 import "../components/styles/userDetail.css";
@@ -80,8 +80,9 @@ function UserDetailPage() {
   };
 
   // 로딩 처리
+  const navigate = useNavigate();
   if (loading) return <h2>로딩 중...</h2>;
-  if (!user) return <h2>해당 사용자를 찾을 수 없습니다.</h2>;
+  if (!user) return navigate("/hansum");
 
   // ------------------ UI 데이터 가공 예시 ------------------
   const studyText =
