@@ -9,7 +9,22 @@ const Modal = (props) => {
     <div className={open ? 'openModal modal' : 'modal'}>
       
     {open && props !== null ? (
-      <div className="modal">안녕 난 모달이야</div>
+      <section>
+      <header>
+        <div className='modalHeaderBox'>
+          <span>헤더입니다</span>
+        </div>
+        <button className="close" onClick={close}>
+          close
+        </button>
+      </header>
+      <main>
+        <span>모달 확인</span>
+      </main>
+      <footer>
+
+      </footer>
+    </section>
     ) : null}
   </div>
   );
