@@ -124,7 +124,6 @@ const handleClickNoShow = () => {
       console.log("이미지가 없어 이미지 전송을 건너뜁니다.");
     }
 
-      alert("모든 데이터가 성공적으로 전송되었습니다!");
       navigate('/hansum');
     } catch (error) {
       console.error("에러 발생:", error.response?.data || error);
@@ -170,8 +169,8 @@ const handleClickNoShow = () => {
     document.body.style.overflow = 'hidden';
   };
 
-// 8) 수정하시겠습니까 확인 모달 함수들
-  const [editCheckmodalOpen, setEditCheckModalOpen] = useState(false);
+// 8) 수정하시겠습니까? 확인 모달 함수들
+  const [editCheckmodalOpen, setEditCheckModalOpen, ] = useState(false);
   const openEditCheckModal = () => setEditCheckModalOpen(true);
   const closeEditCheckModal = () => {
     setEditCheckModalOpen(false);
@@ -188,7 +187,7 @@ const handleClickNoShow = () => {
     <div className="newprofile-container">
       <div className="newprofile-top-container">
         <div className="newprofile-top-container-first">
-          <p onClick={() => editCheckModalClick()}>사이트 이용 목적</p>
+          <p>사이트 이용 목적</p>
           <span>한섬(한동대학교 + 섬김이)과 한내기(한동대학교 + 내기)는 한동대학교의 ‘새섬 문화’에서 따온 이름입니다.</span> <br/>
           <span>프로필 공개 여부를 확인하고 설정을 원하는 대로 변경할 수 있습니다.</span>
         </div>
@@ -385,11 +384,7 @@ const handleClickNoShow = () => {
 {/* 7------------------------------------------------------------ */}
         <div className="newprofile-bottom-container-7 box-column">
 
-          <button 
-            onClick={(e) => {
-              postAllDataSequentially(e);
-              }} 
-              className='newprofile-bottom-container-7-btn' type="submit">
+          <button onClick={() => editCheckModalClick()} className='newprofile-bottom-container-7-btn' type="submit">
             제출
           </button>
           <p>프로필 수정은 My Page에서 가능합니다</p>
@@ -411,6 +406,7 @@ const handleClickNoShow = () => {
     <EditCheckModal
         open={editCheckmodalOpen}
         close={closeEditCheckModal}
+        postAllDataSequentially={postAllDataSequentially}
       />
     </>
   );

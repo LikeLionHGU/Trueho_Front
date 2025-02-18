@@ -6,12 +6,13 @@ import "../styles/Newprofile.css";
 
 import profileHansum from "../assets/Page/NewProfile/hansum_img.svg"
 import profileHannegi from "../assets/Page/NewProfile/hannegi_img.svg"
-import profiledefault from "../assets/Page/NewProfile/default_img.svg"
 import muluumpobtn from "../assets/Page/NewProfile/circle.svg"
 import profileactive from "../assets/Page/NewProfile/activate_img.png"
 import profiledeactive from "../assets/Page/NewProfile/deactivate_img.png"
 
 import Footer from "../components/footer";
+import ProfileGuideModal from "../components/modal/ProfileGuideModal";
+import EditCheckModal from "../components/modal/EditcheckModal";
 
 
 function Newprofile() {
@@ -123,7 +124,6 @@ const handleClickNoShow = () => {
       console.log("이미지가 없어 이미지 전송을 건너뜁니다.");
     }
 
-      alert("모든 데이터가 성공적으로 전송되었습니다!");
       navigate('/hansum');
     } catch (error) {
       console.error("에러 발생:", error.response?.data || error);
@@ -205,6 +205,31 @@ const handleClickNoShow = () => {
     }
   }, [profile.history]);
 
+// 11) 등록 가이드 모달 함수들
+  const [guideModalOpen, setGuideModalOpen] = useState(false);
+  const openGuideModal = () => setGuideModalOpen(true);
+  const closeGuideModal = () => {
+    setGuideModalOpen(false);
+    document.body.style.removeProperty('overflow');
+  };
+
+  const guideModalClick = () => {
+    openGuideModal();
+    document.body.style.overflow = 'hidden';
+  };
+
+// 12) 수정하시겠습니까? 확인 모달 함수들
+  const [editCheckmodalOpen, setEditCheckModalOpen, ] = useState(false);
+  const openEditCheckModal = () => setEditCheckModalOpen(true);
+  const closeEditCheckModal = () => {
+    setEditCheckModalOpen(false);
+    document.body.style.removeProperty('overflow');
+  };
+
+  const editCheckModalClick = () => {
+    openEditCheckModal();
+    document.body.style.overflow = 'hidden';
+  };
 
   return (
     <>
@@ -358,7 +383,7 @@ const handleClickNoShow = () => {
           <div className="newprofile-bottom-container-4 box-column">
             <div className="newprofile-bottom-container-4-name">
               <span>대표 이력</span>
-              <img src={muluumpobtn}/>
+              <img src={muluumpobtn} onClick={() => guideModalClick()}/>
             </div>
           <div className="gridBox">
             {/* box profile값들 불러온 세팅 */}
@@ -423,10 +448,7 @@ const handleClickNoShow = () => {
 {/* 7------------------------------------------------------------ */}
         <div className="newprofile-bottom-container-7 box-column">
 
-          <button 
-            onClick={(e) => {
-              postAllDataSequentially(e);
-              }} 
+          <button onClick={() => editCheckModalClick()}
               className='newprofile-bottom-container-7-btn' type="submit">
             제출
           </button>
@@ -441,7 +463,16 @@ const handleClickNoShow = () => {
       <Footer /> 
     </div>
 
-    {/* <Footer />  */}
+    <ProfileGuideModal
+        open={guideModalOpen}
+        close={closeGuideModal}
+      />
+
+    <EditCheckModal
+        open={editCheckmodalOpen}
+        close={closeEditCheckModal}
+        postAllDataSequentially={postAllDataSequentially}
+      />
     </>
   );
 }

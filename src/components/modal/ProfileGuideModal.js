@@ -3,7 +3,7 @@ import React from "react";
 
 import closeImg from "../../assets/Components/Modal/x.png";
 
-const Modal = (props) => {
+const ProfileGuideModal = (props) => {
   const { open, close } = props;
 
   return (
@@ -152,4 +152,4 @@ const Modal = (props) => {
   );
 };
 
-export default Modal;
+export default ProfileGuideModal;
