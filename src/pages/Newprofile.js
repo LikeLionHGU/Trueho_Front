@@ -13,7 +13,7 @@ import profiledeactive from "../assets/Page/NewProfile/deactivate_img.png"
 
 import Footer from "../components/footer";
 import ProfileGuideModal from "../components/modal/ProfileGuideModal";
-import EditCheckModal from "../components/modal/EditCheckModal.js"
+import EditCheckModal from "../components/modal/EditcheckModal";
 
 function Newprofile() {
   const navigate = useNavigate();
