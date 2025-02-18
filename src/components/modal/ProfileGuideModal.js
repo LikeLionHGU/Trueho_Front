@@ -1,6 +1,8 @@
 import styles from "./ProfileGuideModal.module.css";
 import React from "react";
 
+import closeImg from "../../assets/Components/Modal/x.png";
+
 const Modal = (props) => {
   const { open, close } = props;
 
@@ -16,7 +18,7 @@ const Modal = (props) => {
               <span>프로필 작성 가이드</span>
             </div>
             <button className={styles.close} onClick={close}>
-              x
+              <img src={closeImg}/>
             </button>
           </header>
           <main>
