@@ -1,52 +1,46 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-// 기본 프로필 이미지 (assets 폴더에 넣어둔 예시)
 import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
-
 import "../styles/MyPage.css";
 
-// 모든 axios 요청에 대해 withCredentials 허용 (선택)
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true; // 세션 쿠키 필요 시
 
 function MyPage() {
   const navigate = useNavigate();
 
-  // 사용자 정보
   const [nickname, setNickname] = useState("사용자 닉네임");
   const [isProfilePublic, setIsProfilePublic] = useState(true);
-  const [profilePic, setProfilePic] = useState();
-
+  const [profilePic, setProfilePic] = useState(defaultProfileImg);
   const [loading, setLoading] = useState(true);
 
-  // [1] 마운트 시 사용자 정보 GET /user/detail
+  // ★ 추가: 로그인 정보 없을 때 처리용 상태
+  const [noLoginInfo, setNoLoginInfo] = useState(false);
+
   useEffect(() => {
     async function getProfile() {
       try {
         const response = await axios.get(`${process.env.REACT_APP_HOST_URL}/user/detail`, {
           headers: { "Content-Type": "application/json" },
-          withCredentials: true,
+          withCredentials: true, 
         });
-        /**
-         * 서버 응답 예시:
-         * {
-         *   "name": "잘생긴 라이언",
-         *   "showing": 0,
-         *   "pic": "img_url"
-         * }
-         */
+
+        // 예: { name, showing, pic } 또는 { state: "No login info" }
         const data = response.data;
-        setNickname(data.name || "사용자 닉네임");
-        setIsProfilePublic(data.showing === 1); // 1이면 공개, 0이면 비공개
-        setProfilePic(data.imgUrl);
-      } 
-      
-      
-      catch (error) {
+        console.log("서버 응답:", data);
+
+        if (data.state === "No login info") {
+          // 로그인 정보 없음
+          setNoLoginInfo(true);
+        } else {
+          // 정상 유저 데이터
+          setNickname(data.name || "사용자 닉네임");
+          setIsProfilePublic(data.showing === 1);
+          setProfilePic(data.pic || defaultProfileImg);
+        }
+      } catch (error) {
         console.error("사용자 정보 불러오기 실패:", error);
         alert("사용자 정보를 불러오는 데 실패했습니다.");
-        // 필요 시 로그인 페이지 이동
-        // navigate("/login");
       } finally {
         setLoading(false);
       }
@@ -54,52 +48,40 @@ function MyPage() {
     getProfile();
   }, [navigate]);
 
-  // [2] 프로필 공개 토글 핸들러
-  // 일반적으로, isProfilePublic=true → 공개(1), false → 비공개(0)
-const handleToggle = async () => {
-  const newValue = !isProfilePublic; 
-  // newValue = false 라면 → 비공개
-  setIsProfilePublic(newValue);
+  // 프로필 공개 토글
+  const handleToggle = async () => {
+    if (noLoginInfo) return; // 로그인 정보 없으면 조작 불가
 
-  try {
-    // 1 ⇒ 공개, 0 ⇒ 비공개 (서버 규칙 확인)
-    const showingValue = newValue ? 1 : 0;
+    const newValue = !isProfilePublic;
+    setIsProfilePublic(newValue);
 
-    console.log("전송할 showing 값:", showingValue);
-    await axios.post(
-      `${process.env.REACT_APP_HOST_URL}/user/profile/show`,
-      { showing: showingValue },
-      {
-        headers: { "Content-Type": "application/json" },
-        withCredentials: true,
-      }
-    );
-    console.log("프로필 공개 설정 업데이트 성공:", showingValue);
-  } catch (error) {
-    // 실패 시 원상복귀
-    setIsProfilePublic(!newValue);
-    alert("프로필 공개 설정 변경에 실패했습니다.");
-    console.error(error);
-  }
+    try {
+      await axios.post(
+        `${process.env.REACT_APP_HOST_URL}/user/profile/show`,
+        { showing: newValue ? 1 : 0 },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+    } catch (error) {
+      setIsProfilePublic(!newValue);
+      alert("프로필 공개 설정 변경에 실패했습니다.");
+      console.error(error);
+    }
+  };
 
-  
-  
-};
-
-
-  // [3] 프로필 수정 버튼
+  // 프로필 수정
   const handleEditProfile = () => {
-    alert("프로필 수정 페이지로 이동합니다.");
+    if (noLoginInfo) return; // 로그인 정보 없으면 조작 불가
     navigate("/editprofile");
   };
 
-  // [4] 로그아웃
+  // 로그아웃
   const handleLogout = async () => {
+    if (noLoginInfo) return; // 로그인 정보 없으면 조작 불가
+
     try {
-      /**
-       * POST /user/logout
-       * 응답 예: { "state": "Bye" } || { "state": "No login info" }
-       */
       const response = await axios.post(
         `${process.env.REACT_APP_HOST_URL}/user/logout`,
         null,
@@ -109,12 +91,15 @@ const handleToggle = async () => {
         }
       );
       console.log("로그아웃 응답:", response.data);
-      
+
       const { state } = response.data;
-      if (state == "Bye~") {
+      if (state === "Bye") {
         alert("로그아웃 성공!");
         navigate("/");
-      } 
+      } else {
+        // 예: state === "No login info"
+        alert("로그인 정보가 없습니다.");
+      }
     } catch (error) {
       console.error("로그아웃 처리 오류:", error);
       alert("로그아웃 처리에 실패했습니다.");
@@ -125,9 +110,14 @@ const handleToggle = async () => {
     return <div>로딩 중...</div>;
   }
 
+  // ★ 추가 스타일: noLoginInfo=true일 때 배경/디자인 변경 등
+  const containerClassName = noLoginInfo 
+    ? "mypage-container no-login" 
+    : "mypage-container";
+
   return (
-    <div className="mypage-container">
-      <main className="mypage-main">
+    <div className={containerClassName}>
+      <main className="mypage-main" style={ noLoginInfo ? { opacity: 0.5 } : {} }>
         {/* 프로필 이미지 */}
         <img
           className="profile-image"
@@ -135,6 +125,7 @@ const handleToggle = async () => {
           alt="Profile"
           style={{ width: 100, height: 100 }}
         />
+
         {/* 닉네임 */}
         <h2 className="nickname">{nickname}</h2>
 
@@ -146,21 +137,37 @@ const handleToggle = async () => {
               type="checkbox"
               checked={isProfilePublic}
               onChange={handleToggle}
+              disabled={noLoginInfo} // 로그인 정보 없으면 disabled
             />
             <span className="slider round"></span>
           </label>
           <span className="toggle-state">{isProfilePublic ? "ON" : "OFF"}</span>
         </div>
 
-        {/* 프로필 수정 & 로그아웃 버튼 */}
+        {/* 버튼 그룹 */}
         <div className="button-group">
-          <button className="profile-edit-button" onClick={handleEditProfile}>
+          <button
+            className="profile-edit-button"
+            onClick={handleEditProfile}
+            disabled={noLoginInfo} // 로그인 정보 없으면 disabled
+          >
             프로필 수정하기
           </button>
-          <button className="logout-button" onClick={handleLogout}>
+          <button
+            className="logout-button"
+            onClick={handleLogout}
+            disabled={noLoginInfo} // 로그인 정보 없으면 disabled
+          >
             로그아웃
           </button>
         </div>
+
+        {/* 만약 noLoginInfo=true면 별도 안내 문구 */}
+        {noLoginInfo && (
+          <p style={{ color: "red", marginTop: "1rem" }}>
+            로그인 정보가 없습니다. 기능을 사용할 수 없습니다.
+          </p>
+        )}
       </main>
     </div>
   );
