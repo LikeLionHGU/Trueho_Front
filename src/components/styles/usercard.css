@@ -1,100 +1,152 @@
 .user-card {
   width: 300px;
-  background-color: #fff;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  height: 235px; /* 카드 전체 고정 높이 */
+  background: #f4f8fd;
+  border-radius: 28px;
+  display: flex;
+  flex-direction: column;
   position: relative;
+  overflow: hidden;
   margin: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.user-card-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-}
-
-.profile-icon {
-  width: 50px;
-  height: 50px;
-  margin-right: 12px;
-  object-fit: cover;
-}
-
-.user-card-header-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.user-name {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-  color: #5b463a;
-}
-
-.user-major {
-  font-size: 14px;
-  color: #8c7668;
-  margin-top: 4px;
+  border-radius: 0px 50px 50px 50px;
+  /* 기타 스타일 */
 }
 
 .user-card-body {
-  flex: 1;
+  /* margin 대신 padding을 사용하여 내부 여백 확보 */
+  padding: 0px 30px; /* 위아래 10, 좌우 20 */
+  position: relative;
+  line-height: 20px;
+  max-height: 90px;
+  overflow: hidden;
 }
 
-.user-job {
+
+/* 페이드아웃 가상 요소 */
+/* .user-card-body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 1em;
+} */
+
+
+/* 헤더 영역 */
+.user-card-header {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.hansum-profile-icon {
+  width: 86px;
+  height: 86px;
+  flex-shrink: 0;
+  border-radius: 0px 50px 50px 50px;
+  object-fit: cover;
+}
+
+/* 헤더 텍스트 */
+.user-card-header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-name {
+  color: var(--Point-01, #6C3F2E);
+  /* Body 01 _ EB */
+  font-family: "SUIT Variable";
   font-size: 16px;
-  margin: 0 0 8px 0;
-  color: #333;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px; /* 150% */
+  padding: 4px;
+}
+
+.user-major {
+  display: inline-flex;
+  padding: 3px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background: var(--Point-04, #F8ECE8);
+  /* Body 03 _ M */
+  color: var(--Point-01, #6C3F2E);
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
+
+
+.user-job {
+  color: var(--Primary-01, #25569D);
+  padding: 10px 0px;
+
+/* Title 06 */
+  font-family: "SUIT Variable";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 32px; /* 152.381% */
 }
 
 .study-period {
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 8px;
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  color: #777;
 }
 
 .achievement-list {
   list-style: none;
-  padding-left: 0;
-  margin: 0;
+  width: 240px;
+  height: 40px;
+  flex-shrink: 0;
+  color: var(--Body-Text-Color, #162F55);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
 }
 
-.achievement-list li {
-  font-size: 13px;
-  color: #555;
-  margin-bottom: 4px;
-}
-
+/* 푸터 영역 */
 .user-card-footer {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 16px;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  margin-top: auto; 
+  padding: 10px 35px; /* 적절한 내부 여백 */
 }
 
+
 .favorite-button {
-  background-color: transparent;
-  border: none;
-  color: #c76f62;
-  font-size: 14px;
-  cursor: pointer;
+  display: inline-flex;
+  padding: 6px 12px;
+  align-items: center;
+  gap: 3px;
+  border-radius: 20px;
+  border-color: #d9040400;
+  background: var(--Gray-10, #FFF);
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  color: var(--Point-01, #6C3F2E);
+
+  /* Caption 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 175% */
+  
 }
 
 .favorite-button:hover {
-  color: #a94c3c;
-}
-
-
-
-.no-underline {
-  text-decoration: none;
-  color: inherit; /* or 원하는 색상 */
-}
-
-.no-underline:hover {
-  text-decoration: none; /* 마우스 오버 시에도 없애려면 추가 */
+  background-color: #ffa9b8;
 }

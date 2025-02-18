@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; // ★ 추가
+import { Link } from "react-router-dom";
 import "../styles/hansum.css";
 import UserCard from "../components/usercard";
 import MajorFilter from "../components/majorfilter";
@@ -15,10 +15,10 @@ async function fetchUserData(userId) {
         withCredentials: true,
       }
     );
-    return response.data; // 응답이 배열이라고 가정
+    return response.data; // 배열
   } catch (error) {
     console.error("Error fetching users:", error);
-    return []; // 에러 발생 시 빈 배열 반환
+    return [];
   }
 }
 
@@ -28,11 +28,10 @@ function HansumPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const userId = 0; // 예: 특정 ID (테스트용)
-
+    const userId = 0; // 테스트용
     async function getUsers() {
       const data = await fetchUserData(userId);
-      setUsers(data);     // data가 배열이어야 filter 사용 가능
+      setUsers(data);
       setLoading(false);
     }
     getUsers();
@@ -49,22 +48,22 @@ function HansumPage() {
   return (
     <div className="hansum-page">
       <h1>원하는 한섬을 찾아 메시지를 보내보세요</h1>
+
       <MajorFilter 
         selectedMajor={selectedMajor} 
         setSelectedMajor={setSelectedMajor} 
       />
-      
-      {Array.isArray(users) && (
-  <div className="user-grid">
-    {users
-      .filter((user) => selectedMajor === "All" || user.major === selectedMajor)
-      .map((user) => (
-        <Link key={user.id} to={`/user/${user.id}`} >
-          <UserCard user={user} />
-        </Link>
-      ))}
-  </div>
-)}
+
+      <div className="user-grid">
+        {users
+          .filter((user) => selectedMajor === "All" || user.major === selectedMajor)
+          .map((user) => (
+            // 카드 전체를 클릭하면 유저 상세 페이지(/user/:id)로 이동
+            <Link key={user.id} to={`/user/${user.id}`} style={{ textDecoration: "none" }}>
+              <UserCard user={user} />
+            </Link>
+          ))}
+      </div>
 
       <ScrollToTopButton />
     </div>
