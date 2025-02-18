@@ -13,25 +13,24 @@
 }
 
 .user-card-body {
-  /* 예) 카드에서 header/footer 빼고 남은 공간에 맞출 수도 있고, 
-     여기선 단순히 2~3줄만 보이도록 max-height로 제한
-  */
-  margin: 10px;
+  /* margin 대신 padding을 사용하여 내부 여백 확보 */
+  padding: 0px 30px; /* 위아래 10, 좌우 20 */
   position: relative;
-  line-height: 1.4em;
-  max-height: 80px; /* 2줄 + 약간 */
+  line-height: 20px;
+  max-height: 90px;
   overflow: hidden;
 }
 
+
 /* 페이드아웃 가상 요소 */
-.user-card-body::after {
+/* .user-card-body::after {
   content: "";
   position: absolute;
   bottom: 0;
   right: 0;
   left: 0;
   height: 1em;
-}
+} */
 
 
 /* 헤더 영역 */
@@ -57,20 +56,44 @@
 }
 
 .user-name {
-  font-size: 1.2rem;
-  margin: 0 0 4px;
+  color: var(--Point-01, #6C3F2E);
+  /* Body 01 _ EB */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px; /* 150% */
+  padding: 4px;
 }
 
 .user-major {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #555;
+  display: inline-flex;
+  padding: 3px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background: var(--Point-04, #F8ECE8);
+  /* Body 03 _ M */
+  color: var(--Point-01, #6C3F2E);
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
 }
 
 
 .user-job {
-  margin: 0 0 6px;
-  font-size: 1rem;
+  color: var(--Primary-01, #25569D);
+  padding: 10px 0px;
+
+/* Title 06 */
+  font-family: "SUIT Variable";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 32px; /* 152.381% */
 }
 
 .study-period {
@@ -80,28 +103,50 @@
 }
 
 .achievement-list {
-  padding-left: 16px;
-  margin: 0;
-  font-size: 0.8rem;
-  color: #555;
+  list-style: none;
+  width: 240px;
+  height: 40px;
+  flex-shrink: 0;
+  color: var(--Body-Text-Color, #162F55);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
 }
 
 /* 푸터 영역 */
 .user-card-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  margin-top: auto; 
+  padding: 10px 35px; /* 적절한 내부 여백 */
 }
 
+
 .favorite-button {
+  display: inline-flex;
   padding: 6px 12px;
-  background-color: #e63946;
-  color: #fff;
-  border: none;
+  align-items: center;
+  gap: 3px;
   border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.9rem;
+  border-color: #d9040400;
+  background: var(--Gray-10, #FFF);
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  color: var(--Point-01, #6C3F2E);
+
+  /* Caption 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 14px; /* 175% */
+  
 }
 
 .favorite-button:hover {
-  background-color: #d90429;
+  background-color: #ffa9b8;
 }
