@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/AboutPage.css";  // 1) CSS 경로
+import "../styles/AboutPage.css"; // 1) CSS 경로
 import firstSectionImg from "../assets/Components/About/image1.svg";
 import secondSectionImg from "../assets/Components/About/image2.svg";
 
@@ -14,13 +14,20 @@ function AboutPage() {
         <div className="intro-content">
           <div className="intro-text">
             <p>
-              전설을 활성화 견지...
+              한섬은 졸업생과 재학생을 연결하여 멘토링을 돕는 플랫폼으로,
               <br />
-              한섬에 속해있는...
+              선배들이 후배들에게 자신의 경험을 나누고 조언을 제공할 수 있도록
+              돕습니다.
             </p>
             <ul>
-              <li>한섬의 독특한 특징 1</li>
-              <li>한섬의 독특한 특징 2</li>
+              <li>
+                한섬(한동대학교 + 섬김이)은 한동대학교의 ‘새섬 문화’에서 따온
+                이름입니다.
+              </li>
+              <li>
+                또한, 한내기(한동대 + 새내기)라는 용어도 사용됩니다. 한내기는
+                멘토링을 받고 싶은 재학생들을 의미합니다.
+              </li>
               <li>한섬의 독특한 특징 3</li>
             </ul>
           </div>
@@ -39,7 +46,7 @@ function AboutPage() {
           </div>
           <div className="purpose-text">
             <p>
-              한섬의 목표는...  
+              한섬의 목표는...
               <br />
               (내용 작성)
             </p>
@@ -80,9 +87,7 @@ function AboutPage() {
         <div className="faq-item">
           <h3>Q2. 왜 이름이 아니라 닉네임을 사용하나요?</h3>
           <div className="faq-answer">
-            <p>
-              A. 한섬에서는...
-            </p>
+            <p>A. 한섬에서는...</p>
             <ul>
               <li>장점 1</li>
               <li>장점 2</li>
@@ -93,18 +98,14 @@ function AboutPage() {
         <div className="faq-item">
           <h3>Q3. 한섬은 졸업생만 이용할 수 있나요?</h3>
           <div className="faq-answer">
-            <p>
-              A. 아니요...
-            </p>
+            <p>A. 아니요...</p>
           </div>
         </div>
 
         <div className="faq-item">
           <h3>Q4. 멘토링은 어떻게 신청하나요?</h3>
           <div className="faq-answer">
-            <p>
-              A. 멘토링을 신청하는 방법...
-            </p>
+            <p>A. 멘토링을 신청하는 방법...</p>
             <ol>
               <li>HanSum 페이지에서... </li>
               <li>본인 프로필에서...</li>
@@ -117,9 +118,7 @@ function AboutPage() {
         <div className="faq-item">
           <h3>Q5. 한섬에서 가장 중요한 매너는 무엇인가요?</h3>
           <div className="faq-answer">
-            <p>
-              A. 한섬을...
-            </p>
+            <p>A. 한섬을...</p>
           </div>
         </div>
       </section>

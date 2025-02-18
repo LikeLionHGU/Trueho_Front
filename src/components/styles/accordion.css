@@ -1,36 +1,46 @@
 .accordion-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start; /* 중요: 아이템별 높이 개별 적용 */
   
-  .accordion-item {
-    width: calc(50% - 8px);
-    background: #f8faff;
-    border-radius: 12px;
-    padding: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .accordion-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 600;
-    color: #1d3b6c;
-  }
-  
-  .accordion-icon {
-    font-size: 14px;
-  }
-  
-  .accordion-content {
-    margin-top: 8px;
-    font-size: 14px;
-    color: #333;
-    transition: max-height 0.3s ease-in-out;
-  }
+}
 
-  
+.accordion-item {
+  width: calc(50% - 8px);
+  background: #f8faff;
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* padding 포함 계산 */
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d3b6c;
+}
+
+.accordion-icon {
+  font-size: 14px;
+}
+
+.accordion-content {
+  font-size: 14px;
+  color: #333;
+  margin-top: 8px;
+
+  /* 높이 제어 */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* 열렸을 때 */
+.accordion-item.open .accordion-content {
+  max-height: 500px; /* 내용 예상보다 큰 값 */
+}
