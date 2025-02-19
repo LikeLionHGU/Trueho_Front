@@ -37,7 +37,7 @@ function MyPage() {
           // 정상 유저 데이터
           setNickname(data.name || "사용자 닉네임");
           setIsProfilePublic(data.showing === 1);
-          setProfilePic(data.pic || defaultProfileImg);
+          setProfilePic(data.imgUrl || defaultProfileImg);
         }
       } catch (error) {
         console.error("사용자 정보 불러오기 실패:", error);
@@ -122,13 +122,13 @@ function MyPage() {
         {/* 프로필 이미지 */}
         
         <div className="profile-image-container"> 
-          
         <img
-          className="profile-image"
-          src={!isProfilePublic ? offProfileImg : profilePic}
-          alt="Profile"
-          style={{ width: 100, height: 100 }}
-        />
+  className="profile-image"
+  src={!isProfilePublic ? offProfileImg : profilePic}
+  alt="Profile"
+  style={{ width: 100, height: 100 }}
+/>
+
         
         </div>
 
