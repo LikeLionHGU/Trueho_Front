@@ -1,13 +1,26 @@
+import React, {useState} from 'react';
 import Chating from "../components/Chating";
 import ChatList from "../components/ChatList";
-import styles from "../styles/Chatroom.css";
-// import gradHansumLogo from "../assets/Page/GradLogin/hamsum_logo.png"
+import "../styles/Chatroom.css";
+import chatBot from "../assets/Components/ChatBot/Chatbot.svg"
 
+import ChatBotModal from "../components/chatBot/ChatBot";
 
 
 
 function Chatroom() {
-  
+// 1) 챗봇 열기
+  const [chatBotModalOpen, setChatBotModalOpen] = useState(false);
+  const openChatBotModal = () => setChatBotModalOpen(true);
+  const closeChatBotModal = () => {
+    setChatBotModalOpen(false);
+    document.body.style.removeProperty('overflow');
+  };
+
+  const chatBotModalClick = () => {
+    openChatBotModal();
+    document.body.style.overflow = 'hidden';
+  };
 
   return (
     <>
@@ -17,9 +30,15 @@ function Chatroom() {
           <ChatList />
           <Chating />
         </div>
+        <div className="chatBot" onClick={() => chatBotModalClick()}>
+          <img src={chatBot} />
+        </div>
       </div>
     </div>
-
+    <ChatBotModal
+        open={chatBotModalOpen}
+        close={closeChatBotModal}
+      />
     </> 
   );
 }

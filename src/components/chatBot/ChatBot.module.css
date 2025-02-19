@@ -1,0 +1,209 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+} 
+
+.modal button {
+  outline: none;
+  cursor: pointer;
+  border: 0;
+}
+
+/* 모달 박스 디자인  */
+.modal > section {
+  width: 630px;
+  margin: 0 auto;
+
+  border-radius: 20px;
+  background-color: #fff;
+
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-show 0.3s;
+  overflow: hidden;
+}
+
+.modal > section > header {
+  position: relative;
+  height: 48px;
+  border-radius: 20px 20px 0px 0px;
+  background: var(--Gradient-_-Main, linear-gradient(97deg, #E9D9D3 0%, #D3DDEB 100%));
+  display:flex;
+  justify-content: center;
+}
+
+.modalHeaderBox{
+  padding-top: 12px;
+  display: flex;
+  flex-direction: row;
+}
+
+.modalHeaderBox img{
+  width:18px;
+  height:16px;
+  margin-top: 4px;
+  margin-right: 8px;
+}
+
+.modalHeaderBox span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 01 _ EB */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px; /* 150% */
+}
+
+.modalHeaderBox p{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 01 _ M */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.modal > section > header button {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  width: 30px;
+  font-size: 21px;
+  font-weight: 700;
+  text-align: center;
+  color: #25569D;
+  background-color: transparent;
+}
+.modal > section > main {
+  padding:17px 36px 17px 36px ;
+  border-bottom: 1px solid #dee2e6;
+  border-top: 1px solid #dee2e6;
+  height: 488px;
+ 
+  overflow-y: auto;
+}
+
+.modal > section > footer {
+  /* padding: 12px 16px; */
+  /* text-align: right; */
+  height: 40px;
+}
+
+.modal.openModal {
+  display: flex;
+  align-items: center;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-bg-show 0.3s;
+}
+
+
+.close{
+  margin: 20px;
+  margin-top: 12px;
+  margin-right: 16px;
+  border:1px solid black;
+}
+
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-bottom: 0px;
+}
+
+.leftmessage{
+  display: flex;
+  align-self: flex-start;
+}
+
+.rightmessage{
+  display: flex;
+  align-self: flex-end;
+}
+
+.buttons_1{
+  display:flex;
+
+  margin-top: 10px;
+}
+
+.buttons_2{
+  display:flex;
+
+  margin-top: 5px;
+
+}
+
+.btn{
+  display: inline-flex;
+  padding: 8px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 90px;
+  background: #D3DDEA;
+  margin-right: 8px;
+}
+
+.btn span{
+  color: #25569D;
+
+  /* Body 04 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px; /* 154.545% */
+}
+
+.activeBtn{
+  display: inline-flex;
+  padding: 8px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 90px;
+  background: #25569D;
+  margin-right: 8px;
+}
+
+.activeBtn span{
+  color: #FFF;
+
+  /* Body 04 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px; /* 154.545% */
+}

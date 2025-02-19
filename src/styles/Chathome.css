@@ -16,13 +16,13 @@ html, body {
   background: var(--Gradient-02, linear-gradient(180deg, #E9D9D3 0%, #D3DDEA 100%));
 
   display: flex;
-  justify-content: center;
 }
 
 .chatHome-innercontainer{
   width: 1060px;
   height: calc(100vh - 88px);
   flex-shrink: 0;
+  margin-left: 230px;
 
   background: var(--Gradient-02, linear-gradient(180deg, #E9D9D3 0%, #D3DDEA 100%));
 
@@ -31,4 +31,9 @@ html, body {
 
   display: flex;
   flex-direction: row; 
+}
+
+.chatBot{
+  margin-left: 100px;
+  margin-top: 600px;
 }
