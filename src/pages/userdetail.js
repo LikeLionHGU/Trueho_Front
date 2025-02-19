@@ -156,9 +156,9 @@ function UserDetailPage() {
               <button onClick={handleSendMessage}>
                 메시지 보내기
               </button>
-              <button onClick={() => setShowModal(false)}>
+              {/* <button onClick={() => setShowModal(false)}>
                 닫기
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
