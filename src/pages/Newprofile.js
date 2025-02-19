@@ -14,6 +14,7 @@ import profiledeactive from "../assets/Page/NewProfile/deactivate_img.png"
 import Footer from "../components/footer";
 import ProfileGuideModal from "../components/modal/ProfileGuideModal";
 import EditCheckModal from "../components/modal/EditCheckModal";
+import NotEnteredModal from "../components/modal/NotEnteredModal";
 
 function Newprofile() {
   const navigate = useNavigate();
@@ -101,6 +102,7 @@ const handleClickNoShow = () => {
   const postAllDataSequentially = async (e) => {
     e.preventDefault();
     document.body.style.overflow = "auto";
+
     try {
       // (1) 일반 데이터 먼저 전송
       await axios.post(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
@@ -170,7 +172,7 @@ const handleClickNoShow = () => {
   };
 
 // 8) 수정하시겠습니까? 확인 모달 함수들
-  const [editCheckmodalOpen, setEditCheckModalOpen, ] = useState(false);
+  const [editCheckmodalOpen, setEditCheckModalOpen ] = useState(false);
   const openEditCheckModal = () => setEditCheckModalOpen(true);
   const closeEditCheckModal = () => {
     setEditCheckModalOpen(false);
@@ -178,16 +180,37 @@ const handleClickNoShow = () => {
   };
 
   const editCheckModalClick = () => {
+    
+  // 8-1) 필수 입력값 체크 (기본값 "0"인 경우 입력 안 한 것으로 간주)
+  if (
+    data.name == "0" || 
+    data.admission == "0" || 
+    data.graduation == "0" || 
+    data.major == "0" || 
+    data.work == "0" || 
+    data.hansum == "2" || 
+    data.showing == "2"  // 한섬(멘토)일 경우 직무 필수
+  ) {
+    console.log("데이터 값 없는지 확인합니다");
+    openNotEnteredModal(); // 모달 열기
+    return; // 함수 종료
+  }
+
     openEditCheckModal();
     document.body.style.overflow = 'hidden';
   };
 
-// 9) 페이지 로드될 때 스크롤 가능하게 스크롤 잠금 풀어뒀던거 풀기
-  // useEffect(() => {
-  //   return () => {
-  //     document.body.style.overflow = "auto"; // 페이지 이동 시 스크롤 복구
-  //   };
-  // }, []);
+// 9) 필수 사항들 입력 모두 다 안되어있을때 모달
+const [notEnteredModalOpen, setNotEnteredModalOpen] = useState(false);
+const openNotEnteredModal = () => setNotEnteredModalOpen(true);
+const closeNotEnteredModal = () => {
+  setNotEnteredModalOpen(false);
+  document.body.style.removeProperty('overflow');
+};
+
+// useEffect(() => {
+//   console.log("📌 data 변경됨:", data);
+// }, [data]);
 
   return (
     <>
@@ -414,6 +437,11 @@ const handleClickNoShow = () => {
         open={editCheckmodalOpen}
         close={closeEditCheckModal}
         postAllDataSequentially={postAllDataSequentially}
+      />
+
+    <NotEnteredModal
+        open={notEnteredModalOpen}
+        close={closeNotEnteredModal}
       />
     </>
   );

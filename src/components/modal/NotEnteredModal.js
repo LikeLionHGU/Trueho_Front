@@ -13,10 +13,13 @@ const NotEnteredModal = (props) => {
         <section onClick={(e) => e.stopPropagation()}>
           <main>
             <div className={styles.topContainer}>
-              <span>프로필을 등록하시겠어요?</span>
+              <span>필수사항이 전부 입력되지 않았습니다.</span>
+              <p>다시 확인해주세요.</p>
             </div>
             <div className={styles.bottomContainer}>
-              
+              <div className={`${styles.yesButton} ${styles.button}`} onClick={close}>
+                <span>확인</span>
+              </div>
             </div>
           </main>
         </section>
