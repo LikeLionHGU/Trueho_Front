@@ -40,6 +40,7 @@
   background:  lightgray 50% / cover no-repeat;
 
   margin-left: 20px;
+  position:relative;
 }
 
 .chatlist-item-textcontainer{
@@ -110,4 +111,31 @@
 .chatlist-item-textcontainer-up-img{
   width: 18px;
   height:18px;
+}
+
+.profile{
+  height: 75px;
+  width: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.redDot{
+  padding-top: 1px;
+  padding-left: 1px;
+  border-radius: 80px;
+  width: 12px;
+  height: 12px;
+  background-color: #FFF;
+  position:absolute;
+  margin-left: 56px;
+  margin-top: 40px;
+}
+
+.redDotIn{
+  border-radius: 80px;
+  width: 10px;
+  height: 10px;
+  background-color: #9D2525;
 }
