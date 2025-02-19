@@ -21,7 +21,7 @@ function UserCard({ user }) {
   // 경력/수상 (배열)
   const achievementList = Array.isArray(user.history) && user.history.length > 0 
     ? user.history.map((item, idx) => (
-        <li key={idx}>{item.name}: {item.detail}</li>
+        <li key={idx}>{item.name}</li>
       ))
     : null;
 
