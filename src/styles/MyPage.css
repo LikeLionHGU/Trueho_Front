@@ -4,6 +4,7 @@
   flex-direction: column;
   min-height: 100vh;
   font-family: sans-serif;
+  background: var(--Gradient-02, linear-gradient(180deg, #E9D9D3 0%, #D3DDEA 100%));
 }
 
 /* 헤더 */
@@ -41,22 +42,28 @@
   justify-content: center;
 }
 
-/* 프로필 이미지 및 편집 영역 */
 .profile-image-container {
-  width: 100px;
-height: 100px;
-flex-shrink: 0;
-aspect-ratio: 1/1;
-border-radius: 0px 60px 60px 60px;
-/* background: url("../assets/Components/Profile/profileimg.svg") lightgray 50% / cover no-repeat; */
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  border-radius: 0px 60px 60px 60px;
+  padding: 0px;
+
+  /* Flex 컨테이너로 설정 */
+  display: flex;
+  align-items: center;  /* 수직 중앙 정렬 */
+  justify-content: center;  /* 수평 중앙 정렬 */
+  margin-top: -110px;
 }
+
 
 .profile-image {
   width: 100px;
-height: 100px;
-flex-shrink: 0;
-aspect-ratio: 1/1;
-border-radius: 0px 60px 60px 60px;
+  height: 100px;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  border-radius: 0px 60px 60px 60px;
 }
 
 .profile-icon {
@@ -69,11 +76,19 @@ border-radius: 0px 60px 60px 60px;
   justify-content: center;
   font-size: 2rem;
   margin-bottom: 1rem;
+  
+
 }
 
 .nickname {
-  font-size: 1.8rem;
-  margin: 0.5rem 0;
+  color: var(--Primary-01, #25569D);
+  /* Title 03 */
+  font-family: "SUIT Variable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 150% */
+  padding: 10px;
 }
 
 /* 프로필 이미지 편집 영역 */
@@ -81,6 +96,7 @@ border-radius: 0px 60px 60px 60px;
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  
 }
 
 .image-edit input {
@@ -96,74 +112,151 @@ border-radius: 0px 60px 60px 60px;
   align-items: center;
   gap: 0.5rem;
   margin: 1rem 0;
-}
+  color: var(--Primary-01, #25569D);
+  /* Body 01 _ M */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  }
 
-/* 토글 스위치 스타일 */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 42px;
-  height: 22px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; 
-  left: 0;
-  right: 0; 
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 22px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 2px;
-  bottom: 2px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #00b4d8;
-}
-
-input:checked + .slider:before {
-  transform: translateX(20px);
-}
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;   /* 토글 너비 */
+    height: 22px;  /* 토글 높이 */
+    border-radius: 20px;
+    background: var(--Primary-01, #25569D);
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.10) inset;
+  }
+  
+  /* 체크박스 자체는 숨김 */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none; /* 커서가 input 자체에 닿지 않도록 */
+  }
+  
+  /* 토글 배경 부분 */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; 
+    left: 0;
+    right: 0; 
+    bottom: 0;
+    transition: 0.4s;
+    background-color: #ccc; 
+    border-radius: 20px;
+    
+    /* 초기에는 OFF 표시 */
+    /* ::after로 OFF/ON 텍스트를 보여줍니다. */
+  }
+  .slider::after {
+    content: "";
+    position: absolute;
+    width: 100%;         /* 토글 폭만큼 */
+    text-align: left;  /* 가운데 정렬 */
+    margin-left: 6px;
+    margin-bottom: 6px;
+    /* top: 2px; */
+    font-size: 10px;
+    color: #fff;
+    pointer-events: none; /* 클릭 이벤트가 텍스트에 막히지 않도록 */
+  }
+  
+  /* 토글 원형 버튼 */
+  .slider::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  
+  /* 토글이 ON(checked)일 때 */
+  input:checked + .slider {
+    background: var(--Primary-01, #25569D);
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.10) inset;
+  }
+  /* ON 상태일 때 표시될 텍스트 */
+  input:checked + .slider::after {
+    content: "";
+  }
+  
+  /* ON 상태일 때 원형 버튼 이동 */
+  input:checked + .slider:before {
+    transform: translateX(20px);
+  }
+  
 
 /* 버튼 그룹 */
 .button-group {
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  /* gap: 1rem;
+  margin-top: 1rem; */
+  padding: 10px;
 }
 
 .profile-edit-button,
 .logout-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  cursor: pointer;
+  /* padding: 0.5rem 1rem;
   background-color: #0077b6;
   color: #fff;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 1rem; */
+
+  display: inline-flex;
+  cursor: pointer;
+  border: none;
+  height: 38px;
+  padding: 10px 78px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 66.667px;
+  background: var(--Point-01, #6C3F2E);
+
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  color: var(--Gray-10, #FFF);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
 }
 
 .logout-button {
-  background-color: #d90429;
+  cursor: pointer;
+  display: inline-flex;
+  padding: 8px 36px;
+  justify-content: center;
+  align-items: center;
+  gap: 6.667px;
+  border-radius: 66.667px;
+  background: var(--Gray-10, #FFF);
+
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  color: var(--Primary-01, #25569D);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+  margin-top: 70px;
 }
 
 /* 푸터 */
@@ -190,4 +283,14 @@ input:checked + .slider:before {
 .mypage-container.no-login .mypage-main {
   opacity: 0.7;
   pointer-events: none;
+}
+
+.toggle-state{
+  color: var(--Gray-10, #FFF);
+  /* Caption _ B */
+  font-family: "SUIT Variable";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px; /* 160% */
 }
