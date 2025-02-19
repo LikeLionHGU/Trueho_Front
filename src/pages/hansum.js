@@ -47,7 +47,7 @@ function HansumPage() {
 
   return (
     <div className="hansum-page">
-      <h1>원하는 한섬을 찾아 메시지를 보내보세요</h1>
+      <h1><div className="majortext">Major</div></h1>
 
       <MajorFilter 
         selectedMajor={selectedMajor} 
