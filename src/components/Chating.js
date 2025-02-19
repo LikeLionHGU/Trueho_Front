@@ -43,7 +43,7 @@ function Chating() {
     .then((response) => {
       console.log("서버 응답:", response.data);
       setData({ message: "" });
-
+      getChatings();
     })
     .catch((error) => {
       console.error("에러 발생:", error.response?.data || error);
