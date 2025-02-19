@@ -1,163 +1,309 @@
 .about-container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 50px 20px;
-    color: #333;
-    font-family: sans-serif;
-  }
+  width: 100%;
+  padding: 50px 20px;
+  color: #333;
+  font-family: sans-serif;
+  background: var(--Gradient-_-Main, linear-gradient(97deg, #E9D9D3 0%, #D3DDEB 100%));
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* 로고 이미지 크기 조절 예시 */
+.logo-image {
+  display: flex;
+width: 118.58px;
+height: 38px;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+aspect-ratio: 118.58/38.00;
+
+}
+
+/* 제목 스타일 */
+.intro-section h1,
+.purpose-section h2,
+.faq-section h2 {
+  color: var(--Primary-01, #25569D);
+
+/* Title 02 */
+font-family: "SUIT Variable";
+font-size: 42px;
+font-style: normal;
+font-weight: 800;
+line-height: 64px; /* 152.381% */
+margin-bottom: 20px;
+}
+
+/* --------------------------------------
+   1) 소개 섹션(한섬이란?)
+---------------------------------------- */
+.intro-section {
+  /* 기존 column 배치 대신 row 배치 */
+  display: flex;
+  flex-direction: row; /* 수평 배치 */
+  align-items: flex-start; /* 상단 정렬 */
+  gap: 20px;
+  margin-bottom: 80px;
+}
+
+
+.intro-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start; 
+}
+
+
+.intro-text {
+  flex: 1;
+  min-width: 280px;
+
+  color: var(--Primary-01, #25569D);
+
+/* Body 01 _ M */
+font-family: "SUIT Variable";
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px; /* 150% */
+}
+
+.intro-text p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.intro-text ul {
+  list-style: none;
+  padding: 0;
   
-  /* 제목 스타일 */
-  .intro-section h1,
-  .purpose-section h2,
-  .faq-section h2 {
-    color: #1a1a1a;
-    margin-bottom: 20px;
-  }
+}
+
+.intro-text ul li {
+  margin: 33px 0;
+  position: relative;
+  display: flex;
+}
+
+.intro-left{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.intro-image {
+  width: 400px;
+height: 348px;
+flex-shrink: 0;
+
+border-radius: 50px 0px 50px 50px;
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.icon {
+  width: 48px;
+height: 49.909px;
+flex-shrink: 0;
+aspect-ratio: 48.00/49.91;
+background: url("../assets/Components/About/aboutcute2.svg");
+margin-right: 20px;
+}
+
+/* --------------------------------------
+   2) 한섬의 취지 섹션
+---------------------------------------- */
+.purpose-section {
+  /* 기존 column 배치 대신 row 배치 */
+  display: flex;
+  flex-direction: row; /* 수평 배치 */
+  align-items: flex-start; /* 상단 정렬 */
+  gap: 20px;
+  margin-bottom: 80px;
+}
+
+
+.purpose-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start; 
+}
+
+
+.purpose-text {
+  flex: 1;
+  min-width: 280px;
+
+  color: var(--Primary-01, #25569D);
+
+/* Body 02 _ B */
+font-family: "SUIT Variable";
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: 21px; /* 150% */
+}
+
+.purpose-text p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.purpose-text ul {
+  list-style: none;
+  padding: 0;
   
-  /* --------------------------------------
-     1) 소개 섹션(한섬이란?)
-  ---------------------------------------- */
-  .intro-section {
-    margin-bottom: 80px;
-  }
-  
-  .intro-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .intro-text {
-    flex: 1;
-    min-width: 280px;
-  }
-  
-  .intro-text p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-  }
-  
-  .intro-text ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .intro-text ul li {
-    margin: 5px 0;
-    position: relative;
-    padding-left: 20px;
-  }
-  
-  .intro-text ul li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #1e90ff;
-  }
-  
-  .intro-image {
-    flex: 1;
-    min-width: 280px;
-  }
-  .intro-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  /* --------------------------------------
-     2) 한섬의 취지 섹션
-  ---------------------------------------- */
-  .purpose-section {
-    margin-bottom: 80px;
-  }
-  
-  .purpose-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .purpose-image,
-  .purpose-text {
-    flex: 1;
-    min-width: 280px;
-  }
-  
-  .purpose-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  .purpose-text ol {
-    margin: 10px 0;
-    padding-left: 20px;
-  }
-  
-  .purpose-text ol li {
-    margin: 6px 0;
-  }
-  
-  /* --------------------------------------
-     3) FAQ 섹션
-  ---------------------------------------- */
-  .faq-section {
-    margin-bottom: 80px;
-  }
-  
-  .faq-item {
-    margin-bottom: 30px;
-  }
-  
-  .faq-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #444;
-  }
-  
-  .faq-answer p {
-    line-height: 1.6;
-    margin-bottom: 10px;
-  }
-  
-  .faq-cards {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .faq-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    flex: 1;
-  }
-  
-  .faq-card h4 {
-    margin-bottom: 8px;
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  /* --------------------------------------
-     4) 하단 Footer
-  ---------------------------------------- */
-  .about-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #f3f3f3;
-    padding: 20px;
-    margin-top: 40px;
-    border-top: 1px solid #ccc;
-  }
-  
-  .footer-left img {
-    margin-right: 10px;
-  }
-  
-  .footer-right {
-    text-align: right;
-  }
-  
+}
+
+.purpose-text ul li {
+  margin: 33px 0;
+  position: relative;
+  display: flex;
+}
+
+.purpose-left{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.purpose-image {
+  width: 400px;
+height: 348px;
+flex-shrink: 0;
+
+border-radius: 50px 0px 50px 50px;
+}
+
+.purpose-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.mok1{
+  background: url("../assets/Components/About/aboutmok1.svg");
+  display: inline-flex;
+  width: 51px;
+height: 22px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+margin-right: 20px;
+
+}
+
+.mok2{
+  background: url("../assets/Components/About/aboutmok2.svg");
+  display: inline-flex;
+  width: 51px;
+height: 22px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+margin-right: 20px;
+
+}
+
+.mok3{
+  background: url("../assets/Components/About/aboutmok3.svg");
+  display: inline-flex;
+  width: 51px;
+height: 22px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+margin-right: 20px;
+}
+
+/* --------------------------------------
+   3) FAQ 섹션
+---------------------------------------- */
+.faq-section {
+  margin-bottom: 80px;
+}
+
+.faq-item {
+  margin-bottom: 30px;
+}
+
+.faq-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.faq-answer p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.faq-cards {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.faq-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  flex: 1;
+}
+
+.faq-card h4 {
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* --------------------------------------
+   4) 하단 Footer
+---------------------------------------- */
+.about-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f3f3f3;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 1px solid #ccc;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 40px;
+  height: auto;
+}
+
+.footer-right {
+  text-align: right;
+}
