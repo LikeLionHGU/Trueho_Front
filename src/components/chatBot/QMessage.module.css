@@ -1,0 +1,32 @@
+.frompeopleContainer{
+  display: inline-flex;
+  padding: 15px 18px;
+  justify-content: center;
+  align-items: center;
+  gap: 6.667px;
+
+  border-radius: 20px 20px 0px 20px;
+  background: var(--Point-04, #F8ECE8);
+
+  width:max-content;
+  max-width: 300px;
+  height:max-content;
+
+}
+
+.frompeopleTextContainer{
+  word-wrap: break-word; /* 텍스트가 길어지면 자동으로 줄바꿈되게 */
+  overflow: hidden; /* 넘치는 텍스트 숨기기 */
+  max-width: 100%; /* 텍스트 박스가 div 내에서만 확장되도록 하게하는 코드 */
+}
+
+.frompeopleTextContainer span{
+  color: var(--Body-Text-Color, #00275F);
+
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
