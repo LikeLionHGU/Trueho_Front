@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import Accordion from "../components/Accordion";
 import "../components/styles/userDetail.css";
 import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
@@ -9,6 +10,7 @@ function UserDetailPage() {
   const { userId } = useParams();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  
 
   // 메시지 모달 상태
   const [showModal, setShowModal] = useState(false);
@@ -73,6 +75,7 @@ function UserDetailPage() {
       // 모달 닫고, 입력값 초기화
       setShowModal(false);
       setMessageText("");
+      navigate(`/chatroom/${data.chatRoomId}`);
     } catch (error) {
       console.error("메시지 전송 에러:", error);
       alert("메시지 전송에 실패했습니다.");
