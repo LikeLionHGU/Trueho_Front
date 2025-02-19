@@ -9,10 +9,12 @@ const EditCheckModal = (props) => {
   const { open, close, postAllDataSequentially } = props;
 
   const [editCompleteModalOpen, setEditCompleteModalOpen] = useState(false);
-  const openEditCompleteModal = () => setEditCompleteModalOpen(true);
+  const openEditCompleteModal = () => {
+    setEditCompleteModalOpen(true);
+  };
   const closeEditCompleteModal = () => {
     setEditCompleteModalOpen(false);
-    document.body.style.removeProperty('overflow');
+    document.body.style.overflow = "auto";
   };
 
   const editCompleteModalClick = (e) => {
@@ -20,7 +22,7 @@ const EditCheckModal = (props) => {
 
     postAllDataSequentially(e); // Newprofile.js 전달받은 함수 실행 (페이지에 있는 함수를 모달에서 실행!!!)
     openEditCompleteModal();
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "auto";
   };
 
   return (

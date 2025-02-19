@@ -100,7 +100,7 @@ const handleClickNoShow = () => {
 
   const postAllDataSequentially = async (e) => {
     e.preventDefault();
-  
+    document.body.style.overflow = "auto";
     try {
       // (1) 일반 데이터 먼저 전송
       await axios.post(`${process.env.REACT_APP_HOST_URL}/main/register`, data, {
@@ -181,6 +181,13 @@ const handleClickNoShow = () => {
     openEditCheckModal();
     document.body.style.overflow = 'hidden';
   };
+
+// 9) 페이지 로드될 때 스크롤 가능하게 스크롤 잠금 풀어뒀던거 풀기
+  // useEffect(() => {
+  //   return () => {
+  //     document.body.style.overflow = "auto"; // 페이지 이동 시 스크롤 복구
+  //   };
+  // }, []);
 
   return (
     <>
