@@ -176,7 +176,7 @@ line-height: 64px; /* 152.381% */
   color: #444;
 }
 
-/* 모달 오버레이 */
+/* 모달 오버레이(배경) */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -190,52 +190,116 @@ line-height: 64px; /* 152.381% */
   z-index: 999;
 }
 
-/* 모달 컨텐츠 박스 */
+/* 모달 컨테이너 */
 .modal-content {
   width: 526px;
-height: 321px;
-flex-shrink: 0;
-background: #FFF;
-border-radius: 20px 20px 20px 20px;
-box-shadow: 5.333px 5.333px 10px 0px rgba(0, 0, 0, 0.10);
+  height: 321px;
+  background: #FFF;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+  
+  /* 전체 레이아웃: 세로 배치 */
+  display: flex;
+  flex-direction: column;
+  /* 내부 여백 */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* 텍스트 영역 */
-.modal-content textarea {
-  width: 465px;
-height: 191px;
-flex-shrink: 0;
-background: var(--Primary-04, #F4F8FD);
-border: none;
-border-radius: 20px 20px 20px 20px;
+/* --- 모달 헤더 --- */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  /* 필요 시 상단 여백/글꼴 조정 */
+  align-items: normal;
 }
 
-/* 버튼 그룹 */
-.modal-buttons {
-  display: inline-flex;
-padding: 8px 36px;
-justify-content: center;
-align-items: center;
-gap: 6.667px;
-border-radius: 66.667px;
-background: var(--Point-01, #6C3F2E);
+.modal-header h2 {
+  font-size: 16px;
+  /* 원하는 스타일로 수정 */
+  color: var(--Primary-01, #25569D);
 
-/* Drop Shadow _ Small */
-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+/* Title 06 */
+font-family: "SUIT Variable";
+font-size: 21px;
+font-style: normal;
+font-weight: 800;
+line-height: 32px; /* 152.381% */
+margin-left: 20px;
 }
 
-.modal-buttons button {
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+.modal-close {
+  background: none;
   border: none;
-  border-radius: 4px;
+  font-size: 30px;
+  cursor: pointer;
+  line-height: 1;
+  width: 12px;
+height: 12px;
+flex-shrink: 0;
+stroke-width: 2px;
+color: var(--Primary-01, #25569D);
+
 }
 
-.modal-buttons button:first-of-type {
-  background-color: #0077b6;
-  color: #fff;
+/* --- 모달 바디 (텍스트 영역) --- */
+.modal-body {
+  flex: 1;  /* 남은 공간을 모두 채워서 아래 푸터와 간격 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 원하는 레이아웃에 맞춰 수정 가능 */
+  color: var(--Primary-02, #A9C5E8);
+
 }
 
-.modal-buttons button:last-of-type {
+/* textarea 스타일 */
+.modal-body textarea {
+  width: 100%;
+  height: 100%;
+  background: #F4F8FD;
+  border: none;
+  border-radius: 20px;
+  resize: none;        /* 크기 조절 막기 */
+  padding: 16px;       /* 내부 여백 */
+  font-size: 14px;
+  font-family: inherit;  /* 폰트 상속 */
+  box-sizing: border-box;
+
+  color: var(--Primary-02, #A9C5E8);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+}
+
+/* --- 모달 푸터 (버튼 영역) --- */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px; /* 위쪽과 간격 */
+}
+
+/* 메시지 보내기 버튼 */
+.modal-send-button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 66.667px;
   background: var(--Point-01, #6C3F2E);
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  color: #FFF;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--Gray-10, #FFF);
+
+/* Body 03 _ M */
+font-family: "SUIT Variable";
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
 }
