@@ -8,13 +8,25 @@
   
   .major-filter button {
     background-color: #f5f5f5;
-    border: 1px solid #ccc;
+    border: none;
     padding: 10px 16px;
     border-radius: 20px;
     font-size: 14px;
-    color: #333;
+    
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+
+    border-radius: 50px;
+background: var(--Point-04, #F8ECE8);
+
+color: var(--Point-01, #6C3F2E);
+
+/* Body 02 _ M */
+font-family: "SUIT Variable";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px; /* 150% */
   }
   
   .major-filter button:hover {
@@ -23,10 +35,35 @@
   }
   
   .major-filter button.selected {
-    background-color: #25569D;
     color: white;
-    border: 1px solid #25569D;
-    font-weight: bold;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    
+    border-radius: 50px;
+background: var(--Point-01, #6C3F2E);
+
+/* Drop Shadow _ Small */
+box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+
+color: var(--Primary-04, #F4F8FD);
+
+/* Body 02 _ M */
+font-family: "SUIT Variable";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px; /* 150% */
   }
   
+
+.majortext{
+  color: var(--Point-01, #6C3F2E);
+
+/* Title 04 */
+font-family: "SUIT Variable";
+font-size: 27px;
+font-style: normal;
+font-weight: 800;
+line-height: 40px; /* 148.148% */
+text-align: left;
+margin-left: 30px;
+}
