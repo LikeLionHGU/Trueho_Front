@@ -3,22 +3,25 @@
   padding: 50px 20px;
   color: #333;
   font-family: sans-serif;
-  background: var(--Gradient-_-Main, linear-gradient(97deg, #E9D9D3 0%, #D3DDEB 100%));
+  background: var(
+    --Gradient-_-Main,
+    linear-gradient(97deg, #e9d9d3 0%, #d3ddeb 100%)
+  );
 }
 
 .bold-text {
   font-weight: bold;
 }
 
-.logo-text{
-  color: var(--Primary-01, #25569D);
+.logo-text {
+  color: var(--Primary-01, #25569d);
 
-/* Title 02 */
-font-family: "SUIT Variable";
-font-size: 42px;
-font-style: normal;
-font-weight: 800;
-line-height: 64px; /* 152.381% */
+  /* Title 02 */
+  font-family: "SUIT Variable";
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 64px; /* 152.381% */
 }
 
 .logo-container {
@@ -34,28 +37,27 @@ line-height: 64px; /* 152.381% */
 /* 로고 이미지 크기 조절 예시 */
 .logo-image {
   display: flex;
-width: 118.58px;
-height: 38px;
-justify-content: center;
-align-items: center;
-flex-shrink: 0;
-aspect-ratio: 118.58/38.00;
-
+  width: 118.58px;
+  height: 38px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  aspect-ratio: 118.58/38;
 }
 
 /* 제목 스타일 */
 .intro-section h1,
 .purpose-section h2,
 .faq-section h2 {
-  color: var(--Primary-01, #25569D);
+  color: var(--Primary-01, #25569d);
 
-/* Title 02 */
-font-family: "SUIT Variable";
-font-size: 42px;
-font-style: normal;
-font-weight: 800;
-line-height: 64px; /* 152.381% */
-margin-bottom: 20px;
+  /* Title 02 */
+  font-family: "SUIT Variable";
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 64px; /* 152.381% */
+  margin-bottom: 20px;
 }
 
 /* --------------------------------------
@@ -70,27 +72,25 @@ margin-bottom: 20px;
   margin-bottom: 80px;
 }
 
-
 .intro-content {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  align-items: flex-start; 
+  align-items: flex-start;
 }
-
 
 .intro-text {
   flex: 1;
   min-width: 280px;
 
-  color: var(--Primary-01, #25569D);
+  color: var(--Primary-01, #25569d);
 
-/* Body 01 _ M */
-font-family: "SUIT Variable";
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px; /* 150% */
+  /* Body 01 _ M */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
 }
 
 .intro-text p {
@@ -101,7 +101,6 @@ line-height: 24px; /* 150% */
 .intro-text ul {
   list-style: none;
   padding: 0;
-  
 }
 
 .intro-text ul li {
@@ -110,18 +109,17 @@ line-height: 24px; /* 150% */
   display: flex;
 }
 
-.intro-left{
+.intro-left {
   display: flex;
   flex-direction: column;
 }
 
-
 .intro-image {
   width: 400px;
-height: 348px;
-flex-shrink: 0;
+  height: 348px;
+  flex-shrink: 0;
 
-border-radius: 50px 0px 50px 50px;
+  border-radius: 50px 0px 50px 50px;
 }
 
 .intro-image img {
@@ -132,11 +130,11 @@ border-radius: 50px 0px 50px 50px;
 
 .icon {
   width: 48px;
-height: 49.909px;
-flex-shrink: 0;
-aspect-ratio: 48.00/49.91;
-background: url("../assets/Components/About/aboutcute2.svg");
-margin-right: 20px;
+  height: 49.909px;
+  flex-shrink: 0;
+  aspect-ratio: 48/49.91;
+  background: url("../assets/Components/About/aboutcute2.svg");
+  margin-right: 20px;
 }
 
 /* --------------------------------------
@@ -151,20 +149,18 @@ margin-right: 20px;
   margin-bottom: 80px;
 }
 
-
 .purpose-content {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  align-items: flex-start; 
+  align-items: flex-start;
 }
-
 
 .purpose-text {
   flex: 1;
   min-width: 280px;
 
-  color: var(--Primary-01, #25569D);
+  color: var(--Primary-01, #25569d);
 
   /* Body 01 _ M */
   font-family: "SUIT Variable";
@@ -178,7 +174,6 @@ margin-right: 20px;
 .purpose-text p {
   margin-bottom: 20px;
   line-height: 1.6;
-  
 }
 
 .purpose-text ul {
@@ -196,18 +191,17 @@ margin-right: 20px;
   line-height: 21px; /* 150% */
 }
 
-.purpose-left{
+.purpose-left {
   display: flex;
   flex-direction: column;
 }
 
-
 .purpose-image {
   width: 400px;
-height: 348px;
-flex-shrink: 0;
+  height: 348px;
+  flex-shrink: 0;
 
-border-radius: 50px 0px 50px 50px;
+  border-radius: 50px 0px 50px 50px;
 }
 
 .purpose-image img {
@@ -216,109 +210,256 @@ border-radius: 50px 0px 50px 50px;
   border-radius: 8px;
 }
 
-.mok1{
+.mok1 {
   background: url("../assets/Components/About/aboutmok1.svg");
   display: inline-flex;
   width: 51px;
-height: 22px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-flex-shrink: 0;
-margin-right: 20px;
-
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
-.mok2{
+.mok2 {
   background: url("../assets/Components/About/aboutmok2.svg");
   display: inline-flex;
   width: 51px;
-height: 22px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-flex-shrink: 0;
-margin-right: 20px;
-
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
-.mok3{
+.mok3 {
   background: url("../assets/Components/About/aboutmok3.svg");
   display: inline-flex;
   width: 51px;
-height: 22px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-flex-shrink: 0;
-margin-right: 20px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
 /* --------------------------------------
    3) FAQ 섹션
 ---------------------------------------- */
+/* FAQ 섹션 컨테이너 */
 .faq-section {
   margin-bottom: 80px;
+  /* 필요한 경우 배경이나 패딩을 줄 수도 있음 */
 }
 
+/* 상단 FAQ 헤더 (큰 제목 + 서브타이틀) */
+.faq-header {
+  margin-bottom: 40px; /* FAQ 전체와 구분되는 간격 */
+}
+
+/* 큰 제목 FAQ 스타일 */
+.faq-header h2 {
+  font-size: 42px; /* 원하는 크기 */
+  font-weight: 800; /* 두껍게 */
+  color: #25569d; /* 예시 색상 */
+  margin-bottom: 8px; /* 아래 서브타이틀과 간격 */
+}
+
+/* 서브타이틀 (자주 묻는 질문 01) */
+.faq-subtitle {
+  color: var(--Primary-01, #25569d);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+}
+
+/* 각 FAQ 아이템 */
 .faq-item {
-  margin-bottom: 30px;
+  margin-bottom: 30px; /* 질문 간 간격 */
 }
 
+/* 질문(Q) */
 .faq-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #444;
+  color: var(--Primary-01, #25569d);
+
+  /* Title 03 */
+  font-family: "SUIT Variable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 48px; /* 150% */
+  margin-bottom: 20px;
 }
 
+/* 답변(A) */
 .faq-answer p {
-  line-height: 1.6;
-  margin-bottom: 10px;
+  color: var(--Primary-01, #25569d);
+
+  /* Body 01 _ B */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; /* 150% */
+  margin-left: 100px;
+  margin-bottom: 20px;
 }
 
+/* 카드 목록 레이아웃 */
 .faq-cards {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 30px; /* 카드들 사이 간격 */
+  margin-top: 20px;
+  flex-wrap: non-wrap; /* 화면이 작아지면 다음 줄로 넘어가게 */
+
+  width: 300px;
+  height: 293px;
+  flex-shrink: 0;
+  border-radius: 0px 30px 30px 30px;
+  margin-left: 330px;
 }
 
+/* 카드 개별 스타일 */
 .faq-card {
-  border: 1px solid #ddd;
+  
+  border: 1px solid #ddd; /* 테두리 */
   border-radius: 8px;
-  padding: 16px;
-  flex: 1;
-}
-
-.faq-card h4 {
-  margin-bottom: 8px;
-  font-size: 1rem;
-  color: #555;
-}
-
-/* --------------------------------------
-   4) 하단 Footer
----------------------------------------- */
-.about-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #f3f3f3;
   padding: 20px;
-  margin-top: 40px;
-  border-top: 1px solid #ccc;
+  background: #fff; /* 필요하면 흰색 배경 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* 살짝 그림자 예시 */
+
+  width: 300px;
+  height: 293px;
+  flex-shrink: 0;
+  border-radius: 0px 30px 30px 30px;
 }
 
-.footer-left {
+/* 카드 내부 제목 */
+.faq-card-header {
   display: flex;
+  justify-content: space-between;
+  color: var(--Point-01, #6c3f2e);
+  /* Caption _ B */
+  font-family: "SUIT Variable";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px; /* 160% */
+}
+
+.faq-card-body {
+  color: var(--Primary-01, #25569d);
+
+  /* Title 06 */
+  font-family: "SUIT Variable";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 32px; /* 152.381% */
+  margin-bottom: 13px;
+}
+
+.faq-card-footer {
+  
+  color: var(#25569D);
+  /* Body 03 _ M */
+  font-family: "SUIT Variable";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 150% */
+}
+
+.faq-card-bodyfooter{
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.q21 {
+  background: url("../assets/Components/About/q21.svg");
+  display: inline-flex;
+  width: 51px;
+  height: 22px;
+  justify-content: center;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
-.footer-logo {
-  width: 40px;
-  height: auto;
+.q22 {
+  background: url("../assets/Components/About/q22.svg");
+  display: inline-flex;
+  width: 51px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
-.footer-right {
-  text-align: right;
+.q23 {
+  background: url("../assets/Components/About/q2ex.svg");
+  display: inline-flex;
+  width: 51px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
+
+
+.q2-text {
+  margin-left: 100px;
+  flex: 1;
+  min-width: 280px;
+
+  color: var(--Primary-01, #25569d);
+
+  /* Body 01 _ M */
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  margin-top: 20px;
+}
+
+.q2-text p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.q2-text ul {
+  list-style: none; /* 기존에도 설정하셨지만, 혹시 모르니 중복 선언 */
+  padding: 0;
+  margin: 0;
+}
+
+.q2-text ul li {
+  margin: 25px 0;
+  position: relative;
+  display: flex;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+/* ::marker 제거 */
+.q2-text ul li::marker {
+  content: none;
+}
+
+
