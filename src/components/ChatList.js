@@ -19,6 +19,7 @@ function ChatList() {
   const navigate = useNavigate();
 
   const enterChatRoom = (id) => {
+    getList();
     navigate(`/chatroom/${id}`);
     console.log("경로 id 확인합니다 "+id);
   };
@@ -58,8 +59,15 @@ function ChatList() {
     <div className="chatlist-container">
       {list.map((chat) => (
         <div key={chat.id} className={`chatlist-item ${chat.id === Number(id) ? "active" : ""}`} onClick={() => enterChatRoom(chat.id)}>
+          <div className="profile">
+            <img src={chat.imgUrl || defaultprofile} alt={chat.name} className="chatlist-item-img" />
+            <div className={`${chat.unreadMessage === 1 ? "redDot" : ""}`} >
+              <div className={`${chat.unreadMessage === 1 ? "redDotIn" : ""}`}>
+              
+              </div>
+            </div>
+          </div>
 
-          <img src={chat.imgUrl || defaultprofile} alt={chat.name} className="chatlist-item-img" />
 
           <div className="chatlist-item-textcontainer">
             <div className="chatlist-item-textcontainer-up">
