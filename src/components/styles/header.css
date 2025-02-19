@@ -24,6 +24,7 @@
   height: 32px;
   flex-shrink: 0;
   aspect-ratio: 99.86/32.00;
+  cursor: pointer;
 }
 
 .header-title {
