@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import "../components/styles/scrolltotopbutton.css";
-import upimg from "../assets/Components/Profile/upbotton.png";
+import upimg from "../assets/Components/Profile/upbotton.svg";
 
 
 function ScrollToTopButton() {

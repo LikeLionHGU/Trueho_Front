@@ -5,7 +5,7 @@ import "../styles/hansum.css";
 import UserCard from "../components/usercard";
 import MajorFilter from "../components/majorfilter";
 import ScrollToTopButton from "../components/scrolltotopbutton";
-import bannerimg from "../assets/Components/Header/banner.png";
+// import bannerimg from "../assets/Components/Header/banner.png";
 
 
 async function fetchUserData(userId) {
@@ -65,7 +65,10 @@ function HansumPage() {
 </div>
           
          
-        <h1><div className="majortext">Major</div></h1>
+      <h1 style={{ margin: "20px", marginLeft: "180px" }}>
+        <div className="majortext">Major</div>
+      </h1>
+
 
       <MajorFilter 
         selectedMajor={selectedMajor} 
