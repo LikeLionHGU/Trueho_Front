@@ -14,7 +14,7 @@ function Footer() {
       <div className="footer-lar-container">
 
         <div className="footer-med-container1">
-          <img src={footerHansumLogo}/>
+          <img src={footerHansumLogo} className="imgmargin"/>
           <span className="footer-med-container1-text">Team 트루호</span>
           <div className="footer-med-container1-btn">
             <img src={footerNotion}/>
