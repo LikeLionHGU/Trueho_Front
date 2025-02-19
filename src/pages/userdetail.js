@@ -66,9 +66,9 @@ function UserDetailPage() {
       const data = response.data;
       console.log("메시지 전송 성공:", data);
 
-      alert(`메시지 전송 성공!
-내용: ${data.message}
-시간: ${data.time}`);
+//       alert(`메시지 전송 성공!
+// 내용: ${data.message}
+// 시간: ${data.time}`);
 
       // 모달 닫고, 입력값 초기화
       setShowModal(false);
