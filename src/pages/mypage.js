@@ -5,7 +5,7 @@ import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
 import offProfileImg from "../assets/Components/Profile/offimage.svg";
 import "../styles/MyPage.css";
 
-// axios.defaults.withCredentials = true; // 세션 쿠키 필요 시
+//axios.defaults.withCredentials = true; // 세션 쿠키 필요 시
 
 function MyPage() {
   const navigate = useNavigate();
@@ -94,7 +94,7 @@ function MyPage() {
       console.log("로그아웃 응답:", response.data);
 
       const { state } = response.data;
-      if (state === "Bye") {
+      if (state === "Bye~") {
         alert("로그아웃 성공!");
         navigate("/");
       } else {
