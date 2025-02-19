@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
-import offProfileImg from "../assets/Components/Profile/offimage.svg";
 import "../styles/MyPage.css";
 
 // axios.defaults.withCredentials = true; // 세션 쿠키 필요 시
@@ -120,20 +119,14 @@ function MyPage() {
     <div className={containerClassName}>
       <main className="mypage-main" style={ noLoginInfo ? { opacity: 0.5 } : {} }>
         {/* 프로필 이미지 */}
-        
-        <div className="profile-image-container"> 
-          
         <img
           className="profile-image"
-          src={!isProfilePublic ? offProfileImg : profilePic}
+          src={profilePic}
           alt="Profile"
           style={{ width: 100, height: 100 }}
         />
-        
-        </div>
 
         {/* 닉네임 */}
-        
         <h2 className="nickname">{nickname}</h2>
 
         {/* 프로필 공개 토글 */}
@@ -144,12 +137,12 @@ function MyPage() {
               type="checkbox"
               checked={isProfilePublic}
               onChange={handleToggle}
-              disabled={noLoginInfo}
+              disabled={noLoginInfo} // 로그인 정보 없으면 disabled
             />
-            <span className="slider"></span>
+            <span className="slider round"></span>
           </label>
+          <span className="toggle-state">{isProfilePublic ? "ON" : "OFF"}</span>
         </div>
-        
 
         {/* 버튼 그룹 */}
         <div className="button-group">
@@ -160,15 +153,13 @@ function MyPage() {
           >
             프로필 수정하기
           </button>
-        </div>
-        <div className="button-group">
-        <button
+          <button
             className="logout-button"
             onClick={handleLogout}
             disabled={noLoginInfo} // 로그인 정보 없으면 disabled
           >
             로그아웃
-        </button>
+          </button>
         </div>
 
         {/* 만약 noLoginInfo=true면 별도 안내 문구 */}
