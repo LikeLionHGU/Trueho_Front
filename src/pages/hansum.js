@@ -5,6 +5,8 @@ import "../styles/hansum.css";
 import UserCard from "../components/usercard";
 import MajorFilter from "../components/majorfilter";
 import ScrollToTopButton from "../components/scrolltotopbutton";
+import bannerimg from "../assets/Components/Header/banner.png";
+
 
 async function fetchUserData(userId) {
   try {
@@ -46,8 +48,24 @@ function HansumPage() {
   }
 
   return (
+    
     <div className="hansum-page">
-      <h1><div className="majortext">Major</div></h1>
+
+<div className="banner-image-container"> 
+  {/* <img src={bannerimg} alt="배너 이미지" /> */}
+  <div className="banner-text">
+      너희가 내 형제들인 이 가장 작은 이들 가운데  <br />
+      한 사람에게 해 준 것이 바로 나에게 해 준 것이다
+    </div>
+    
+    <div className="banner-text2">
+    <br />
+    - 마태 25장 40절 -
+    </div>
+</div>
+          
+         
+        <h1><div className="majortext">Major</div></h1>
 
       <MajorFilter 
         selectedMajor={selectedMajor} 
