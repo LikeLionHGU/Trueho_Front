@@ -112,9 +112,10 @@ function UserDetailPage() {
     );
 
   return (
-    <div className="user-detail-page">
-      <div className="user-detail-container">
-        <div className="detail-top">
+    <div className="userdetail-container">
+      <div className="user-detail-page">
+        <div className="userdetail-top-container"></div>
+        < div className="userdetail-bottom-container">
           <div className="detail-left">
             <img className="profile-icon" src={profileImage} alt="Profile" />
           </div>
