@@ -1,12 +1,27 @@
+.page-container {
+  margin: 0 300px; /* 양옆 300px씩 여백 */
+  color: var(
+    --Gradient-_-Main,
+    linear-gradient(97deg, #e9d9d3 0%, #d3ddeb 100%)
+  );
+}
+
+/* body에 전체 배경 적용 */
+body {
+  margin: 0; /* 기본 여백 제거 */
+  padding: 0;
+  background: var(--Gradient-_-Main, linear-gradient(97deg, #e9d9d3 0%, #d3ddeb 100%));
+  font-family: sans-serif;
+}
+
+
+
 .about-container {
   width: 100%;
   padding: 50px 20px;
   color: #333;
   font-family: sans-serif;
-  background: var(
-    --Gradient-_-Main,
-    linear-gradient(97deg, #e9d9d3 0%, #d3ddeb 100%)
-  );
+  
 }
 
 .bold-text {
@@ -457,9 +472,113 @@
   line-height: 21px;
 }
 
-/* ::marker 제거 */
-.q2-text ul li::marker {
+
+.no-marker-list {
+  list-style: none;  /* 기본 마커(• 등) 제거 */
+  margin: 0;         /* 브라우저 기본 여백 제거 (필요 시) */
+  padding: 0;        /* 브라우저 기본 여백 제거 (필요 시) */
+}
+
+/* 혹시 전역에 ::marker가 설정되어 있다면, 아래처럼 강제 제거해줄 수도 있습니다. */
+.no-marker-list li::marker {
   content: none;
 }
 
 
+
+/* ---------------------------------- */
+
+.q51 {
+  background: url("../assets/Components/About/q51.svg");
+  display: inline-flex;
+  width: 51px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.q52 {
+  background: url("../assets/Components/About/q52.svg");
+  display: inline-flex;
+  width: 51px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.q53 {
+  background: url("../assets/Components/About/q53.svg");
+  display: inline-flex;
+  width: 51px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+
+
+
+/* 부모 컨테이너 */
+.mentoring-steps {
+  /* 2 x 2 그리드 배치 */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  /* 반응형/정렬을 위해 필요하다면 폭이나 마진 조절 */
+  max-width: 800px;
+  margin: 0 auto; /* 가운데 정렬 */
+}
+
+/* 각 단계 카드 */
+.step-card {
+  display: flex;
+  align-items: center;
+  border-radius: 50px; /* 칩(pill) 형태 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* 살짝 그림자 */
+  padding: 16px;
+  gap: 16px;
+
+  width: 425.281px;
+height: 44px;
+flex-shrink: 0;
+border-radius: 20px 0px 20px 20px;
+background: var(--Primary-04, #F4F8FD);
+
+/* Drop Shadow _ Small */
+box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+/* 왼쪽 번호(원형) */
+.step-number {
+  color: var(--Primary-01, #25569D);
+
+/* Body 02 _ EB */
+font-family: "SUIT Variable";
+font-size: 14px;
+font-style: normal;
+font-weight: 800;
+line-height: 21px; /* 150% */
+}
+
+/* 단계 설명 텍스트 */
+.step-text {
+  color: var(--Primary-01, #25569D);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+  margin-left: 20px;
+}
