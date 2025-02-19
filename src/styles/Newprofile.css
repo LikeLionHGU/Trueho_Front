@@ -63,6 +63,7 @@
 
   /* Drop Shadow _ Small */
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  cursor: pointer;
 }
 
 .newprofile-top-container-second-selectbox.active{
@@ -183,6 +184,8 @@
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
 
   margin-top:8px;
+  cursor: pointer;
+
 }
 
 .newprofile-bottom-container-2-pic-btn span{
@@ -293,6 +296,8 @@
   font-style: normal;
   font-weight: 500;
   line-height: 21px; /* 150% */
+
+  cursor: pointer;
 }
 
 
@@ -329,6 +334,7 @@
   line-height: 21px; /* 150% */
 
   border:none;
+  cursor: pointer;
 }
 
 .newprofile-bottom-container-3{
@@ -515,6 +521,7 @@
   
   /* Drop Shadow _ Small */
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  cursor: pointer;
 }
 
 .newprofile-bottom-container-5-btn span{
@@ -586,6 +593,8 @@
 
   /* Drop Shadow _ Small */
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+
+  cursor: pointer;
 }
 
 .newprofile-bottom-container-6-second-selectbox.active{
@@ -676,6 +685,7 @@
   font-weight: 500;
   line-height: 21px; /* 150% */
   border:none;
+  cursor: pointer;
 }
 
 
@@ -711,4 +721,8 @@
   width: 12px;
   height: 12px;
   margin-top: 12px;
+}
+
+.imgCursor{
+  cursor: pointer;
 }
