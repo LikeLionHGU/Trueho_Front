@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./styles/header.css";
-import hansumLogo from "../assets/Components/Header/header_logo.png";
+import hansumLogo from "../assets/Components/Header/hansum_logo.svg";
 
 function Header() {
   const navigate = useNavigate();
