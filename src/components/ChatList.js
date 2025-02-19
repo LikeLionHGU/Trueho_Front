@@ -47,7 +47,7 @@ function ChatList() {
 
     const interval = setInterval(() => {
       getList();
-    }, 5000); // 5초마다 채팅 새로고침
+    }, 2000); // 5초마다 채팅 새로고침
 
     return () => clearInterval(interval);
   }, []); 
