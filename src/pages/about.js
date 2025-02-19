@@ -54,21 +54,21 @@ function AboutPage() {
       {/* 2) 한섬의 취지 섹션 */}
 
       {/* 1) 소개 섹션 */}
-      <section className="intro-section">
+      <section className="purpose-section">
         {/* “로고” 텍스트 대신 실제 이미지로 */}
-        <div className="intro-image">
+        <div className="purpose-image">
             <img src={secondSectionImg} alt="Intro section" />
           </div>
 
-        <div className="intro-left">
+        <div className="purpose-left">
           <h1 className="logo-container">
             <div className="logo-wrapper">
               <img src={logoImg} alt="한섬 로고" className="logo-image" />
               <span className="logo-text">의 취지</span>
             </div>
           </h1>
-          <div className="intro-content">
-            <div className="intro-text">
+          <div className="purpose-content">
+            <div className="purpose-text">
               <p>
               한섬의 목표는 재학생과 졸업생 간의 원활한 네트워크 형성입니다. 멘토-멘티 간 가벼운<br />
               대화부터 심층적인 커리어 상담까지 자유롭게 활용할 수 있도록 설계되었습니다! 
