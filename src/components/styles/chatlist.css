@@ -3,7 +3,7 @@
   width:300px;
 
   background: var(--Point-03, #ffffff);
-  border: 1px solid #D3DDEA;
+  border: 2px solid #D3DDEA;
 
 
   display: flex;
@@ -18,11 +18,13 @@
   flex-direction: row;
   align-items: center;
 
-  border: 1px solid #D3DDEA;
+  border-bottom: 2px solid #D3DDEA;
   background: white;
 
   height: 100px;
   flex-shrink: 0;
+  cursor: pointer;
+
 }
 .chatlist-item.active{
   border: 1px solid var(--Primary-01, #25569D);

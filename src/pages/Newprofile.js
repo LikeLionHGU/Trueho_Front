@@ -341,7 +341,7 @@ const handleClickNoShow = () => {
           <div className="newprofile-bottom-container-4 box-column">
             <div className="newprofile-bottom-container-4-name">
               <span>대표 이력</span>
-              <img src={muluumpobtn} onClick={() => guideModalClick()}/>
+              <img src={muluumpobtn} onClick={() => guideModalClick()} className='imgCursor'/>
             </div>
           <div className="gridBox">
             {boxes.map((box) => (
