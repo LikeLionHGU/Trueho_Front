@@ -140,29 +140,36 @@ function UserDetailPage() {
 
       {/* (4) 메시지 모달 */}
       {showModal && (
-        <div className="modal-overlay" onClick={() => setShowModal(false)}>
-          <div
-            className="modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2>{user.name}님에게 메시지 보내기</h2>
-            <textarea
-              placeholder="메시지 내용을 입력하세요."
-              value={messageText}
-              onChange={(e) => setMessageText(e.target.value)}
-            />
-            <div className="modal-buttons">
-              {/* 메시지 전송 버튼 */}
-              <button onClick={handleSendMessage}>
-                메시지 보내기
-              </button>
-              {/* <button onClick={() => setShowModal(false)}>
-                닫기
-              </button> */}
-            </div>
-          </div>
-        </div>
-      )}
+  <div className="modal-overlay" onClick={() => setShowModal(false)}>
+    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      
+      {/* 모달 헤더 */}
+      <div className="modal-header">
+        <h2>{user.name}님</h2>
+        <button className="modal-close" onClick={() => setShowModal(false)}>
+          &times;
+        </button>
+      </div>
+
+      {/* 모달 바디 (텍스트 입력) */}
+      <div className="modal-body">
+        <textarea
+          placeholder="첫 메시지 보내기"
+          value={messageText}
+          onChange={(e) => setMessageText(e.target.value)}
+        />
+      </div>
+
+      {/* 모달 푸터 (버튼) */}
+      <div className="modal-footer">
+        <button className="modal-send-button" onClick={handleSendMessage}>
+          메시지 보내기
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
