@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/hansum.css";
 import MajorFilter from "../components/majorfilter";
 import BannerCarousel from "../components/Banner"; // BannerCarousel 컴포넌트 import
-import beforehansum from "../assets/Components/Before/beforehansum.svg";
+import beforehansum from "../assets/Components/Before/background.svg";
 import "../styles/beforehansum.css";
 import loginGoogle from "../assets/Page/Login/google.svg"
 
