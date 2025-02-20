@@ -15,6 +15,8 @@ import Footer from "../components/footer";
 import ProfileGuideModal from "../components/modal/ProfileGuideModal";
 import EditCheckModal from "../components/modal/EditCheckModal";
 import NotEnteredModal from "../components/modal/NotEnteredModal";
+import Header from "../components/header";
+
 
 function Newprofile() {
   const navigate = useNavigate();
@@ -214,6 +216,7 @@ const closeNotEnteredModal = () => {
 
   return (
     <>
+    <Header />
     <div className="newprofile-container">
       <div className="newprofile-top-container">
         <div className="newprofile-top-container-first">

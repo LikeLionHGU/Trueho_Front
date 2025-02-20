@@ -3,6 +3,8 @@ import { ClipLoader } from 'react-spinners'; // ClipLoader 임포트 확인
 import styles from "../styles/Loading.module.css";
 
 import loading from "../assets/Components/Loading/loading.svg"
+import Header from "../components/header";
+
 
 
 const override = {
@@ -16,6 +18,8 @@ const Loading = ({ loading }) => {
   if (!loading) return null; // 로딩 중이 아닐 때는 아무것도 렌더링하지 않음
 
   return (
+    <>
+    <Header />
     <div style={{ textAlign: 'center' }}>
       <ClipLoader
         color="#25569D"
@@ -30,6 +34,7 @@ const Loading = ({ loading }) => {
         <span>Loading ...</span>
       </div>
     </div>
+    </>
   );
 };
 

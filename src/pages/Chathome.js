@@ -7,6 +7,8 @@ import chatBot from "../assets/Components/ChatBot/Chatbot.svg"
 import ChatBotModal from "../components/chatBot/ChatBot";
 import Loading from "./Loading";
 
+import Header from "../components/header";
+
 
 function Chathome() {
 // 1) 챗봇 열기
@@ -37,6 +39,7 @@ function Chathome() {
 
   return (
     <>
+    <Header />
     <div>
       <div className="chatHome-container">
         <div className="chatHome-innercontainer">

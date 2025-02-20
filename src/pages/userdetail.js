@@ -7,6 +7,8 @@ import "../components/styles/userDetail.css"; // 아래 CSS 파일
 
 import chatBot from "../assets/Components/ChatBot/Chatbot.svg";
 import ChatBotModal from "../components/chatBot/ChatBot";
+import Header from "../components/header";
+
 
 function UserDetailPage() {
   const { userId } = useParams();
@@ -127,6 +129,7 @@ function UserDetailPage() {
 
   return (
     <>
+    <Header />
       <div className="user-detail-page">
         {/* 상단 영역 (그라데이션 배경) */}
         <div className="userdetail-top-container">

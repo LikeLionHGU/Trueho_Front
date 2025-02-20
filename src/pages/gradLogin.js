@@ -2,6 +2,8 @@ import styles from "../styles/gradLogin.css";
 import gradHansumLogo from "../assets/Page/GradLogin/hamsum_logo.svg"
 
 import { useNavigate } from "react-router";
+import Header from "../components/header";
+
 
 // import Header from "../components/header";
 
@@ -16,7 +18,7 @@ function GradLoginpage() {
 
   return (
     <> 
-    {/* <Header /> */}
+    <Header />
     <div className="gradLogin-container">
       <div className="gradLogin-lar-container1">
         {/* 왼쪽 */}
