@@ -6,6 +6,8 @@ import UserCard from "../components/usercard";
 import MajorFilter from "../components/majorfilter";
 import ScrollToTopButton from "../components/scrolltotopbutton";
 import bannerimg from "../assets/Components/Header/banner.svg";
+import "../components/styles/usercard.css";
+
 
 async function fetchUserData(userId) {
   try {

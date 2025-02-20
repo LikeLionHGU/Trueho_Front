@@ -39,7 +39,7 @@ function UserCard({ user }) {
         <img className="hansum-profile-icon" src={profileImage} alt="Profile" />
         <div className="user-card-header-text">
           <h2 className="user-name">{user.name}</h2>
-          {user.major && <p className="user-major">{user.major}</p>}
+          {user.major && <p className="user-major1">{user.major}</p>}
         </div>
       </div>
 
