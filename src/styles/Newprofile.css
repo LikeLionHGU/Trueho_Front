@@ -465,6 +465,15 @@
   margin-bottom: 10px;
 }
 
+.newprofile-bottom-container-4-box-test-in{
+  width: 464px;
+  height: 183px;
+  flex-shrink: 0;
+
+  border-radius: 15px;
+  background: var(--Primary-04, #F4F8FD); 
+}
+
 .newprofile-bottom-container-4-box-test-in textarea{
   width: 464px;
   height: 183px;
@@ -723,6 +732,7 @@
   width: 12px;
   height: 12px;
   margin-top: 12px;
+  margin-bottom: 8px;
 }
 
 .imgCursor{
