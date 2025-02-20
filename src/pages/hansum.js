@@ -7,6 +7,7 @@ import MajorFilter from "../components/majorfilter";
 import ScrollToTopButton from "../components/scrolltotopbutton";
 import bannerimg from "../assets/Components/Header/banner.svg";
 import "../components/styles/usercard.css";
+import BannerCarousel from "../components/Banner"; // BannerCarousel 컴포넌트 import
 
 import Footer from "../components/footer";
 
@@ -90,7 +91,11 @@ function HansumPage() {
     <>
     <div className="hansum-page">
       <div className="banner-image-container"> 
-        <img src={bannerimg} alt="배너 이미지" />
+        {/* <img src={bannerimg} alt="배너 이미지" /> */}
+        <div className="banner-image-container">
+          {/* 정적 이미지 대신 캐러셀 컴포넌트를 사용 */}
+          <BannerCarousel />
+        </div>
       </div>
           
       <h1 style={{ margin: "20px", marginLeft: "180px" }}>
