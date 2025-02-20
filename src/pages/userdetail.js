@@ -42,6 +42,7 @@ function UserDetailPage() {
           withCredentials: true,
         }
       );
+      console.log(response.data);
       return response.data; // 예: { id, name, major, admission, graduation, work, history: [...] }
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -117,7 +118,7 @@ function UserDetailPage() {
         <div className="accordion-container">
           {user.history.map((item, idx) => (
             <Accordion key={idx} title={item.name}>
-              <p>{item.detail}</p>
+              <p dangerouslySetInnerHTML={{ __html: item.detail.replace(/\n/g, "<br />") }}></p>
             </Accordion>
           ))}
         </div>
