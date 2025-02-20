@@ -737,4 +737,11 @@
 
 .imgCursor{
   cursor: pointer;
+  margin-left: 10px;
+  padding-top: 2px;
+}
+
+.bungyung{
+  display: flex;
+  flex-direction: row;
 }

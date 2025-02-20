@@ -251,7 +251,10 @@ const closeNotEnteredModal = () => {
       <div className="newprofile-bottom-container">
         <div className="newprofile-bottom-container-size">
           <div className="newprofile-bottom-container-1">
-            <p>프로필 작성하기</p>
+            <div className='bungyung'>
+              <p>프로필 작성하기</p>
+              <img src={muluumpobtn} onClick={() => guideModalClick()} className='imgCursor'/>
+            </div>
             <span>*필수 입력 사항: 닉네임, 입학연도, 졸업연도, 전공 (한섬을 택한 경우, 직무도 필수로 입력해주세요)</span>
           </div>
 {/* 2------------------------------------------------------------ */}
@@ -367,7 +370,6 @@ const closeNotEnteredModal = () => {
           <div className="newprofile-bottom-container-4 box-column">
             <div className="newprofile-bottom-container-4-name">
               <span>대표 이력</span>
-              <img src={muluumpobtn} onClick={() => guideModalClick()} className='imgCursor'/>
             </div>
           <div className="gridBox">
             {boxes.map((box) => (
