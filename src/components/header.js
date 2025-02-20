@@ -6,6 +6,7 @@ import hansumLogo from "../assets/Components/Header/hansum_logo.svg";
 function Header() {
   const navigate = useNavigate();
   const location = useLocation(); // 현재 페이지 경로 가져오기
+  
 
   return (
     <header className="header">

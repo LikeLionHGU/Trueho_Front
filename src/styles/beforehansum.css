@@ -1,0 +1,32 @@
+.gotologin {
+  display: inline-flex;
+  height: 38px;
+  padding: 10px 78px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 66.667px;
+  background: var(--Point-01, #6c3f2e);
+
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  color: var(--Gray-10, #fff);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+
+
+}
