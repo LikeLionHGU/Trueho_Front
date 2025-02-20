@@ -5,6 +5,8 @@ import MajorFilter from "../components/majorfilter";
 import BannerCarousel from "../components/Banner"; // BannerCarousel 컴포넌트 import
 import beforehansum from "../assets/Components/Before/beforehansum.svg";
 import "../styles/beforehansum.css";
+import loginGoogle from "../assets/Page/Login/google.svg"
+
 
 import Header from "../components/header";
 import Loading from "./Loading";
@@ -61,10 +63,11 @@ function BeforeHansumPage() {
       />
       {/* MajorFilter 아래에 beforehansum 이미지 표시 */}
       <div className="before-hansum">
-        <button className="gotologin" onClick={handleGoogleLogin}>
-        로그인하러 가기
-      </button>
-        <img src={beforehansum} alt="Before Hansum" onClick={() => navigate("/")}/>
+          <div className="login1" onClick={handleGoogleLogin} >
+            <img src={loginGoogle} />
+            <span>한동대 메일로 로그인</span>
+          </div>
+        <img src={beforehansum} alt="Before Hansum" />
       </div>
     </div>
     <Footer/>

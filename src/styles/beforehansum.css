@@ -34,3 +34,50 @@
 
 
 }
+
+
+.login1{
+  display: inline-flex;
+  height: 38px;
+  padding: 10px 78px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  border-radius: 66.667px;
+  background: var(--Point-01, #6C3F2E);
+
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+
+  margin-bottom: 13px;
+
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.login1 img{
+  height:20px;
+  width:20px;
+}
+
+.login1 span{
+  color: var(--Gray-10, #FFF);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+  padding-top: 0px;
+
+}

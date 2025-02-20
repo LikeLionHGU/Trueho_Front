@@ -43,7 +43,8 @@ function Beforemessage() {
           </div>
           
           <div className="login" onClick={handleGoogleLogin} >
-            <span>로그인하러 가기</span>
+            <img src={loginGoogle} />
+            <span>한동대 메일로 로그인</span>
           </div>
         </div>
         <div className="chatbot" >
