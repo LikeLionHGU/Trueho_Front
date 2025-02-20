@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/hansum.css";
 import MajorFilter from "../components/majorfilter";
 import BannerCarousel from "../components/Banner"; // BannerCarousel 컴포넌트 import
 import beforehansum from "../assets/Components/before/beforehansum.svg";
+import "../styles/beforehansum.css";
 
 function BeforeHansumPage() {
   const [selectedMajor, setSelectedMajor] = useState("All");
+  const navigate = useNavigate();
+  const handleLoginClick = () => {
+    navigate("/");
+  };
 
   return (
     <div className="hansum-page">
@@ -21,7 +27,10 @@ function BeforeHansumPage() {
       />
       {/* MajorFilter 아래에 beforehansum 이미지 표시 */}
       <div className="before-hansum">
-        <img src={beforehansum} alt="Before Hansum" />
+        <button className="gotologin" onClick={handleLoginClick}>
+        로그인하러 가기
+      </button>
+        <img src={beforehansum} alt="Before Hansum" onClick={() => navigate("/")}/>
       </div>
     </div>
   );
