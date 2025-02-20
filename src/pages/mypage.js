@@ -5,11 +5,14 @@ import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
 import offProfileImg from "../assets/Components/Profile/offimage.svg";
 import "../styles/MyPage.css";
 import Header from "../components/header";
+import "../styles/beforehansum.css";
 
 //axios.defaults.withCredentials = true; // 세션 쿠키 필요 시
 
 function MyPage() {
   const navigate = useNavigate();
+    const handleLoginClick = () => {
+      navigate("/");}
 
   const [nickname, setNickname] = useState("사용자 닉네임");
   const [isProfilePublic, setIsProfilePublic] = useState(true);
@@ -22,10 +25,13 @@ function MyPage() {
   useEffect(() => {
     async function getProfile() {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_HOST_URL}/user/detail`, {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true, 
-        });
+        const response = await axios.get(
+          `${process.env.REACT_APP_HOST_URL}/user/detail`,
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
+        );
 
         // 예: { name, showing, pic } 또는 { state: "No login info" }
         const data = response.data;
@@ -113,75 +119,77 @@ function MyPage() {
   }
 
   // ★ 추가 스타일: noLoginInfo=true일 때 배경/디자인 변경 등
-  const containerClassName = noLoginInfo 
-    ? "mypage-container no-login" 
+  const containerClassName = noLoginInfo
+    ? "mypage-container no-login"
     : "mypage-container";
 
   return (
     <>
-    <Header />
-    <div className={containerClassName}>
-      <main className="mypage-main" style={ noLoginInfo ? { opacity: 0.5 } : {} }>
-        {/* 프로필 이미지 */}
-        
-        <div className="profile-image-container"> 
-        <img
-  className="profile-image"
-  src={!isProfilePublic ? offProfileImg : profilePic}
-  alt="Profile"
-  style={{ width: 100, height: 100 }}
-/>
+      <Header />
+      <div className={containerClassName}>
+        <main
+          className="mypage-main"
+          style={noLoginInfo ? { opacity: 0.5 } : {}}
+        >
+          {/* 프로필 이미지 */}
 
-        
-        </div>
-
-        {/* 닉네임 */}
-        
-        <h2 className="nickname">{nickname}</h2>
-
-        {/* 프로필 공개 토글 */}
-        <div className="profile-toggle">
-          <span>프로필 공개하기</span>
-          <label className="switch">
-            <input
-              type="checkbox"
-              checked={isProfilePublic}
-              onChange={handleToggle}
-              disabled={noLoginInfo}
+          <div className="profile-image-container">
+            <img
+              className="profile-image"
+              src={!isProfilePublic ? offProfileImg : profilePic}
+              alt="Profile"
+              style={{ width: 100, height: 100 }}
             />
-            <span className="slider"></span>
-          </label>
-        </div>
-        
+          </div>
 
-        {/* 버튼 그룹 */}
-        <div className="button-group">
-          <button
-            className="profile-edit-button"
-            onClick={handleEditProfile}
-            disabled={noLoginInfo} // 로그인 정보 없으면 disabled
-          >
-            프로필 수정하기
-          </button>
-        </div>
-        <div className="button-group">
-        <button
-            className="logout-button"
-            onClick={handleLogout}
-            disabled={noLoginInfo} // 로그인 정보 없으면 disabled
-          >
-            로그아웃
-        </button>
-        </div>
+          {/* 닉네임 */}
 
-        {/* 만약 noLoginInfo=true면 별도 안내 문구 */}
-        {noLoginInfo && (
-          <p style={{ color: "red", marginTop: "1rem" }}>
-            로그인 정보가 없습니다. 기능을 사용할 수 없습니다.
-          </p>
-        )}
-      </main>
-    </div>
+          <h2 className="nickname">{nickname}</h2>
+
+          {/* 프로필 공개 토글 */}
+          <div className="profile-toggle">
+            <span>프로필 공개하기</span>
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={isProfilePublic}
+                onChange={handleToggle}
+                disabled={noLoginInfo}
+              />
+              <span className="slider"></span>
+            </label>
+          </div>
+
+          {/* 버튼 그룹 */}
+          <div className="button-group">
+            <button
+              className="profile-edit-button"
+              onClick={handleEditProfile}
+              disabled={noLoginInfo} // 로그인 정보 없으면 disabled
+            >
+              프로필 수정하기
+            </button>
+          </div>
+          <div className="button-group">
+            <button
+              className="logout-button"
+              onClick={handleLogout}
+              disabled={noLoginInfo} // 로그인 정보 없으면 disabled
+            >
+              로그아웃
+            </button>
+          </div>
+
+          {/* 만약 noLoginInfo=true면 별도 안내 문구 */}
+          {noLoginInfo && (
+            <p style={{ color: "#25569D", marginTop: "10px" }}>
+              이 페이지는 로그인 이후 이용 가능합니다!
+            </p>
+          )}
+          
+          
+        </main>
+      </div>
     </>
   );
 }
