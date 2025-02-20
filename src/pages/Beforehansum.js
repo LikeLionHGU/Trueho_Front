@@ -17,9 +17,7 @@ import Footer from "../components/footer";
 function BeforeHansumPage() {
   const [selectedMajor, setSelectedMajor] = useState("All");
   const navigate = useNavigate();
-  const handleLoginClick = () => {
-    navigate("/");
-  };
+
 // 1) 로그인 함수
   const handleGoogleLogin = () => {
     const nonce = Math.random().toString(36).substring(2) + Date.now().toString(36);

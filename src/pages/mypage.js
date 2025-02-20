@@ -5,6 +5,7 @@ import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
 import offProfileImg from "../assets/Components/Profile/offimage.svg";
 import "../styles/MyPage.css";
 import Header from "../components/header";
+import Loading from "./Loading";
 
 //axios.defaults.withCredentials = true; // 세션 쿠키 필요 시
 
@@ -109,7 +110,7 @@ function MyPage() {
   };
 
   if (loading) {
-    return <div>로딩 중...</div>;
+    return <Loading loading={loading} />;
   }
 
   // ★ 추가 스타일: noLoginInfo=true일 때 배경/디자인 변경 등
