@@ -1,132 +1,181 @@
-.userdetail-container{
+/* -----------------------------
+   전체 페이지 배경/스타일
+------------------------------ */
+.user-detail-page {
+  width: 100%;
   height: auto;
-  width: 100vw;
-
-
-  border-radius: 120px 0px 0px 0px;
-  background: var(--Gray-10, #FFF);
-  
-  /* Inner shadow */
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.10) inset;
-
-  display: flex;
-  justify-content: center;
-  /* align-items: center; 나중에 꼭 풀어줘야함 */
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; /* 필요 시 SUIT Variable 등 */
+  background: var(--Gradient-_-Main, linear-gradient(97deg, #E9D9D3 0%, #D3DDEB 100%));
 }
 
-.userdetail-top-container{
-  background: var(--Gradient-_-Main, linear-gradient(97deg, #E9D9D3 0%, #D3DDEB 100%));
+/* -----------------------------
+   상단 영역 (그라데이션)
+------------------------------ */
+.userdetail-top-container {
+  background: var(
+      --Gradient-_-Main,
+      linear-gradient(97deg, #e9d9d3 0%, #d3ddeb 100%)
+    );
   height: 150px;
-  width: 100vw;
-
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.userdetail-bottom-container{
-  display: flex;
-  height: auto;
-  width: 100vw;
-
-
+/* -----------------------------
+   하단 영역 (흰색, 둥근 모서리, 인셋 섀도)
+------------------------------ */
+.userdetail-bottom-container {
+  width: 100%;
+  background: var(--Gray-10, #fff);
   border-radius: 120px 0px 0px 0px;
-  background: var(--Gray-10, #FFF);
-  
-  /* Inner shadow */
-  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.10) inset;
 
+  /* Inner shadow */
+  box-shadow: inset 2px 2px 5px 0px rgba(0, 0, 0, 0.1);
+
+  /* 내용물 정렬 */
   display: flex;
   justify-content: center;
-  /* align-items: center; 나중에 꼭 풀어줘야함 */
+  /* align-items: center; 
+     필요한 경우 주석 해제 
+  */
+  padding-bottom: 50px; /* 아래쪽 여유 */
 }
 
-
-
-.user-detail-page {
+/* 실제 내용 중앙 정렬 (가로 폭 제한) */
+.bottom-inner {
+  max-width: 1200px; /* 원하는 최대 폭 */
   width: 100%;
-  background-color: #fff;
+  padding: 20px; /* 양옆 여백 */
+  box-sizing: border-box;
+  
 }
-/* 
-.user-detail-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-} */
 
+/* -----------------------------
+   상단 프로필/이름/메시지
+------------------------------ */
 .detail-top {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
+  flex-direction: row;
   align-items: flex-end;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
+/* 왼쪽 프로필 이미지 */
+.profile-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover; /* 필요 시 */
+  margin-right: 20px;
+}
+
+/* 중앙 (이름, 재학 기간) */
 .detail-info {
-  color: var(--Point-01, #6C3F2E);
+  color: var(--Point-01, #6c3f2e);
 
-/* Title 06 */
-font-family: "SUIT Variable";
-font-size: 21px;
-font-style: normal;
-font-weight: 800;
-line-height: 32px; /* 152.381% */
+  /* Title 06 */
+  font-family: "SUIT Variable", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 32px;
 }
 
-.detail-left {
+/* 이름 */
+.name {
+  margin: 0;
+  padding: 0;
+  color: var(--Point-01, #6c3f2e);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* 재학 기간 등 */
+.study-period {
+  color: var(--Point-01, #6c3f2e);
+  font-family: "SUIT Variable";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  margin: 4px 0 0;
+}
+
+.detail-left{
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
+  margin-left:50px;
+  margin-bottom: 50px;
 }
 
+/* 오른쪽 영역 (메시지 버튼) */
 .detail-right {
   display: flex;
-  flex-direction: row;
+  align-items: center;
 }
 
-
-.tagline {
-  font-size: 24px;
-  margin: 0;
-  font-weight: 600;
-}
-
-.study-period {
-  color: var(--Point-01, #6C3F2E);
-
-/* Body 01 _ M */
-font-family: "SUIT Variable";
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: 24px; /* 150% */
-}
-
+/* 메시지 보내기 버튼 */
 .message-button {
-margin-left: auto;
-display: inline-flex;
-height: 38px;
-padding: 10px 78px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-flex-shrink: 0;
-border-radius: 66.667px;
-background: var(--Point-01, #6C3F2E);
-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
-color: var(--Gray-10, #FFF);
-font-family: "SUIT Variable";
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 21px; /* 150% */
-cursor: pointer;
+  display: inline-flex;
+  height: 38px;
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 66.667px;
+  background: var(--Point-01, #6c3f2e);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  color: var(--Gray-10, #fff);
+  font-family: "SUIT Variable", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  cursor: pointer;
+  border: none;
 }
 
+/* -----------------------------
+   직무/전공
+------------------------------ */
 .detail-job {
   margin-bottom: 30px;
 }
 
 .detail-job h3 {
+  color: var(--Primary-01, #25569d);
+  font-family: "SUIT Variable", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 8px;
+}
+
+.job-title {
+  color: var(--Primary-01, #25569d);
+  font-family: "SUIT Variable", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 64px;
+  margin-bottom: 4px;
+}
+
+.user-major {
+  display: flex;
+  margin-left: 30px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* -----------------------------
+   경력/수상 내역
+------------------------------ */
+.detail-achievements {
+  margin-bottom: 40px;
   color: var(--Primary-01, #25569D);
 
 /* Body 03 _ M */
@@ -137,29 +186,19 @@ font-weight: 500;
 line-height: 18px; /* 150% */
 }
 
-.job-title {
-  color: var(--Primary-01, #25569D);
-
-/* Title 02 */
-font-family: "SUIT Variable";
-font-size: 42px;
-font-style: normal;
-font-weight: 800;
-line-height: 64px; /* 152.381% */
-}
-
-.user-major {
-  font-size: 16px;
-  color: #666;
-}
-
-.detail-achievements {
-  margin-bottom: 40px;
-}
-
 .detail-achievements h3 {
   font-size: 18px;
   margin-bottom: 10px;
+  color: var(--Primary-01, #25569d);
+  font-weight: 700;
+  color: var(--Primary-01, #25569D);
+
+/* Body 03 _ M */
+font-family: "SUIT Variable";
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
 }
 
 .detail-achievements ul {
@@ -177,6 +216,9 @@ line-height: 64px; /* 152.381% */
   color: #444;
 }
 
+/* -----------------------------
+   메시지 모달
+------------------------------ */
 /* 모달 오버레이(배경) */
 .modal-overlay {
   position: fixed;
@@ -195,38 +237,30 @@ line-height: 64px; /* 152.381% */
 .modal-content {
   width: 526px;
   height: 321px;
-  background: #FFF;
+  background: #fff;
   border-radius: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-  
-  /* 전체 레이아웃: 세로 배치 */
+
   display: flex;
   flex-direction: column;
-  /* 내부 여백 */
   padding: 20px;
   box-sizing: border-box;
 }
 
-/* --- 모달 헤더 --- */
+/* 모달 헤더 */
 .modal-header {
   display: flex;
   justify-content: space-between;
-  /* 필요 시 상단 여백/글꼴 조정 */
-  align-items: normal;
+  align-items: center;
 }
 
 .modal-header h2 {
-  font-size: 16px;
-  /* 원하는 스타일로 수정 */
-  color: var(--Primary-01, #25569D);
-
-/* Title 06 */
-font-family: "SUIT Variable";
-font-size: 21px;
-font-style: normal;
-font-weight: 800;
-line-height: 32px; /* 152.381% */
-margin-left: 20px;
+  font-family: "SUIT Variable", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 32px;
+  color: var(--Primary-01, #25569d);
+  margin-left: 20px;
 }
 
 .modal-close {
@@ -235,53 +269,44 @@ margin-left: 20px;
   font-size: 30px;
   cursor: pointer;
   line-height: 1;
-  width: 12px;
-height: 12px;
-flex-shrink: 0;
-stroke-width: 2px;
-color: var(--Primary-01, #25569D);
-
-}
-
-/* --- 모달 바디 (텍스트 영역) --- */
-.modal-body {
-  flex: 1;  /* 남은 공간을 모두 채워서 아래 푸터와 간격 */
+  width: 32px;
+  height: 32px;
+  color: var(--Primary-01, #25569d);
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 원하는 레이아웃에 맞춰 수정 가능 */
-  color: var(--Primary-02, #A9C5E8);
-
 }
 
-/* textarea 스타일 */
+/* 모달 바디 */
+.modal-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--Primary-02, #a9c5e8);
+  margin-top: 10px;
+}
+
+/* textarea */
 .modal-body textarea {
   width: 100%;
   height: 100%;
-  background: #F4F8FD;
+  background: #f4f8fd;
   border: none;
   border-radius: 20px;
-  resize: none;        /* 크기 조절 막기 */
-  padding: 16px;       /* 내부 여백 */
+  resize: none;
+  padding: 16px;
   font-size: 14px;
-  font-family: inherit;  /* 폰트 상속 */
+  font-family: inherit;
   box-sizing: border-box;
-
-  color: var(--Primary-02, #A9C5E8);
-
-  /* Body 02 _ M */
-  font-family: "SUIT Variable";
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 21px; /* 150% */
+  color: var(--Primary-02, #a9c5e8);
 }
 
-/* --- 모달 푸터 (버튼 영역) --- */
+/* 모달 푸터 */
 .modal-footer {
   display: flex;
   justify-content: flex-end;
-  margin-top: 16px; /* 위쪽과 간격 */
+  margin-top: 16px;
 }
 
 /* 메시지 보내기 버튼 */
@@ -289,18 +314,12 @@ color: var(--Primary-01, #25569D);
   padding: 8px 20px;
   border: none;
   border-radius: 66.667px;
-  background: var(--Point-01, #6C3F2E);
+  background: var(--Point-01, #6c3f2e);
   box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  color: #FFF;
-  font-size: 14px;
+  color: var(--Gray-10, #fff);
+  font-family: "SUIT Variable", sans-serif;
+  font-size: 12px;
   font-weight: 500;
+  line-height: 18px;
   cursor: pointer;
-  color: var(--Gray-10, #FFF);
-
-/* Body 03 _ M */
-font-family: "SUIT Variable";
-font-size: 12px;
-font-style: normal;
-font-weight: 500;
-line-height: 18px; /* 150% */
 }
