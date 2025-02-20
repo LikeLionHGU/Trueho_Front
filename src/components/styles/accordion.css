@@ -22,7 +22,7 @@
   align-items: center;
   font-size: 16px;
   font-weight: 600;
-  color: #1d3b6c;
+  color: #25569D;
 }
 
 .accordion-icon {
@@ -31,7 +31,7 @@
 
 .accordion-content {
   font-size: 14px;
-  color: #333;
+  color: #162F55;
   margin-top: 8px;
 
   /* 높이 제어 */
