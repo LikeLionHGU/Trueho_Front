@@ -81,6 +81,8 @@
 
 /* 중앙 (이름, 재학 기간) */
 .detail-info {
+  display: flex;
+  flex-direction: column;
   color: var(--Point-01, #6c3f2e);
 
   /* Title 06 */
@@ -88,6 +90,7 @@
   font-size: 21px;
   font-weight: 800;
   line-height: 32px;
+
 }
 
 /* 이름 */
@@ -108,6 +111,7 @@
   font-weight: 500;
   line-height: 24px;
   margin-right: 10px;
+  margin-top: 2px;
 }
 
 .detail-left{
