@@ -67,17 +67,21 @@
   justify-content: space-between;
 }
 
-/* 왼쪽 프로필 이미지 */
+.parent-container {
+  position: relative; /* 부모 요소를 기준으로 자식의 absolute 위치 지정 */
+}
+
 .profile-icon {
-  position: fixed;
+  position: absolute; /* 부모 요소 내에서 고정 */
   top: 200px;
   left: 150px;
   z-index: 1000;
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover; /* 필요 시 */
+  object-fit: cover;
 }
+
 
 /* 중앙 (이름, 재학 기간) */
 .detail-info {
