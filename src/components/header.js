@@ -15,8 +15,8 @@ function Header() {
       <nav className="header-nav">
         <ul>
           <li 
-            className={location.pathname === "/" ? "menu-selected" : ""}
-            onClick={() => navigate("/")}
+            className={location.pathname === "/about" ? "menu-selected" : ""}
+            onClick={() => navigate("/about")}
           >
             About
           </li>
