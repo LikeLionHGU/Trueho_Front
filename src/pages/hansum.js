@@ -8,12 +8,13 @@ import ScrollToTopButton from "../components/scrolltotopbutton";
 import bannerimg from "../assets/Components/Header/banner.svg";
 import "../components/styles/usercard.css";
 import BannerCarousel from "../components/Banner"; // BannerCarousel 컴포넌트 import
-
 import Footer from "../components/footer";
-
 import chatBot from "../assets/Components/ChatBot/Chatbot.svg"
 import ChatBotModal from "../components/chatBot/ChatBot";
 import Loading from "./Loading";
+// import React, { useState } from "react";
+// import { Navigate } from "react-router-dom";
+// import "../components/styles/userDetail.css";
 
 
 async function fetchUserData(userId) {
@@ -52,6 +53,9 @@ function HansumPage() {
     document.body.style.overflow = 'hidden';
   };
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 전이면 false
+
+
 
   useEffect(() => {
     const userId = 0; // 테스트용
@@ -87,6 +91,20 @@ function HansumPage() {
   const handleLoadMore = () => {
     setVisibleCount(visibleCount + 9);
   };
+
+
+  // const [isLoggedIn, setIsLoggedIn] = useState(false); // 실제 로그인 상태에 따라 업데이트
+
+  // if (!isLoggedIn) {
+  //   return (
+  //     <div className="before-hansum-page">
+  //       <img src={beforehansum} alt="Before Hansum" />
+  //     </div>
+  //   );
+  // }
+
+
+  
 
   return (
     <>
