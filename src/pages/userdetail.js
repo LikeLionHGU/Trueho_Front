@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-
-import Accordion from "../components/Accordion";
-import "../components/styles/userDetail.css";
-import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
+import Accordion from "../components/Accordion"; // 경력/수상 표시용 (없으면 주석 처리)
+import defaultProfileImg from "../assets/Components/Profile/profileimg.svg"; // 기본 프로필 이미지
+import "../components/styles/userDetail.css"; // 아래 CSS 파일
 
 function UserDetailPage() {
   const { userId } = useParams();
+  const navigate = useNavigate();
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  
 
   // 메시지 모달 상태
   const [showModal, setShowModal] = useState(false);
   const [messageText, setMessageText] = useState("");
 
-  // (1) 사용자 단일 정보 GET (프로필)
+  // 1) 사용자 단일 정보 GET (프로필)
   async function fetchUserData(userId) {
     try {
       const response = await axios.get(
@@ -26,7 +26,7 @@ function UserDetailPage() {
           withCredentials: true,
         }
       );
-      return response.data; // 단일 객체 (예: { id, name, major, ... })
+      return response.data; // 예: { id, name, major, admission, graduation, work, history: [...] }
     } catch (error) {
       console.error("Error fetching user data:", error);
       return null;
@@ -47,14 +47,10 @@ function UserDetailPage() {
     getUserDetail();
   }, [userId]);
 
-  // (2) 메시지 전송 로직
+  // 2) 메시지 전송 로직
   const handleSendMessage = async () => {
     try {
-      /**
-       * POST /hansum/chat/{userId}
-       * 요청 Body: { "message": "메시지 내용" }
-       * 응답 예시: { "message": "내용", "time": "22/02/06 18:00" }
-       */
+      // 예시: POST /hansum/chat/{userId} with { message: messageText }
       const response = await axios.post(
         `${process.env.REACT_APP_HOST_URL}/hansum/chat/${userId}`,
         { message: messageText },
@@ -64,18 +60,16 @@ function UserDetailPage() {
         }
       );
 
-      // 서버에서 { message: "내용", time: "22/02/06 18:00" } 형태로 응답한다고 가정
       const data = response.data;
       console.log("메시지 전송 성공:", data);
-
-//       alert(`메시지 전송 성공!
-// 내용: ${data.message}
-// 시간: ${data.time}`);
-
       // 모달 닫고, 입력값 초기화
       setShowModal(false);
       setMessageText("");
-      navigate(`/chatroom/${data.chatRoomId}`);
+
+      // 채팅방으로 이동 (응답에 chatRoomId가 있다고 가정)
+      if (data.chatRoomId) {
+        navigate(`/chatroom/${data.chatRoomId}`);
+      }
     } catch (error) {
       console.error("메시지 전송 에러:", error);
       alert("메시지 전송에 실패했습니다.");
@@ -83,27 +77,29 @@ function UserDetailPage() {
   };
 
   // 로딩 처리
-  const navigate = useNavigate();
   if (loading) return <h2>로딩 중...</h2>;
-  if (!user) return navigate("/hansum");
+  if (!user) {
+    // 유저가 없으면 목록 등으로 이동
+    navigate("/hansum");
+    return null;
+  }
 
   // ------------------ UI 데이터 가공 예시 ------------------
   const studyText =
     user.admission && user.graduation
       ? `${user.admission} ~ ${user.graduation}`
       : "";
-
   const profileImage =
     user.imgUrl && user.imgUrl.trim() !== ""
       ? user.imgUrl
       : defaultProfileImg;
-
   const jobText = user.work || "";
 
+  // 경력/수상 내역 (Accordion 예시)
   const experienceSection =
-    user.history && user.history.length > 0 && (
+    user.history && user.history.length > 0 ? (
       <div className="detail-achievements">
-        <h3>경력/수상 내역</h3>
+        <h3>대표 약력</h3>
         <div className="accordion-container">
           {user.history.map((item, idx) => (
             <Accordion key={idx} title={item.name}>
@@ -112,67 +108,91 @@ function UserDetailPage() {
           ))}
         </div>
       </div>
-    );
+    ) : null;
 
   return (
-    <div className="userdetail-container">
-      <div className="user-detail-page">
-        <div className="userdetail-top-container"></div>
-        < div className="userdetail-bottom-container">
-          <div className="detail-left">
-            <img className="profile-icon" src={profileImage} alt="Profile" />
-          </div>
-          <div className="detail-info">
-            <h2 className="name">{user.name || userId}</h2>
-            {studyText && <p className="study-period">{studyText}</p>}
-          </div>
-          {/* (3) 메시지 모달 열기 버튼 */}
-          <button className="message-button" onClick={() => setShowModal(true)}>
-            메시지 보내기
-          </button>
-        </div>
-
-        <div className="detail-job">
-          <h3>직무</h3>
-          <div className="job-title">{jobText}</div>
-          <div className="user-major">{user.major}</div>
-        </div>
-
-        {experienceSection}
+    <div className="user-detail-page">
+      {/* 상단 영역 (그라데이션 배경) */}
+      <div className="userdetail-top-container">
+        {/* 이곳에 상단 로고나 기타 내용이 필요하면 추가 */}
       </div>
 
-      {/* (4) 메시지 모달 */}
+      {/* 하단 영역 (흰색, 둥근 모서리, 인셋 섀도) */}
+      <div className="userdetail-bottom-container">
+        {/* 실제 내용 중앙 정렬 */}
+        <div className="bottom-inner">
+          {/* 상단 프로필/이름/메시지 버튼 */}
+          <div className="detail-top">
+            {/* 왼쪽 - 프로필 이미지 */}
+            <div className="detail-left">
+              <img className="profile-icon" src={profileImage} alt="Profile" />
+              {/* 중간 - 이름, 재학 기간 */}
+            <div className="detail-info">
+  <h2 className="name">{user.name || userId}</h2>
+  {studyText && <p className="study-period">{studyText}</p>}
+</div>
+
+            <div className="user-major">{user.major}</div>
+            </div>
+
+            
+
+            {/* 오른쪽 - 메시지 버튼 */}
+            <div className="detail-right">
+              <button
+                className="message-button"
+                onClick={() => setShowModal(true)}
+              >
+                메시지 보내기
+              </button>
+            </div>
+          </div>
+
+          {/* 직무, 전공 */}
+          <div className="detail-job">
+            <h3>직무</h3>
+            <div className="job-title">{jobText}</div>
+            
+          </div>
+
+          {/* 경력/수상 내역 */}
+          {experienceSection}
+        </div>
+      </div>
+
+      {/* 메시지 모달 */}
       {showModal && (
-  <div className="modal-overlay" onClick={() => setShowModal(false)}>
-    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-      
-      {/* 모달 헤더 */}
-      <div className="modal-header">
-        <h2>{user.name}님</h2>
-        <button className="modal-close" onClick={() => setShowModal(false)}>
-          &times;
-        </button>
-      </div>
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            {/* 모달 헤더 */}
+            <div className="modal-header">
+              <h2>{user.name}님</h2>
+              <button
+                className="modal-close"
+                onClick={() => setShowModal(false)}
+              >
+                &times;
+              </button>
+            </div>
 
-      {/* 모달 바디 (텍스트 입력) */}
-      <div className="modal-body">
-        <textarea
-          placeholder="첫 메시지 보내기"
-          value={messageText}
-          onChange={(e) => setMessageText(e.target.value)}
-        />
-      </div>
+            {/* 모달 바디 (텍스트 입력) */}
+            <div className="modal-body">
+              <textarea
+                placeholder="첫 메시지 보내기"
+                value={messageText}
+                onChange={(e) => setMessageText(e.target.value)}
+              />
+            </div>
 
-      {/* 모달 푸터 (버튼) */}
-      <div className="modal-footer">
-        <button className="modal-send-button" onClick={handleSendMessage}>
-          메시지 보내기
-        </button>
-      </div>
-    </div>
-  </div>
-)}
-
+            {/* 모달 푸터 (버튼) */}
+            <div className="modal-footer">
+              <button className="modal-send-button" onClick={handleSendMessage}>
+                메시지 보내기
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
