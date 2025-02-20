@@ -42,7 +42,7 @@ function Header() {
     <header className="header">
       <div className="header-left">
         <img src={hansumLogo} alt="Hansum Logo" className="header-logo" 
-            onClick={() => {noLoginInfo === true ? navigate("/beforehansum") : navigate("/hansum")}}
+            onClick={() => {noLoginInfo === true ? navigate("/") : navigate("/hansum")}}
             />
       </div>
       <nav className="header-nav">
@@ -62,7 +62,7 @@ function Header() {
           </li>
           <li 
             className={location.pathname === "/chathome" ? "menu-selected" : ""}
-            onClick={() => {noLoginInfo === true ? navigate("/beforemessage") : navigate("/hansum")}}
+            onClick={() => {noLoginInfo === true ? navigate("/beforemessage") : navigate("/chathome")}}
           >
             Message
           </li>
