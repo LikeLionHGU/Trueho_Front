@@ -12,6 +12,8 @@
   max-width: 300px;
   height:max-content;
 
+  margin-top: 20px;
+  margin-bottom:15px;
 }
 
 .frompeopleTextContainer{
@@ -29,4 +31,6 @@
   font-style: normal;
   font-weight: 500;
   line-height: 18px; /* 150% */
+
+  white-space: pre-line;
 }
