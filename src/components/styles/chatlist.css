@@ -97,6 +97,15 @@
   color: #ffffff;
 }
 
+.chatlist-item-textcontainer-last.unread{
+/* Body 04 _ M */
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 17px; /* 154.545% */
+}
+
 .chatlist-item-check{
   display: flex;
   align-items: flex-start;
@@ -138,4 +147,8 @@
   width: 10px;
   height: 10px;
   background-color: #9D2525;
+}
+
+.chatlist-item-textcontainer-up-img.unread{
+  
 }

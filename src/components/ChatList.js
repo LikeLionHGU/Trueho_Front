@@ -47,7 +47,7 @@ function ChatList() {
 
     const interval = setInterval(() => {
       getList();
-    }, 2000); // 5초마다 채팅 새로고침
+    }, 1000); // 1초마다 채팅 새로고침
 
     return () => clearInterval(interval);
   }, []); 
@@ -73,13 +73,25 @@ function ChatList() {
             <div className="chatlist-item-textcontainer-up">
               <p className={`chatlist-item-textcontainer-up-name ${chat.id === Number(id) ? "active" : ""}`}>{chat.name}</p>
             </div>
-            <p className={`chatlist-item-textcontainer-last ${chat.id === Number(id) ? "active" : ""}`}>{chat.lastChat}</p>
+            <p className={`chatlist-item-textcontainer-last ${chat.id === Number(id) ? "active" : ""} ${chat.unreadMessage === 1 ? "unread" : ""}`}>{chat.lastChat}</p>
   
           </div>
 
+          {/* <div className="chatlist-item-check">
+            if({chat.unreadMessage === 1}){
+              <img src={chat.id === Number(id) ? whiteheart : heart}  alt="heart" className={`chatlist-item-textcontainer-up-img `} />
+            }
+          </div> */}
           <div className="chatlist-item-check">
-            <img src={chat.id === Number(id) ? whiteheart : heart}  alt="heart" className="chatlist-item-textcontainer-up-img" />
+            {chat.unreadMessage === 1 ? (
+              <img 
+                src={chat.id === Number(id) ? whiteheart : heart}  
+                alt="heart" 
+                className="chatlist-item-textcontainer-up-img" 
+              />
+            ) : null}
           </div>
+
           
         </div>
       ))}
