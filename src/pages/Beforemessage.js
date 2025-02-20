@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 import "../styles/Beforemessage.css";
 import chatBot from "../assets/Components/ChatBot/Chatbot.svg"
-import Logo from "../assets/Components/Before/hansum.svg"
+import Logo from "../assets/Components/before/beforehansum.svg"
+
 import loginGoogle from "../assets/Page/Login/google.svg"
 
 
