@@ -12,6 +12,9 @@ import UserDetailPage from "./pages/userdetail";
 import Newprofile from "./pages/Newprofile";
 import Editprofile from "./pages/Editprofile";
 import Test from "./pages/imsi";
+import BeforeHansumPage from "./pages/Beforehansum";
+
+
 
 
 // import AwardList from "./components/awardlist";
@@ -39,6 +42,8 @@ function App() {
         <Route path="/newprofile" element={<Newprofile />} />
         <Route path="/editprofile" element={<Editprofile />} />
         <Route path="/test" element={<Test />} />
+        <Route path="/beforehansum" element={<BeforeHansumPage />} />
+
       </Routes>
     </BrowserRouter>
   );

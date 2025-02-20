@@ -4,7 +4,7 @@ import MajorFilter from "../components/majorfilter";
 import BannerCarousel from "../components/Banner"; // BannerCarousel 컴포넌트 import
 import beforehansum from "../assets/Components/before/beforehansum.svg";
 
-function HansumPage() {
+function BeforeHansumPage() {
   const [selectedMajor, setSelectedMajor] = useState("All");
 
   return (
@@ -27,4 +27,4 @@ function HansumPage() {
   );
 }
 
-export default HansumPage;
+export default BeforeHansumPage;

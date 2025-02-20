@@ -76,8 +76,8 @@
   top: 200px;
   left: 150px;
   z-index: 1000;
-  width: 135px;
-  height: 135px;
+  width: 150px;
+  height: 150px;
   border-radius: 0px 70px 70px 70px;
   object-fit: cover;
 }
