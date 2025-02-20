@@ -26,7 +26,7 @@ function GradLoginpage() {
           </div>
           <div className="gradLogin-med-container1-text2">
             <p>졸업생 인증을 원하시면 여기로 연락주세요</p>
-            <p><span>0000000@handong.ac.kr</span></p>
+            <p><span>kty123@handong.ac.kr</span></p>
           </div>
         </div>
         {/* 오른쪽 */}
