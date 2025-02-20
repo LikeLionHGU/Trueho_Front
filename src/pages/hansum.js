@@ -12,6 +12,7 @@ import Footer from "../components/footer";
 
 import chatBot from "../assets/Components/ChatBot/Chatbot.svg"
 import ChatBotModal from "../components/chatBot/ChatBot";
+import Loading from "./Loading";
 
 
 async function fetchUserData(userId) {
@@ -67,7 +68,7 @@ function HansumPage() {
   }, [selectedMajor]);
 
   if (loading) {
-    return <h2>로딩 중...</h2>;
+    return <Loading loading={loading} />;
   }
 
   if (!users || users.length === 0) {
