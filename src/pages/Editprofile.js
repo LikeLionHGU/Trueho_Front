@@ -431,7 +431,7 @@ const handleClickNoShow = () => {
 {/* 5------------------------------------------------------------ */}
         <div className="newprofile-bottom-container-5">
           <div className="newprofile-bottom-container-5-btn" onClick={addBox}>
-            <span>약력 추가하기</span>
+            <span>+</span>
           </div>
         </div>
 {/* 6------------------------------------------------------------ */}

@@ -1,0 +1,110 @@
+.chat-container{
+  width: 100vw;
+  height: calc(100vh - 88px);
+
+  background: var(--Gradient-02, linear-gradient(180deg, #E9D9D3 0%, #D3DDEA 100%));
+
+  display: flex;
+  justify-content: center;
+}
+
+.chat-innercontainer{
+  width: 1060px;
+  height: calc(100vh - 88px);
+  flex-shrink: 0;
+
+  background: #FFF;
+
+  /* Drop Shadow _ Big */
+  box-shadow: 8px 8px 15px 0px rgba(0, 0, 0, 0.10);
+
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+
+.chat-innercontainer img{
+  width: 160px;
+  height: 142px;
+}
+
+.chat-innercontainer span{
+  color: var(--Primary-01, #25569D);
+  text-align: center;
+  
+  /* Body 01 _ EB */
+  font-family: "SUIT Variable";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 24px; /* 150% */
+  margin-bottom: 12px;
+}
+
+.chatbot {
+  position: fixed;
+  bottom: 60px; 
+  right: 70px; 
+  width: 60px; 
+  height: 60px;
+  cursor: pointer;
+  z-index: 1000; /* 다른 요소들보다 위에 위치 */
+}
+
+.chatbot img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.chatbot:hover img {
+  transform: scale(1.1); /* 마우스를 올리면 살짝 확대 */
+}
+
+.login{
+  display: inline-flex;
+  height: 38px;
+  padding: 10px 78px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  border-radius: 66.667px;
+  background: var(--Point-01, #6C3F2E);
+
+  /* Drop Shadow _ Small */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+
+  margin-bottom: 13px;
+
+  cursor:pointer;
+}
+
+.login img{
+  height:20px;
+  width:20px;
+}
+
+.login span{
+  color: var(--Gray-10, #FFF);
+
+  /* Body 02 _ M */
+  font-family: "SUIT Variable";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px; /* 150% */
+  padding-top: 10px;
+}
+
+.logoTop{
+  margin-top:150px;
+}
+
+.chat-text{
+  margin-top:48px;
+  margin-bottom:30px;
+  display: flex;
+  flex-direction: column; 
+}
