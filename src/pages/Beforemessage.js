@@ -7,6 +7,9 @@ import Logo from "../assets/Components/before/beforehansum.svg"
 import loginGoogle from "../assets/Page/Login/google.svg"
 
 
+import Header from "../components/header";
+
+
 function Beforemessage() {
   const navigate = useNavigate();
 
@@ -18,6 +21,7 @@ function Beforemessage() {
 
   return (
     <>
+    <Header />
     <div>
       <div className="chat-container">
         <div className="chat-innercontainer">

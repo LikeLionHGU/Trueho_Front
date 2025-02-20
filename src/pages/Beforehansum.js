@@ -6,6 +6,9 @@ import BannerCarousel from "../components/Banner"; // BannerCarousel 컴포넌�
 import beforehansum from "../assets/Components/before/beforehansum.svg";
 import "../styles/beforehansum.css";
 
+import Header from "../components/header";
+
+
 function BeforeHansumPage() {
   const [selectedMajor, setSelectedMajor] = useState("All");
   const navigate = useNavigate();
@@ -14,6 +17,9 @@ function BeforeHansumPage() {
   };
 
   return (
+
+    <>
+    <Header />
     <div className="hansum-page">
       <div className="banner-image-container">
         <BannerCarousel />
@@ -33,6 +39,8 @@ function BeforeHansumPage() {
         <img src={beforehansum} alt="Before Hansum" onClick={() => navigate("/")}/>
       </div>
     </div>
+
+    </>
   );
 }
 
