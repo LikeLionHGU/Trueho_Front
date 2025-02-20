@@ -59,9 +59,8 @@
 
 .chatlist-item-textcontainer-up-name{
 
-  width: 123px;
+  width: 127px;
   height: 22.237px;
-
 
   color: var(--Primary-01, #25569D);
 
@@ -150,5 +149,5 @@
 }
 
 .chatlist-item-textcontainer-up-img.unread{
-  
+
 }
