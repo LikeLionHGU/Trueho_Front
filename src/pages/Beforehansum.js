@@ -49,8 +49,12 @@ function BeforeHansumPage() {
     <>
     <Header />
     <div className="hansum-page">
-      <div className="banner-image-container">
-        <BannerCarousel />
+    <div className="banner-image-container"> 
+        {/* <img src={bannerimg} alt="배너 이미지" /> */}
+        <div className="banner-image-container">
+          {/* 정적 이미지 대신 캐러셀 컴포넌트를 사용 */}
+          <BannerCarousel />
+        </div>
       </div>
       <h1 style={{ margin: "20px", marginLeft: "180px" }}>
         <div className="majortext">Major</div>
