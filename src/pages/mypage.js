@@ -115,6 +115,7 @@ function MyPage() {
       
         // 1.5초 후에 홈 화면으로 이동
         setTimeout(() => {
+          document.body.style.removeProperty("overflow");
           navigate("/");
         }, 1500);
       }

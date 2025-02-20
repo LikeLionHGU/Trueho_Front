@@ -16,6 +16,7 @@ const override = {
 
 const Loading = ({ loading }) => {
   if (!loading) return null; // 로딩 중이 아닐 때는 아무것도 렌더링하지 않음
+  document.body.style.removeProperty("overflow");
 
   return (
     <>
