@@ -42,7 +42,7 @@ const Loading = () => {
 
       } catch (error) {
         openFailModal();
-        navigate("/");
+
         console.error("로그인 과정에서 에러가 발생했습니다.", error);
       }
     };
@@ -56,6 +56,7 @@ const Loading = () => {
     const closeFailModal = () => {
       setFailModalOpen(false);
       document.body.style.removeProperty('overflow');
+      navigate("/");
     };
   
 
