@@ -142,11 +142,16 @@
 .leftmessage{
   display: flex;
   align-self: flex-start;
+
+  white-space: pre-line;
 }
 
 .rightmessage{
   display: flex;
   align-self: flex-end;
+
+  white-space: pre-line;
+
 }
 
 .buttons_1{
