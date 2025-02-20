@@ -22,14 +22,14 @@ function Header() {
             About
           </li>
           <li 
-            className={location.pathname === "/hansum" ? "menu-selected" : ""}
-            onClick={() => navigate("/hansum")}
+            className={location.pathname === "/beforehansum" ? "menu-selected" : ""}
+            onClick={() => navigate("/beforehansum")}
           >
             HanSums
           </li>
           <li 
-            className={location.pathname === "/chathome" ? "menu-selected" : ""}
-            onClick={() => navigate("/chathome")}
+            className={location.pathname === "/beforemessage" ? "menu-selected" : ""}
+            onClick={() => navigate("/beforemessage")}
           >
             Message
           </li>
