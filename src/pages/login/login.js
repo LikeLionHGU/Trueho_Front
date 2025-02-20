@@ -7,7 +7,7 @@ import loginGoogle from "../../assets/Page/Login/google.svg"
 import { useNavigate } from "react-router";
 
 
-// import Header from "../components/header";
+import Header from "../../components/header";
 
 
 function Loginpage() {
@@ -39,7 +39,7 @@ function Loginpage() {
 
   return (
     <>
-    {/* <Header /> */}
+    <Header />
     <div className="login-container">
       <div className="login-lar-container1">
         {/* 왼쪽 */}
