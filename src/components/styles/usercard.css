@@ -63,9 +63,7 @@
 
 /* 헤더 텍스트 */
 .user-card-header-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-top: 8px;
 }
 
 .user-name {
