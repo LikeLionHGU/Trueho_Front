@@ -8,12 +8,13 @@ import secondSectionImg from "../assets/Components/About/image2.svg";
 import ScrollToTopButton from "../components/scrolltotopbutton";
 
 
-import Header from "./components/header";
+import Header from "../components/header";
 
 
 function AboutPage() {
   return (
     <>
+    <Header />
     <div className="page-container">
     <div className="about-container">
       {/* 상단에 헤더나 네비게이션이 있다면 별도 컴포넌트에서 처리 */}
