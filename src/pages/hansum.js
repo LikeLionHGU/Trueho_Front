@@ -7,7 +7,6 @@ import MajorFilter from "../components/majorfilter";
 import ScrollToTopButton from "../components/scrolltotopbutton";
 import bannerimg from "../assets/Components/Header/banner.svg";
 
-
 async function fetchUserData(userId) {
   try {
     const response = await axios.get(
@@ -28,6 +27,8 @@ function HansumPage() {
   const [users, setUsers] = useState([]);
   const [selectedMajor, setSelectedMajor] = useState("All");
   const [loading, setLoading] = useState(true);
+  // 초기 표시 개수를 12개로 설정
+  const [visibleCount, setVisibleCount] = useState(9);
 
   useEffect(() => {
     const userId = 0; // 테스트용
@@ -39,6 +40,11 @@ function HansumPage() {
     getUsers();
   }, []);
 
+  // major가 변경되면 표시 개수를 초기화 (필터 변경 시에도 처음부터 보여주기)
+  useEffect(() => {
+    setVisibleCount(9);
+  }, [selectedMajor]);
+
   if (loading) {
     return <h2>로딩 중...</h2>;
   }
@@ -47,19 +53,27 @@ function HansumPage() {
     return <h2>등록된 사용자가 없습니다.</h2>;
   }
 
-  return (
-    
-    <div className="hansum-page">
+  // 선택한 전공에 따라 사용자 필터링
+  const filteredUsers = users.filter(
+    (user) => selectedMajor === "All" || user.major === selectedMajor
+  );
+  // 표시할 사용자 목록 (visibleCount개 만큼)
+  const visibleUsers = filteredUsers.slice(0, visibleCount);
 
-<div className="banner-image-container"> 
-  <img src={bannerimg} alt="배너 이미지" />
-</div>
+  // "더보기" 버튼 클릭 핸들러
+  const handleLoadMore = () => {
+    setVisibleCount(visibleCount + 9);
+  };
+
+  return (
+    <div className="hansum-page">
+      <div className="banner-image-container"> 
+        <img src={bannerimg} alt="배너 이미지" />
+      </div>
           
-         
       <h1 style={{ margin: "20px", marginLeft: "180px" }}>
         <div className="majortext">Major</div>
       </h1>
-
 
       <MajorFilter 
         selectedMajor={selectedMajor} 
@@ -67,14 +81,21 @@ function HansumPage() {
       />
 
       <div className="user-grid">
-        {users
-          .filter((user) => selectedMajor === "All" || user.major === selectedMajor)
-          .map((user) => (
-            // 카드 전체를 클릭하면 유저 상세 페이지(/user/:id)로 이동
-            <Link key={user.id} to={`/user/${user.id}`} style={{ textDecoration: "none" }}>
-              <UserCard user={user} />
-            </Link>
-          ))}
+        {visibleUsers.map((user) => (
+          // 카드 전체를 클릭하면 유저 상세 페이지(/user/:id)로 이동
+          <Link key={user.id} to={`/user/${user.id}`} style={{ textDecoration: "none" }}>
+            <UserCard user={user} />
+          </Link>
+        ))}
+      </div>
+
+      {/* 더보기 버튼: 남은 항목이 있을 경우에만 렌더링 */}
+      <div className="load-more-container">
+      {visibleCount < filteredUsers.length && (
+        <button onClick={handleLoadMore} className="load-more-button">
+          View More
+        </button>
+      )}
       </div>
 
       <ScrollToTopButton />
