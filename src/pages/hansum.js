@@ -8,6 +8,11 @@ import ScrollToTopButton from "../components/scrolltotopbutton";
 import bannerimg from "../assets/Components/Header/banner.svg";
 import "../components/styles/usercard.css";
 
+import Footer from "../components/footer";
+
+import chatBot from "../assets/Components/ChatBot/Chatbot.svg"
+import ChatBotModal from "../components/chatBot/ChatBot";
+
 
 async function fetchUserData(userId) {
   try {
@@ -31,6 +36,20 @@ function HansumPage() {
   const [loading, setLoading] = useState(true);
   // 초기 표시 개수를 12개로 설정
   const [visibleCount, setVisibleCount] = useState(9);
+
+  
+  const [chatBotModalOpen, setChatBotModalOpen] = useState(false);
+  const openChatBotModal = () => setChatBotModalOpen(true);
+  const closeChatBotModal = () => {
+    setChatBotModalOpen(false);
+    document.body.style.removeProperty('overflow');
+  };
+
+  const chatBotModalClick = () => {
+    openChatBotModal();
+    document.body.style.overflow = 'hidden';
+  };
+
 
   useEffect(() => {
     const userId = 0; // 테스트용
@@ -68,6 +87,7 @@ function HansumPage() {
   };
 
   return (
+    <>
     <div className="hansum-page">
       <div className="banner-image-container"> 
         <img src={bannerimg} alt="배너 이미지" />
@@ -99,9 +119,17 @@ function HansumPage() {
         </button>
       )}
       </div>
-
+        <div className="chatBot" onClick={() => chatBotModalClick()}>
+          <img src={chatBot} />
+        </div>
       <ScrollToTopButton />
     </div>
+    <Footer/>
+    <ChatBotModal
+        open={chatBotModalOpen}
+        close={closeChatBotModal}
+      />
+    </>
   );
 }
 

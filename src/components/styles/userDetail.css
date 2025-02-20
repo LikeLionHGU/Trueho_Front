@@ -323,3 +323,23 @@ line-height: 18px; /* 150% */
   line-height: 18px;
   cursor: pointer;
 }
+
+.chatBot {
+  position: fixed;
+  bottom: 95px; /* 화면 아래에서 20px */
+  right: 35px; /* 화면 오른쪽에서 20px */
+  width: 60px; /* 적절한 크기로 설정 */
+  height: 60px;
+  cursor: pointer;
+  z-index: 1000; /* 다른 요소들보다 위에 위치 */
+}
+
+.chatBot img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.chatBot:hover img {
+  transform: scale(1.1); /* 마우스를 올리면 살짝 확대 */
+}
