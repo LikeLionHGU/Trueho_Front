@@ -16,13 +16,13 @@ html, body {
   background: var(--Gradient-02, linear-gradient(180deg, #E9D9D3 0%, #D3DDEA 100%));
 
   display: flex;
+  justify-content: center;
 }
 
 .chatRoom-innercontainer{
   width: 1060px;
   height: calc(100vh - 88px);
   flex-shrink: 0;
-  margin-left: 230px;
 
   background: var(--Gradient-02, linear-gradient(180deg, #E9D9D3 0%, #D3DDEA 100%));
 
@@ -33,7 +33,22 @@ html, body {
   flex-direction: row;
 }
 
-.chatBot{
-  margin-left: 100px;
-  margin-top: 600px;
+.chatbot {
+  position: fixed;
+  bottom: 60px; 
+  right: 70px; 
+  width: 60px; 
+  height: 60px;
+  cursor: pointer;
+  z-index: 1000; /* 다른 요소들보다 위에 위치 */
+}
+
+.chatbot img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.chatbot:hover img {
+  transform: scale(1.1); /* 마우스를 올리면 살짝 확대 */
 }

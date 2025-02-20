@@ -29,7 +29,7 @@ function Chathome() {
           <ChatList />
           <ChatingSelect />
         </div>
-        <div className="chatBot" onClick={() => chatBotModalClick()}>
+        <div className="chatbot" onClick={() => chatBotModalClick()}>
           <img src={chatBot} />
         </div>
       </div>

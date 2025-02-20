@@ -5,6 +5,10 @@ import Accordion from "../components/Accordion"; // 경력/수상 표시용 (없
 import defaultProfileImg from "../assets/Components/Profile/profileimg.svg"; // 기본 프로필 이미지
 import "../components/styles/userDetail.css"; // 아래 CSS 파일
 
+import chatBot from "../assets/Components/ChatBot/Chatbot.svg"
+import ChatBotModal from "../components/chatBot/ChatBot";
+
+
 function UserDetailPage() {
   const { userId } = useParams();
   const navigate = useNavigate();
@@ -15,6 +19,19 @@ function UserDetailPage() {
   // 메시지 모달 상태
   const [showModal, setShowModal] = useState(false);
   const [messageText, setMessageText] = useState("");
+
+// 0) 챗봇 모달
+  const [chatBotModalOpen, setChatBotModalOpen] = useState(false);
+  const openChatBotModal = () => setChatBotModalOpen(true);
+  const closeChatBotModal = () => {
+    setChatBotModalOpen(false);
+    document.body.style.removeProperty('overflow');
+  };
+
+  const chatBotModalClick = () => {
+    openChatBotModal();
+    document.body.style.overflow = 'hidden';
+  };
 
   // 1) 사용자 단일 정보 GET (프로필)
   async function fetchUserData(userId) {
@@ -111,6 +128,7 @@ function UserDetailPage() {
     ) : null;
 
   return (
+    <>
     <div className="user-detail-page">
       {/* 상단 영역 (그라데이션 배경) */}
       <div className="userdetail-top-container">
@@ -194,6 +212,14 @@ function UserDetailPage() {
         </div>
       )}
     </div>
+    <div className="chatBot" onClick={() => chatBotModalClick()}>
+          <img src={chatBot} />
+        </div>
+        <ChatBotModal
+        open={chatBotModalOpen}
+        close={closeChatBotModal}
+      />
+      </>
   );
 }
 
