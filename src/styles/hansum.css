@@ -1,6 +1,5 @@
-/* .hansum-page {
-    /* padding: 20px; */
-   
+.hansum-page {
+  background: var(--Gray-10, #FFF);}
   
   .hansum-page h1 {
     text-align: center;
