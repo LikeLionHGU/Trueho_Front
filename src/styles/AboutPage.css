@@ -382,6 +382,7 @@ body {
 }
 
 .faq-card-footer {
+
   
   color: var(#25569D);
   /* Body 03 _ M */
@@ -393,6 +394,7 @@ body {
 }
 
 .faq-card-bodyfooter{
+  display: flex;
   margin-top: 70px;
   display: flex;
   flex-direction: column;
