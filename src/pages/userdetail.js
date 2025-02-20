@@ -114,7 +114,7 @@ function UserDetailPage() {
   const experienceSection =
     user.history && user.history.length > 0 ? (
       <div className="detail-achievements">
-        <h3>대표 약력</h3>
+        <h3>대표 이력</h3>
         <div className="accordion-container">
           {user.history.map((item, idx) => (
             <Accordion key={idx} title={item.name}>
