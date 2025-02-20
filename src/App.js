@@ -11,6 +11,7 @@ import MyPage from "./pages/mypage";
 import UserDetailPage from "./pages/userdetail";
 import Newprofile from "./pages/Newprofile";
 import Editprofile from "./pages/Editprofile";
+import Test from "./pages/imsi";
 
 
 // import AwardList from "./components/awardlist";
@@ -37,6 +38,7 @@ function App() {
         <Route path="/chatroom/:id" element={<ChatRoom />} />
         <Route path="/newprofile" element={<Newprofile />} />
         <Route path="/editprofile" element={<Editprofile />} />
+        <Route path="/test" element={<Test />} />
       </Routes>
     </BrowserRouter>
   );

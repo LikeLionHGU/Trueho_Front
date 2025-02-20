@@ -1,0 +1,15 @@
+.loadtext{
+  margin-top:150px;
+
+}
+
+.loadtext span{
+  color: var(--Primary-01, #25569D);
+
+  /* Body 01 _ M */
+  font-family: "SUIT Variable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}

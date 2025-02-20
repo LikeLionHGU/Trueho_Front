@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ChatingSelect from "../components/ChatingSelect";
 import ChatList from "../components/ChatList";
 import "../styles/Chathome.css";
 import chatBot from "../assets/Components/ChatBot/Chatbot.svg"
 
 import ChatBotModal from "../components/chatBot/ChatBot";
+import Loading from "./Loading";
 
 
 function Chathome() {
@@ -20,6 +21,19 @@ function Chathome() {
     openChatBotModal();
     document.body.style.overflow = 'hidden';
   };
+
+// 2) 로딩중
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  if (loading) {
+    return <Loading loading={loading} />;
+  }
 
   return (
     <>
