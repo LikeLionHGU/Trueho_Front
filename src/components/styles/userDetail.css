@@ -62,17 +62,21 @@
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 /* 왼쪽 프로필 이미지 */
 .profile-icon {
+  position: fixed;
+  top: 200px;
+  left: 150px;
+  z-index: 1000;
   width: 120px;
   height: 120px;
   border-radius: 50%;
   object-fit: cover; /* 필요 시 */
-  margin-right: 20px;
 }
 
 /* 중앙 (이름, 재학 기간) */
@@ -97,25 +101,27 @@
 
 /* 재학 기간 등 */
 .study-period {
+  display: flex;
   color: var(--Point-01, #6c3f2e);
   font-family: "SUIT Variable";
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
-  margin: 4px 0 0;
+  margin-right: 10px;
 }
 
 .detail-left{
   display: flex;
   align-items: flex-end;
-  margin-left:50px;
   margin-bottom: 50px;
+  align-items: flex-start;
 }
 
 /* 오른쪽 영역 (메시지 버튼) */
 .detail-right {
   display: flex;
   align-items: center;
+  margin-left: 0px;
 }
 
 /* 메시지 보내기 버튼 */
@@ -166,11 +172,19 @@
 
 .user-major {
   display: flex;
-  margin-left: 30px;
+  margin-left: 10px;
   font-size: 16px;
   color: #666;
+  margin-top: 35px;
 }
 
+.user-generation{
+  display: flex;
+  margin-left: 0px;
+  font-size: 16px;
+  color: #666;
+  margin-top: 35px;
+}
 /* -----------------------------
    경력/수상 내역
 ------------------------------ */
@@ -214,6 +228,14 @@ line-height: 18px; /* 150% */
   border-radius: 8px;
   font-size: 14px;
   color: #444;
+}
+
+.detail-img{
+  width: 135px;
+height: 135px;
+flex-shrink: 0;
+border-radius: 0px 70px 70px 70px;
+margin-left: 50px;
 }
 
 /* -----------------------------

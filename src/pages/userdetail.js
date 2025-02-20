@@ -107,9 +107,7 @@ function UserDetailPage() {
       ? `${user.admission} ~ ${user.graduation}`
       : "";
   const profileImage =
-    user.imgUrl && user.imgUrl.trim() !== ""
-      ? user.imgUrl
-      : defaultProfileImg;
+    user.imgUrl && user.imgUrl.trim() !== "" ? user.imgUrl : defaultProfileImg;
   const jobText = user.work || "";
 
   // 경력/수상 내역 (Accordion 예시)
@@ -142,18 +140,20 @@ function UserDetailPage() {
           {/* 상단 프로필/이름/메시지 버튼 */}
           <div className="detail-top">
             {/* 왼쪽 - 프로필 이미지 */}
-            <div className="detail-left">
-              <img className="profile-icon" src={profileImage} alt="Profile" />
-              {/* 중간 - 이름, 재학 기간 */}
-            <div className="detail-info">
-  <h2 className="name">{user.name || userId}</h2>
-  {studyText && <p className="study-period">{studyText}</p>}
-</div>
-
-            <div className="user-major">{user.major}</div>
-            </div>
-
             
+            <div className="detail-left">
+            <div className="detail-img">
+              <img className="profile-icon" src={profileImage} alt="Profile" />
+              {/* 중간 - 이름, 재학 기간 */}</div>
+              
+              <div className="detail-info">
+                <h2 className="name">{user.name || userId}</h2>
+                {studyText && <p className="study-period">{studyText}</p>}
+              </div>
+
+              <div className="user-generation">{user.generation}</div>
+              <div className="user-major">{user.major}</div>
+            </div>
 
             {/* 오른쪽 - 메시지 버튼 */}
             <div className="detail-right">
@@ -170,7 +170,6 @@ function UserDetailPage() {
           <div className="detail-job">
             <h3>직무</h3>
             <div className="job-title">{jobText}</div>
-            
           </div>
 
           {/* 경력/수상 내역 */}
