@@ -78,9 +78,7 @@ function AboutPage() {
             <div className="purpose-text">
               <p>
                 한섬의 목표는 재학생과 졸업생 간의 원활한 네트워크 형성입니다.
-                멘토-멘티 간 가벼운
-                <br />
-                대화부터 심층적인 커리어 상담까지 자유롭게 활용할 수 있도록
+                멘토-멘티 간 가벼운 대화부터 심층적인 커리어 상담까지 자유롭게 활용할 수 있도록
                 설계되었습니다!
               </p>
               <ul className="purpose-text">
