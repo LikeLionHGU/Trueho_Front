@@ -2,7 +2,7 @@
 import styles from "./styles/footer.css";
 import footerHansumLogo from "../assets/Components/Footer/hansum_logo_text.png"
 import footerHansumImg from "../assets/Components/Footer/hansum_logo_img.png"
-import footerNotion from "../assets/Components/Footer/notion.svg"
+import footerGithub from "../assets/Components/Footer/github.png"
 
 
 
@@ -16,10 +16,18 @@ function Footer() {
         <div className="footer-med-container1">
           <img src={footerHansumLogo} className="imgmargin"/>
           <span className="footer-med-container1-text">Team 트루호</span>
-          <div className="footer-med-container1-btn">
-            <img src={footerNotion}/>
-            <span className="footer-med-container1-btn-text">트루호</span>
+
+          <div className="btnColumn">
+            <div className="footer-med-container1-btn">
+              <img src={footerGithub} className="github-btn"/>
+              <a href="https://github.com/LikeLionHGU/Trueho_Front.git"><span className="footer-med-container1-btn-text">Front</span></a>
+            </div>
+            <div className="footer-med-container1-btn">
+              <img src={footerGithub} className="github-btn"/>
+              <a href="https://github.com/LikeLionHGU/TrueHo_Back.git"><span className="footer-med-container1-btn-text">Back</span></a>
+            </div>
           </div>
+
         </div>
 
         <div className="footer-med-container2">
