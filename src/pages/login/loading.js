@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 import Load from "../../pages/Loading";
+import FailLogin from "../../components/modal/FailLogin";
 
 
 /*
@@ -40,7 +41,7 @@ const Loading = () => {
         }
 
       } catch (error) {
-        
+        openFailModal();
         navigate("/");
         console.error("로그인 과정에서 에러가 발생했습니다.", error);
       }
@@ -49,7 +50,16 @@ const Loading = () => {
     fetchData();
   }, [navigate]);
 
-  // 2) 로딩중
+    // 2) 로그인 실패 모달
+    const [failModalOpen, setFailModalOpen] = useState(false);
+    const openFailModal = () => setFailModalOpen(true);
+    const closeFailModal = () => {
+      setFailModalOpen(false);
+      document.body.style.removeProperty('overflow');
+    };
+  
+
+  // 3) 로딩중
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -64,7 +74,11 @@ const Loading = () => {
 
   return (
     <div>
-      <LoginLoding>로그인 중입니다...</LoginLoding>
+      {/* <LoginLoding>로그인 중입니다...</LoginLoding> */}
+      <FailLogin
+        open={failModalOpen}
+        close={closeFailModal}
+      />
     </div>
   );
 };

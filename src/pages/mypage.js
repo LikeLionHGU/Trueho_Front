@@ -6,6 +6,8 @@ import offProfileImg from "../assets/Components/Profile/offimage.svg";
 import "../styles/MyPage.css";
 import Header from "../components/header";
 import Loading from "./Loading";
+import Logout from "../components/modal/Logout";
+
 
 //axios.defaults.withCredentials = true; // 세션 쿠키 필요 시
 
@@ -19,6 +21,15 @@ function MyPage() {
 
   // ★ 추가: 로그인 정보 없을 때 처리용 상태
   const [noLoginInfo, setNoLoginInfo] = useState(false);
+
+  // *) 로그아웃 모달 함수들
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
+  const openLogoutModal = () => setLogoutModalOpen(true);
+  const closeLogoutModal = () => {
+    setLogoutModalOpen(false);
+    document.body.style.removeProperty('overflow');
+  };
+
 
   useEffect(() => {
     async function getProfile() {
@@ -97,7 +108,9 @@ function MyPage() {
 
       const { state } = response.data;
       if (state === "Bye~") {
-        alert("로그아웃 성공!");
+        // alert("로그아웃 성공!");
+        openLogoutModal();
+        document.body.style.overflow = 'hidden';
         navigate("/");
       } else {
         // 예: state === "No login info"
@@ -183,6 +196,11 @@ function MyPage() {
         )}
       </main>
     </div>
+
+    <Logout
+        open={logoutModalOpen}
+        close={closeLogoutModal}
+      />
     </>
   );
 }
