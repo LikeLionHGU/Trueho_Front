@@ -465,7 +465,7 @@
   margin-bottom: 10px;
 }
 
-.newprofile-bottom-container-4-box-test-in input{
+.newprofile-bottom-container-4-box-test-in textarea{
   width: 464px;
   height: 183px;
   flex-shrink: 0;
@@ -483,10 +483,11 @@
   line-height: 21px; /* 150% */
 
   border:none;
-
+  padding-left: 20px;
+  padding-top:18px;
 }
 
-.newprofile-bottom-container-4-box-test-in input::placeholder{
+.newprofile-bottom-container-4-box-test-in textarea::placeholder{
   color: var(--Primary-02, #A9C5E8);
 
   /* Body 03 _ M */

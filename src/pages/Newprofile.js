@@ -372,7 +372,7 @@ const closeNotEnteredModal = () => {
                   <div className="newprofile-bottom-container-4-box-test box-column">
                     <input placeholder="공백 포함 최대 25자 입력하실 수 있습니다" type="text" onChange={(e) => onChangeHistoryInput(box, "name", e.target.value)}/>
                     <div className="newprofile-bottom-container-4-box-test-in">
-                      <input placeholder="이력에 대한 상세한 내용을 공백 포함 최대 300자 내로 작성하실 수 있습니다." type="text" onChange={(e) => onChangeHistoryInput(box, "detail", e.target.value)}/>
+                      <textarea placeholder="이력에 대한 상세한 내용을 공백 포함 최대 300자 내로 작성하실 수 있습니다." type="text" onChange={(e) => onChangeHistoryInput(box, "detail", e.target.value)}/>
                     </div>
                   </div>
                 </div>
