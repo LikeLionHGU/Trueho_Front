@@ -299,7 +299,7 @@ line-height: 18px; /* 150% */
   font-size: 14px;
   font-family: inherit;
   box-sizing: border-box;
-  color: var(--Primary-02, #a9c5e8);
+  color: var(--Primary-02, #000000);
 }
 
 /* 모달 푸터 */
