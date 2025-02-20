@@ -48,6 +48,37 @@ font-style: normal;
 font-weight: 500;
 line-height: 24px; /* 150% */
   }
+
+  .load-more-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+
+
+  }
+
+
+  .load-more-button{
+    display: inline-flex;
+padding: 8px 36px;
+justify-content: center;
+align-items: center;
+gap: 6.667px;
+border-radius: 66.667px;
+background: var(--Point-01, #6C3F2E);
+border: none;
+
+/* Drop Shadow _ Small */
+box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+color: var(--Gray-10, #FFF);
+
+/* Body 03 _ M */
+font-family: "SUIT Variable";
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
+  }
   
 /* 
   .hansum-banner{
