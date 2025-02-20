@@ -112,8 +112,13 @@ function MyPage() {
         // alert("로그아웃 성공!");
         openLogoutModal();
         document.body.style.overflow = 'hidden';
-        navigate("/");
-      } else {
+      
+        // 1.5초 후에 홈 화면으로 이동
+        setTimeout(() => {
+          navigate("/");
+        }, 1500);
+      }
+       else {
         // 예: state === "No login info"
         alert("로그인 정보가 없습니다.");
       }
