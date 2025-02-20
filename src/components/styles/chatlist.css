@@ -151,3 +151,12 @@
 .chatlist-item-textcontainer-up-img.unread{
 
 }
+
+.chatlist-zzum{
+  width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
