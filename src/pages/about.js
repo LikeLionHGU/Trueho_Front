@@ -130,7 +130,7 @@ function AboutPage() {
                 </div>
                 <div className="faq-card-bodyfooter">
                   <div className="faq-card-body">공개 여부 확인</div>
-                  <div className="faq=card-footer">
+                  <div className="faq-card-footer">
                     프로필을 공개할 경우는 다른 이용자들이 내 프로필을 보고
                     대화를 신청할 수 있습니다. 반면에, 프로필을 비공개할 경우는
                     본인만 확인 가능하며, 특정 요청이 있어야 매칭 가능합니다.
@@ -145,14 +145,12 @@ function AboutPage() {
                   <div>주의사항</div>
                   <div>02</div>
                 </div>
-                <div className="faq-card-bodyfooter">
+                <div className="faq-card-bodyfooter1">
                   <div className="faq-card-body">필수 입력 항목</div>
-                  <div className="faq=card-footer">
+                  <div className="faq-card-footer">
                     01 (멘토 또는 멘티) 필수적으로 선택
                     <br />
-                    <br />
                     02 닉네임, 입학졸업연도, 학부 필수 입력
-                    <br />
                     <br />
                     03 한섬의 경우, 직무 필수 입력
                   </div>

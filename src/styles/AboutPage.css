@@ -343,11 +343,15 @@ body {
 
 /* 카드 개별 스타일 */
 .faq-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   
   border: 1px solid #ddd; /* 테두리 */
   border-radius: 8px;
   padding: 20px;
-  background: #fff; /* 필요하면 흰색 배경 */
+  border-radius: 0px 30px 30px 30px;
+  background: var(--Primary-04, #F4F8FD);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* 살짝 그림자 예시 */
 
   width: 300px;
@@ -355,6 +359,8 @@ body {
   flex-shrink: 0;
   border-radius: 0px 30px 30px 30px;
 }
+
+
 
 /* 카드 내부 제목 */
 .faq-card-header {
@@ -382,20 +388,28 @@ body {
 }
 
 .faq-card-footer {
+  color: var(--Primary-01, #25569D);
 
-  
-  color: var(#25569D);
-  /* Body 03 _ M */
-  font-family: "SUIT Variable";
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 150% */
+/* Body 03 _ M */
+font-family: "SUIT Variable";
+font-size: 12px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 150% */
 }
 
 .faq-card-bodyfooter{
   display: flex;
-  margin-top: 70px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+.faq-card-bodyfooter1{
+  display: flex;
+  margin-bottom: 36px;
   display: flex;
   flex-direction: column;
 
