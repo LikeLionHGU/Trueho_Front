@@ -96,6 +96,23 @@
   line-height: 18px; /* 150% */
 }
 
+.user-generation {
+  display: inline-flex;
+  padding: 3px 12px;
+  justify-content: center;
+  align-items: center;
+  /* gap: 10px; */
+  border-radius: 20px;
+  background: var(--Point-04, #F8ECE8);
+  /* Body 03 _ M */
+  color: var(--Point-01, #6C3F2E);
+  font-family: "SUIT Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 150% */
+}
+
 
 .user-job {
   color: var(--Primary-01, #25569D);
