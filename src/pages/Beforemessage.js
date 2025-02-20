@@ -14,11 +14,21 @@ import Header from "../components/header";
 function Beforemessage() {
   const navigate = useNavigate();
 
+  // const handleGoogleLogin = () => {
+  //   navigate('/');
+  // };
+
   const handleGoogleLogin = () => {
-    navigate('/');
+    const nonce = Math.random().toString(36).substring(2) + Date.now().toString(36);
 
+    window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?
+		client_id=${process.env.REACT_APP_GOOGLE_AUTH_CLIENT_ID}
+		&redirect_uri=${process.env.REACT_APP_GOOGLE_AUTH_REDIRECT_URI}
+		&response_type=id_token
+		&scope=email profile
+    &nonce=${nonce}
+    `;
   };
-
 
   return (
     <>
@@ -33,7 +43,8 @@ function Beforemessage() {
           </div>
           
           <div className="login" onClick={handleGoogleLogin} >
-            <span>로그인하러 가기</span>
+            <img src={loginGoogle} />
+            <span>한동대 메일로 로그인</span>
           </div>
         </div>
         <div className="chatbot" >

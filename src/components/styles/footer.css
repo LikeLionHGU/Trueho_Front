@@ -48,15 +48,17 @@
 
 .footer-med-container1-btn{
   display: inline-flex;
-  padding: 6px 12px;
+  padding: 6px 10px;
   align-items: center;
   gap: 5.333px;
+  width:65px;
 
   border-radius: 34px;
   background: var(--Gray-10, #FFF);
   
   /* Drop Shadow _ Small */
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.10);
+  margin-left: 5px;
 }
 
 .footer-med-container1-btn-text{
@@ -64,7 +66,7 @@
 
   /* Caption _ M */
   font-family: "SUIT Variable";
-  font-size: 10px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 500;
   line-height: 16px; /* 160% */
@@ -158,4 +160,18 @@
 
  .imgmargin{
   margin-top: 44px;
+ }
+
+ .btnColumn{
+  display: flex;
+  flex-direction: row;
+ }
+
+ .github-btn{
+  width:12px;
+  height:12px;
+ }
+
+ a{
+  text-decoration: none;
  }

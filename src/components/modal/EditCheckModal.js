@@ -38,7 +38,7 @@ const EditCheckModal = (props) => {
               <span>프로필을 등록하시겠어요?</span>
             </div>
             <div className={styles.bottomContainer}>
-              <div className={`${styles.noButton} ${styles.button}`}>
+              <div className={`${styles.noButton} ${styles.button}`} onClick={close}>
                 <span>취소</span>
               </div>
               <div className={`${styles.yesButton} ${styles.button}`} onClick={editCompleteModalClick}>

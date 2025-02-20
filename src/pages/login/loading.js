@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useState} from "react";
 import sendAccessTokenToBackend from "./sendAccessTokenToBackend";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+
+import Load from "../../pages/Loading";
+import FailLogin from "../../components/modal/FailLogin";
+
 
 /*
 사용자의 토큰을 받는 페이지
@@ -37,6 +41,8 @@ const Loading = () => {
         }
 
       } catch (error) {
+        openFailModal();
+        navigate("/");
         console.error("로그인 과정에서 에러가 발생했습니다.", error);
       }
     };
@@ -44,9 +50,35 @@ const Loading = () => {
     fetchData();
   }, [navigate]);
 
+    // 2) 로그인 실패 모달
+    const [failModalOpen, setFailModalOpen] = useState(false);
+    const openFailModal = () => setFailModalOpen(true);
+    const closeFailModal = () => {
+      setFailModalOpen(false);
+      document.body.style.removeProperty('overflow');
+    };
+  
+
+  // 3) 로딩중
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  if (loading) {
+    return <Load loading={loading} />;
+  }
+
   return (
     <div>
-      <LoginLoding>로그인 중입니다...</LoginLoding>
+      {/* <LoginLoding>로그인 중입니다...</LoginLoding> */}
+      <FailLogin
+        open={failModalOpen}
+        close={closeFailModal}
+      />
     </div>
   );
 };

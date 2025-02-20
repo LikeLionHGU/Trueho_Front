@@ -5,7 +5,13 @@ import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
 import offProfileImg from "../assets/Components/Profile/offimage.svg";
 import "../styles/MyPage.css";
 import Header from "../components/header";
+
+import Loading from "./Loading";
+import Logout from "../components/modal/Logout";
+
+
 import "../styles/beforehansum.css";
+
 
 //axios.defaults.withCredentials = true; // 세션 쿠키 필요 시
 
@@ -21,6 +27,15 @@ function MyPage() {
 
   // ★ 추가: 로그인 정보 없을 때 처리용 상태
   const [noLoginInfo, setNoLoginInfo] = useState(false);
+
+  // *) 로그아웃 모달 함수들
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
+  const openLogoutModal = () => setLogoutModalOpen(true);
+  const closeLogoutModal = () => {
+    setLogoutModalOpen(false);
+    document.body.style.removeProperty('overflow');
+  };
+
 
   useEffect(() => {
     async function getProfile() {
@@ -102,7 +117,9 @@ function MyPage() {
 
       const { state } = response.data;
       if (state === "Bye~") {
-        alert("로그아웃 성공!");
+        // alert("로그아웃 성공!");
+        openLogoutModal();
+        document.body.style.overflow = 'hidden';
         navigate("/");
       } else {
         // 예: state === "No login info"
@@ -115,7 +132,7 @@ function MyPage() {
   };
 
   if (loading) {
-    return <div>로딩 중...</div>;
+    return <Loading loading={loading} />;
   }
 
   // ★ 추가 스타일: noLoginInfo=true일 때 배경/디자인 변경 등
@@ -140,6 +157,46 @@ function MyPage() {
               alt="Profile"
               style={{ width: 100, height: 100 }}
             />
+ {/* 오오오오오오류 */}
+            <span className="slider"></span>
+          </label>
+        </div>
+        
+
+        {/* 버튼 그룹 */}
+        <div className="button-group">
+          <button
+            className="profile-edit-button"
+            onClick={handleEditProfile}
+            disabled={noLoginInfo} // 로그인 정보 없으면 disabled
+          >
+            프로필 수정하기
+          </button>
+        </div>
+        <div className="button-group">
+        <button
+            className="logout-button"
+            onClick={handleLogout}
+            disabled={noLoginInfo} // 로그인 정보 없으면 disabled
+          >
+            로그아웃
+        </button>
+        </div>
+
+        {/* 만약 noLoginInfo=true면 별도 안내 문구 */}
+        {noLoginInfo && (
+          <p style={{ color: "red", marginTop: "1rem" }}>
+            로그인 정보가 없습니다. 기능을 사용할 수 없습니다.
+          </p>
+        )}
+      </main>
+    </div>
+
+    <Logout
+        open={logoutModalOpen}
+        close={closeLogoutModal}
+      />
+ {/* 오오오오오오류 */}
           </div>
 
           {/* 닉네임 */}
@@ -190,6 +247,7 @@ function MyPage() {
           
         </main>
       </div>
+ {/* 오오오오오오류 */}
     </>
   );
 }
