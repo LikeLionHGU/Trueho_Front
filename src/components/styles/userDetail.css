@@ -110,6 +110,7 @@
   align-items: flex-end;
   margin-left:50px;
   margin-bottom: 50px;
+  align-items: flex-start;
 }
 
 /* 오른쪽 영역 (메시지 버튼) */
@@ -169,6 +170,7 @@
   margin-left: 30px;
   font-size: 16px;
   color: #666;
+  margin-top: 35px;
 }
 
 /* -----------------------------
