@@ -37,7 +37,7 @@ function Footer() {
               <p>Designer: 박주현</p>
             </div>
             <div className="footer-small-container1-text3">
-              <p className="footer-small-container1-text3-p"><span>Contact:</span>12345678@handong.ac.kr</p>
+              <p className="footer-small-container1-text3-p"><span>Contact:</span>kty123@handong.ac.kr</p>
             </div>
           </div>
           <div className="footer-small-container2">
