@@ -15,6 +15,7 @@ import ProfileGuideModal from "../components/modal/ProfileGuideModal";
 import EditCheckModal from "../components/modal/EditCheckModal";
 
 import Loading from "./Loading";
+import Header from "../components/header";
 
 
 function Newprofile() {
@@ -248,6 +249,7 @@ const handleClickNoShow = () => {
 
   return (
     <>
+    <Header />
     <div className="newprofile-container">
       <div className="newprofile-top-container">
         <div className="newprofile-top-container-first">

@@ -5,6 +5,8 @@ import "../styles/Chatroom.css";
 import chatBot from "../assets/Components/ChatBot/Chatbot.svg"
 
 import ChatBotModal from "../components/chatBot/ChatBot";
+import Header from "../components/header";
+
 
 
 
@@ -24,6 +26,7 @@ function Chatroom() {
 
   return (
     <>
+    <Header />
     <div>
       <div className="chatRoom-container">
         <div className="chatRoom-innercontainer">

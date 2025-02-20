@@ -15,6 +15,8 @@ import Loading from "./Loading";
 // import React, { useState } from "react";
 // import { Navigate } from "react-router-dom";
 // import "../components/styles/userDetail.css";
+import Header from "../components/header";
+
 
 
 async function fetchUserData(userId) {
@@ -108,6 +110,7 @@ function HansumPage() {
 
   return (
     <>
+    <Header />
     <div className="hansum-page">
       <div className="banner-image-container"> 
         {/* <img src={bannerimg} alt="배너 이미지" /> */}

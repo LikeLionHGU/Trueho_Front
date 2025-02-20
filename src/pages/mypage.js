@@ -4,6 +4,7 @@ import axios from "axios";
 import defaultProfileImg from "../assets/Components/Profile/profileimg.svg";
 import offProfileImg from "../assets/Components/Profile/offimage.svg";
 import "../styles/MyPage.css";
+import Header from "../components/header";
 
 //axios.defaults.withCredentials = true; // 세션 쿠키 필요 시
 
@@ -117,6 +118,8 @@ function MyPage() {
     : "mypage-container";
 
   return (
+    <>
+    <Header />
     <div className={containerClassName}>
       <main className="mypage-main" style={ noLoginInfo ? { opacity: 0.5 } : {} }>
         {/* 프로필 이미지 */}
@@ -179,6 +182,7 @@ function MyPage() {
         )}
       </main>
     </div>
+    </>
   );
 }
 
