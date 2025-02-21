@@ -418,7 +418,7 @@
   margin-bottom: 12px;
 }
 
-.newprofile-bottom-container-4-name span{
+.newprofile-bottom-container-4-name1{
   color: var(--Primary-01, #25569D);
 
   /* Body 02 _ EB */
@@ -744,4 +744,16 @@
 .bungyung{
   display: flex;
   flex-direction: row;
+}
+
+.annae{
+  color: var(--alert-notification, #9D2525);
+
+  /* Body 04 _ M */
+  font-family: "SUIT Variable";
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px; /* 154.545% */
+  padding-top: 6px;
 }

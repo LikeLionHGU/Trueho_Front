@@ -6,6 +6,8 @@ import logoImg from "../assets/Components/Header/hansum_logo.svg";
 import firstSectionImg from "../assets/Components/About/image1.svg";
 import secondSectionImg from "../assets/Components/About/image2.svg";
 import ScrollToTopButton from "../components/scrolltotopbutton";
+import saesae from "../assets/Components/About/saesae.jpeg";
+
 
 import Header from "../components/header";
 
@@ -53,7 +55,9 @@ function AboutPage() {
               </div>
             </div>
             <div className="intro-image">
-              <img src={firstSectionImg} alt="Intro section" />
+              {/* <img src={firstSectionImg} alt="Intro section" /> */}
+              <img src={saesae} alt="Intro section" />
+
             </div>
           </section>
 

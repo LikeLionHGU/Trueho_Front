@@ -396,7 +396,8 @@ const closeNotEnteredModal = () => {
 {/* 4------------------------------------------------------------ */}
           <div className="newprofile-bottom-container-4 box-column">
             <div className="newprofile-bottom-container-4-name">
-              <span>대표 이력</span>
+              <span className="newprofile-bottom-container-4-name1">대표 이력</span>
+              <span className="annae">한가지 이상 작성해주세요 !</span>
             </div>
           <div className="gridBox">
             {data.history.map((data, idx) => (
