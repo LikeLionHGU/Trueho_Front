@@ -73,7 +73,11 @@ function ChatList() {
             <div className="chatlist-item-textcontainer-up">
               <p className={`chatlist-item-textcontainer-up-name ${chat.id === Number(id) ? "active" : ""}`}>{chat.name}</p>
             </div>
-            <p className={`chatlist-item-textcontainer-last ${chat.id === Number(id) ? "active" : ""} ${chat.unreadMessage === 1 ? "unread" : ""}`}>{chat.lastChat}</p>
+            
+            <div className="chatlist-zzum">
+              <p className={`chatlist-item-textcontainer-last ${chat.id === Number(id) ? "active" : ""} ${chat.unreadMessage === 1 ? "unread" : ""}`}>{chat.lastChat}</p>
+            </div>
+
   
           </div>
 

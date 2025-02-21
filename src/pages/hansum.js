@@ -120,7 +120,7 @@ function HansumPage() {
         </div>
       </div>
           
-      <h1 style={{ margin: "20px", marginLeft: "180px" }}>
+      <h1 style={{ margin: "20px", marginLeft: "180px" , paddingTop:"20px"}}>
         <div className="majortext">Major</div>
       </h1>
 

@@ -8,6 +8,8 @@ import "../components/styles/userDetail.css"; // 아래 CSS 파일
 import chatBot from "../assets/Components/ChatBot/Chatbot.svg";
 import ChatBotModal from "../components/chatBot/ChatBot";
 import Header from "../components/header";
+import FailMessage from "../components/modal/FailMessage";
+
 
 
 function UserDetailPage() {
@@ -20,6 +22,19 @@ function UserDetailPage() {
   // 메시지 모달 상태
   const [showModal, setShowModal] = useState(false);
   const [messageText, setMessageText] = useState("");
+
+ // *) 개인에게 메세지 전송 실패 모달
+  const [failOpen, setFailOpen] = useState(false);
+  const openFail = () => setFailOpen(true);
+  const closeFail = () => {
+    setFailOpen(false);
+    document.body.style.overflow = "hidden";
+
+    setTimeout(() => {
+      document.body.style.removeProperty('overflow');
+    }, 1500);
+  };
+
 
   // 0) 챗봇 모달
   const [chatBotModalOpen, setChatBotModalOpen] = useState(false);
@@ -81,6 +96,12 @@ function UserDetailPage() {
 
       const data = response.data;
       console.log("메시지 전송 성공:", data);
+      console.log("메시지 :", data.message);
+
+      if(data.message==='error : self message'){
+        openFail();
+      }
+
       // 모달 닫고, 입력값 초기화
       setShowModal(false);
       setMessageText("");
@@ -229,6 +250,10 @@ function UserDetailPage() {
         <img src={chatBot} />
       </div>
       <ChatBotModal open={chatBotModalOpen} close={closeChatBotModal} />
+      <FailMessage
+  open={failOpen}
+  close={closeFail}
+/>
     </>
   );
 }

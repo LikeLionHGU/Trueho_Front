@@ -22,11 +22,11 @@ function Newprofile() {
   const navigate = useNavigate();
 
 // 1) 처음에 4개의 박스 띄우고 버튼 눌러서 박스 추가하는 함수
-  const [boxes, setBoxes] = useState([1, 2, 3, 4]);
+  //const [boxes, setBoxes] = useState([1, 2, 3, 4]);
 
   // 새로운 박스 추가하는 함수
   const addBox = () => {
-    setBoxes([...boxes, boxes.length + 1]); // 기존 배열에 새 번호 추가 
+    //setBoxes([...boxes, boxes.length + 1]); // 기존 배열에 새 번호 추가 
     setData({
       ...data,
       history: [...data.history, { name: "", detail: "" }], // 빈 데이터 추가
@@ -43,9 +43,22 @@ function Newprofile() {
     work: "0",
     history: [
       { 
-        name: "0",
-        detail: "0",
-      }, ],
+        name: "",
+        detail: "",
+      }, 
+      { 
+        name: "",
+        detail: "",
+      },
+      { 
+        name: "",
+        detail: "",
+      },
+      { 
+        name: "",
+        detail: "",
+      },
+    ],
     showing: "2",
   });
 
@@ -184,6 +197,8 @@ const handleClickNoShow = () => {
   const editCheckModalClick = () => {
     
   // 8-1) 필수 입력값 체크 (기본값 "0"인 경우 입력 안 한 것으로 간주)
+
+  console.log(data);
   if (
     data.name == "0" || 
     data.admission == "0" || 
@@ -191,11 +206,23 @@ const handleClickNoShow = () => {
     data.major == "0" || 
     data.work == "0" || 
     data.hansum == "2" || 
-    data.showing == "2"  // 한섬(멘토)일 경우 직무 필수
+    data.showing == "2"// 한섬(멘토)일 경우 직무 필수
   ) {
     console.log("데이터 값 없는지 확인합니다");
     openNotEnteredModal(); // 모달 열기
     return; // 함수 종료
+  }
+
+  let isHistoryNull = true;
+  for(let i = 0; i < data.history.length; i++){
+    if(data.history[i].name !== "") isHistoryNull = false;
+    if(data.history[i].detail !== "") isHistoryNull = false;
+  }
+
+  if(isHistoryNull){
+    console.log("데이터 값 없는지 확인합니다");
+    openNotEnteredModal();
+    return;
   }
 
     openEditCheckModal();
@@ -251,7 +278,10 @@ const closeNotEnteredModal = () => {
       <div className="newprofile-bottom-container">
         <div className="newprofile-bottom-container-size">
           <div className="newprofile-bottom-container-1">
-            <p>프로필 작성하기</p>
+            <div className='bungyung'>
+              <p>프로필 작성하기</p>
+              <img src={muluumpobtn} onClick={() => guideModalClick()} className='imgCursor'/>
+            </div>
             <span>*필수 입력 사항: 닉네임, 입학연도, 졸업연도, 전공 (한섬을 택한 경우, 직무도 필수로 입력해주세요)</span>
           </div>
 {/* 2------------------------------------------------------------ */}
@@ -367,18 +397,17 @@ const closeNotEnteredModal = () => {
           <div className="newprofile-bottom-container-4 box-column">
             <div className="newprofile-bottom-container-4-name">
               <span>대표 이력</span>
-              <img src={muluumpobtn} onClick={() => guideModalClick()} className='imgCursor'/>
             </div>
           <div className="gridBox">
-            {boxes.map((box) => (
-                <div key={box} className="newprofile-bottom-container-4-box">
+            {data.history.map((data, idx) => (
+                <div key={idx + 1} className="newprofile-bottom-container-4-box">
                   <div className="newprofile-bottom-container-4-box-test box-column">
-                    <input placeholder="공백 포함 최대 25자 입력하실 수 있습니다" type="text" onChange={(e) => onChangeHistoryInput(box, "name", e.target.value)}/>
+                    <input placeholder="공백 포함 최대 25자 입력하실 수 있습니다" type="text" onChange={(e) => onChangeHistoryInput(idx, "name", e.target.value)}/>
                     <div className="newprofile-bottom-container-4-box-test-in">
                       <textarea placeholder="이력에 대한 상세한 내용을 공백 포함 최대 300자 내로 작성하실 수 있습니다." type="text"   
                       onChange={(e) => {
                         const modifiedValue = e.target.value.replaceAll("<br>", "\r\n");
-                        onChangeHistoryInput(box, "detail", modifiedValue);
+                        onChangeHistoryInput(idx, "detail", modifiedValue);
                       }}/>
                     </div>
                   </div>
