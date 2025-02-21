@@ -54,7 +54,7 @@
   margin-bottom: 13px;
 
   position: absolute;
-  top: 100%;
+  top: 110%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
