@@ -3,24 +3,24 @@
 }
 
 
-.footer-container{
-  display:flex;
-  align-content: center;
+.footer-container {
+  display: flex;
   justify-content: center;
-
-  width: 100vw;
-  height: 245px;
+  width: 100%;
   background: #D3DDEA;
-  border:0px;
+  border: 0px;
+  overflow: hidden; /* 넘치는 부분 숨김 */
 }
 
-.footer-lar-container{
-  display:flex;
+.footer-lar-container {
+  display: flex;
   flex-direction: row;
-
-  margin: 0px 160px 26px 165px;
-  width: 1440px;
-  height:245px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px; /* 최대 너비 제한 */
+  height: 245px;
+  padding: 0 20px; /* 좌우 여백 추가 */
+  box-sizing: border-box; /* 패딩을 포함한 크기 계산 */
 }
 
 .footer-med-container1{

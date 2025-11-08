@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from "react";
 import beforemylogo from "../assets/Components/Before/beforemylogo.svg";
 import loginGoogle from "../assets/Page/Login/google.svg";

@@ -5,12 +5,12 @@
   justify-content: space-between;
   height: 88px;
   background-color: #fff;
-  border-bottom: 2px solid var(--Primary-01, #25569D);
   background: var(--Gray-10, #FFF);
   /* Drop Shadow _ Medium */
   box-shadow: 5px 5px 9px 0px rgba(0, 0, 0, 0.10);
   padding: 0 40px;
   box-sizing: border-box;
+  z-index: 90;
 }
 
 .header-left {
