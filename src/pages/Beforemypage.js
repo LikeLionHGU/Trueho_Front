@@ -1,12 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import beforemylogo from "../assets/Components/Before/beforemylogo.svg";
 import loginGoogle from "../assets/Page/Login/google.svg";
 import "../styles/beforemypage.css";
 // import "../styles/common.css";
 
+import Header from "../components/header";
+
+
 function BeforeMyPage() {
-  const navigate = useNavigate();
 
   const handleGoogleLogin = () => {
     const nonce = Math.random().toString(36).substring(2) + Date.now().toString(36);
@@ -21,22 +22,26 @@ function BeforeMyPage() {
   };
 
   return (
-    <div className="before-my-page common-container">
-      <div className="before-my-container">
-        <img
-          src={beforemylogo}
-          alt="Before My Logo"
-          className="before-my-logo"
-        />
-        <div className="before-my-text">
-          이 페이지는 로그인 이후 <br /> 이용가능합니다 :)
+    <>
+      <Header />
+
+      <div className="before-my-page common-container">
+        <div className="before-my-container">
+          <img
+            src={beforemylogo}
+            alt="Before My Logo"
+            className="before-my-logo"
+          />
+          <div className="before-my-text">
+            이 페이지는 로그인 이후 <br /> 이용가능합니다 :)
+          </div>
+          <button className="login2" onClick={handleGoogleLogin}>
+            <img src={loginGoogle} alt="Google Login" />
+            <span>한동대 메일로 로그인</span>
+          </button>
         </div>
-        <button className="login2" onClick={handleGoogleLogin}>
-          <img src={loginGoogle} alt="Google Login" />
-          <span>한동대 메일로 로그인</span>
-        </button>
       </div>
-    </div>
+    </>
   );
 }
 
