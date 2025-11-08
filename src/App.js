@@ -15,12 +15,13 @@ import Test from "./pages/imsi";
 
 import Beforemessage from "./pages/Beforemessage";
 import BeforeHansumPage from "./pages/Beforehansum";
+import BeforeMyPage from "./pages/Beforemypage";
 
 
 
 
 // import AwardList from "./components/awardlist";
-import Header from "./components/header";
+// import Header from "./components/header";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
 
         <Route path="/beforemessage" element={<Beforemessage />} />
         <Route path="/beforehansum" element={<BeforeHansumPage />} />
+        <Route path="/beforemypage" element={<BeforeMyPage />} />
 
       </Routes>
     </BrowserRouter>

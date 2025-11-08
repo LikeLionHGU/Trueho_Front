@@ -66,14 +66,22 @@ function Header() {
     }
   };
 
-  const handleMyPageClick = () => {
+    const handleMyPageClick = () => {
     if (noLoginInfo) {
-      alert("로그인이 필요한 서비스입니다.");
-      navigate("/");
+      navigate("/beforemypage");
     } else {
       navigate("/mypage");
     }
   };
+
+  // const handleMyPageClick = () => {
+  //   if (noLoginInfo) {
+  //     alert("로그인이 필요한 서비스입니다.");
+  //     navigate("/");
+  //   } else {
+  //     navigate("/mypage");
+  //   }
+  // };
 
   // 로딩 중일 때는 아무것도 렌더링하지 않거나 로딩 스피너 표시
   if (isLoading) {
@@ -112,7 +120,7 @@ function Header() {
             Message
           </li>
           <li 
-            className={location.pathname === "/mypage" ? "menu-selected" : ""}
+            className={location.pathname === "/mypage" || location.pathname === "/beforemypage" ? "menu-selected" : ""}
             onClick={handleMyPageClick}
           >
             My Page
