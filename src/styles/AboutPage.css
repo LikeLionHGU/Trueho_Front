@@ -23,7 +23,6 @@ body {
 .about-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1440px; /* 디자인 기준 폭에 맞게 조정 */
 }
 
 /* 세로로 긴 어바웃 이미지를 화면 가로에 꽉 채우기 */
