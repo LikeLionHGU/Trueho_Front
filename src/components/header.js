@@ -29,21 +29,58 @@ function Header() {
         } 
       } catch (error) {
         console.error("사용자 정보 불러오기 실패:", error);
-        alert("사용자 정보를 불러오는 데 실패했습니다.");
+        // 로그인하지 않은 경우로 처리 (alert 제거)
+        setNoLoginInfo(true);
       } finally {
 
       }
     }
     getProfile();
   }, []);
+
+  // 클릭 핸들러 함수들
+  const handleLogoClick = () => {
+    if (noLoginInfo) {
+      navigate("/");
+    } else {
+      navigate("/hansum");
+    }
+  };
+
+  const handleHansumClick = () => {
+    if (noLoginInfo) {
+      alert("로그인이 필요한 서비스입니다.");
+      return;
+    }
+    navigate("/hansum");
+  };
+
+  const handleMessageClick = () => {
+    if (noLoginInfo) {
+      alert("로그인이 필요한 서비스입니다.");
+      return;
+    }
+    navigate("/chathome");
+  };
+
+  const handleMyPageClick = () => {
+    if (noLoginInfo) {
+      alert("로그인이 필요한 서비스입니다.");
+      return;
+    }
+    navigate("/mypage");
+  };
   
 
   return (
     <header className="header">
       <div className="header-left">
-        <img src={hansumLogo} alt="Hansum Logo" className="header-logo" 
-            onClick={() => {noLoginInfo === true ? navigate("/") : navigate("/hansum")}}
-            />
+        <img 
+          src={hansumLogo} 
+          alt="Hansum Logo" 
+          className="header-logo" 
+          onClick={handleLogoClick}
+        />
       </div>
       <nav className="header-nav">
         <ul>
@@ -54,21 +91,20 @@ function Header() {
             About
           </li>
           <li 
-            className={location.pathname === "/hansum" ? "menu-selected" : ""}
-            onClick={() => {noLoginInfo === true ? navigate("/beforehansum") : navigate("/hansum")}}
-
+            className={`${location.pathname === "/hansum" ? "menu-selected" : ""} ${noLoginInfo ? "disabled" : ""}`}
+            onClick={handleHansumClick}
           >
             HanSums
           </li>
           <li 
-            className={location.pathname === "/chathome" ? "menu-selected" : ""}
-            onClick={() => {noLoginInfo === true ? navigate("/beforemessage") : navigate("/chathome")}}
+            className={`${location.pathname === "/chathome" ? "menu-selected" : ""} ${noLoginInfo ? "disabled" : ""}`}
+            onClick={handleMessageClick}
           >
             Message
           </li>
           <li 
-            className={location.pathname === "/mypage" ? "menu-selected" : ""}
-            onClick={() => navigate("/mypage")}
+            className={`${location.pathname === "/mypage" ? "menu-selected" : ""} ${noLoginInfo ? "disabled" : ""}`}
+            onClick={handleMyPageClick}
           >
             My Page
           </li>
